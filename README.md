@@ -79,6 +79,6 @@ See [PROJECT-STATUS.md](PROJECT-STATUS.md) for current phase and constraints.
 - `components/AppLink.tsx`: `Link` that keeps internal links inside the design being browsed (adds `/ui-2` when the current path is under it). Use it instead of `next/link` for internal links in shared components. `SiteChrome` is the shared shell (skip link, header, main, footer, cookie notice).
 - `content/` page text, verbatim from the live site: `pages/` (one module per page group), `home.ts`, `blog-posts.ts`, `blog-body.ts` (parser for `blog/*.txt`), `blog-template.ts`.
 - `components/` UI (`fixes/` = typo gallery): shell (`SiteHeader`, `SiteFooter`, `CookieNotice`), shared (`PageHero`, `Blocks`, `Modules`, `MailForm`, `ContactCard`, `Facades`, `Countdown`), `home/`, `pages/` (one view per page kind), `blog/`.
-- `lib/` `site.ts` (contact data, nav, slugs) and `text.tsx` (text renderer that marks typo fixes).
-- `docs/` audit (`audit/`), scraping procedure, and `route-must-haves.md` (must-have blocks, contradictions, change log).
+- `lib/` `site.ts` (contact data, nav, slugs), `text.tsx` (text renderer that marks typo fixes) and `images.ts` (the live site's photos by id, linked from its CDN; `components/Photo.tsx` renders them as a plain `<img>` so the visitor's browser, not this server, fetches them. To self-host, change `photoUrl` and add files under `public/`).
+- `docs/` audit (`audit/`), scraping procedure, `images.md` (live-site images: how they are linked, limits), and `route-must-haves.md` (must-have blocks, contradictions, change log).
 - Keep files small: split a file before it becomes a "god" component or data file.

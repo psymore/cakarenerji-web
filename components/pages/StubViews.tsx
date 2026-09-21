@@ -11,7 +11,7 @@ export function StubView({ page }: { page: StubPage }) {
 /** "Yakında" placeholder with countdown (BRK-02). */
 export function SoonView({ page }: { page: SoonPage }) {
   return (
-    <PageHero title={page.h1} solo>
+    <PageHero title={page.h1} solo photo={page.photo}>
       <T className="lead" v={page.text} />
       <Countdown />
     </PageHero>

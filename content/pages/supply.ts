@@ -8,6 +8,7 @@ export const supplyPages: Record<string, PageDef> = {
     title: "Hammadde ve Ürün Tedariği",
     h1: "Ürün Tedariği ve Planlama",
     layout: "prose",
+    photo: "supply",
     cta: { label: "Ayrıntıları öğrenin", href: "/" },
     sections: [
       {

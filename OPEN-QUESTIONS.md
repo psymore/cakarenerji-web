@@ -39,6 +39,8 @@ Cevabı yalnızca iş sahibi verebilir. "Bağlı sorun" sütunu `AUDIT.md`'deki 
 | Q-23 | Gizlilik, KVKK aydınlatma ve çerez politikası metinleri kim tarafından hazırlanacak (avukat, danışman)? Çerez bannerında "reddet" seçeneği istenir mi? | Yasal metinleri biz uyduramayız. | LGL-01, LGL-02 | open | |
 | Q-24 | Analitik (Google Analytics vb.) kullanılacak mı? Şu an yok. | Çerez rızasını etkiler. | LGL-02 | open | |
 | Q-25 | Arama motoru sonuçlarında görünecek site açıklaması (meta description) için hangi cümle kullanılsın? Canlı sitede tanımlı mıydı? | V0'da yok, Lighthouse SEO puanı 90'da kalıyor. Metin iş bilgisidir, uydurulmaz. | Lighthouse (bkz. `docs/ui-optimization/`) | open | |
+| Q-26 | Ana sayfadaki iş ortağı/marka logoları (Huawei, CW Enerji, Tommatech, Fimer ve dosya adı `indir.png` olan beşinci logo) yayınlanabilir mi, bu firmalarla iş ilişkiniz var mı? Beşincisi hangi firmanın logosu? | Canlı sitede alt metni yok; V0 ilk dördünün adını dosya adından aldı, beşincisinin alt metni boş. Üçüncü tarafların markaları, izin gerekebilir. | A11Y-03, U-12 | open | |
+| Q-27 | Canlı sitedeki fotoğraflar Pexels/Pixabay stok fotoğrafları (dosya adları `pexels-…`). Bunlar yeni sitede kalsın mı, yoksa gerçek proje fotoğraflarıyla mı değişsin? Görsellerin orijinalleri elde var mı? | V0 fotoğrafları canlı sitenin CDN'inden doğrudan bağlıyor, indirmiyor. Site sahibi görselleri değiştirir ya da silerse V0'daki görseller kırılır. Yayına çıkarken `public/` altına alınmalı. | BRK-03, VIS-01, TD-01, Q-13, Q-14 | open | |
 
 ## B. Teknik belirsizlikler
 
@@ -69,6 +71,7 @@ Bunları iş sahibi olmadan, kendi Chrome'undan alınan veri ya da yeni sitedeki
 | U-21 | Mobil hero'nun üst yarısı boş. Hero mobilde kısalsın mı, ızgara büyüsün mü? | Tasarım kararı, iki seçeneğin ekran görüntüsü. | UIO-04 | open | |
 | U-22 | Ölçülmeyenler: kaydırırken yapışkan başlığın bulanıklığı, gerçek telefonlar, ekran okuyucu. Yükleme ölçümü (`load.js`) kendi rAF döngüsüyle şişiyor. | Kullanıcı gerçek cihazda ve kendi Chrome'unda ölçer. | UIO-09 | open | |
 | U-23 | Tema paleti görselindeki bazı hex kodları okunaksız (ör. "#001FSB", "3CC6633", "#FSEADD", Chocolate Brown'un kodu yok; yeşil ve monokrom temalar sonradan kaldırıldı). Gözle okunan değerler doğru mu? Yazı renkleri (ink, slate, sun-deep) görseldeki tonlardan türetildi ve AA kontrastına göre ayarlandı. | Palet görselinin kaynağından (tasarımcı) kodları al ya da mevcut okumayı onayla. Okumalar `docs/themes.md`'de. | | open | |
+| U-24 | Canlı sitedeki görsellerin tam yerleşimi: hangi görsel hangi bölümde. V0 yerleşimi kayıtlı HTML'deki sıraya göre yaptı. Blog şablonundaki "Saha Tipi" görseli (`solar-panels…`) ve Hakkımızda kartlarının görsel eşleşmesi kesin değil. Ayrıca fotoğraflı hero'nun 8 temada ve mobilde okunaklılığı, ana sayfa hero'sunda fotoğrafın maliyeti (U-19) gözle doğrulanmadı. | Kendi Chrome'unda V0'ı 8 temada ve 390 px'te aç, canlı sitedeki ilgili sayfalarla yan yana bak. | VIS-01 | open | |
 
 ## C. Cevaplananlar
 

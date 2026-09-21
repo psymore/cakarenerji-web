@@ -1,3 +1,4 @@
+import type { PhotoId } from "@/lib/images";
 import type { Txt } from "@/lib/text";
 
 export type TplGroup = {
@@ -6,6 +7,8 @@ export type TplGroup = {
   paras?: Txt[];
   listLabel?: string;
   list?: Txt[];
+  photo?: PhotoId;
+  photoAlt?: string; // the live site's alt text, when it has one
 };
 
 /** The "Hesabınızı Bizimle İlişkilendirin" block that the live blog template repeats under every post and the list (BLG-02). */
@@ -19,6 +22,7 @@ export const blogTemplate = {
       groups: [
         {
           heading: "Saha Tipi Güneş Enerji Santrali Kurulumu",
+          photo: "field",
           paras: [
             "Saha uygulamaları geçtiğimiz yıllarda Türkiye'de en yaygın olarak kullanılan güneş enerji santrali uygulamalarıdır. Saha uygulamalarında, toprak üzerinde çalışıldığı için zemin ve toprak özellikleri tasarım açısından son derece önemlidir. İyi çalışılmış bir zemin etüdü ve sahanın eğim, yüzey alanı, çukur, yükselti, vb. fiziksel özelliklerinin iyi analiz edilmesi ile beraber yaratıcı bir konstrüksiyon tasarımı ile saha tipi güneş enerji santrallerinden o bölge için alınabilecek en yüksek üretim verimini almak mümkündür.",
             "Çakar Enerji olarak, lisanssız güneş enerjisi üretim tesisi kurulumu ile ilgili gerekli izinlerin alınmasından güneş enerji santralinin kurulup ilgili kabullerin tamamlanarak elektrik satışına başlanmasına kadarki tüm süreci üstlenerek santral kurulumu işini \"anahtar teslim\" olarak üstleniyoruz.",
@@ -37,6 +41,8 @@ export const blogTemplate = {
         },
         {
           heading: "Otopark Üzeri Güneş Enerji Santrali Kurulumu",
+          photo: "parking",
+          photoAlt: "Otopark Üzeri Güneş Enerji Santrali",
           paras: [
             {
               t: "Açık otopark alanları ve garaj çatıları büyük ölçekli güneş enerji santrali kurulumları için ideal geniş alanlar oluşturmaktadır. Özellikle, açık otopark üstü uygulamalar sayesinde hem park eden araçların güneşten korunması sağlanır aynı zamanda da atıl olarak duran geniş bir alan yenilenebilir enerji kaynağına dönüşmüş olur. Özellikle önümüzdeki dönemde elektrikli araçların da yaygınlaşacağı düşünüldüğünde geniş otopark alanlarının üzerlerine kurulabilecek güneş enerji sistemleri ile elektrikli araç şarj istasyonları beslenebilir.",
