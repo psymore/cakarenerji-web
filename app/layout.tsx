@@ -27,6 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="tr-TR"
       data-theme={DEFAULT_THEME}
+      data-scheme="light"
       className={`${archivo.variable} ${sourceSerif.variable}`}
       suppressHydrationWarning
     >

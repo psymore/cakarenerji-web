@@ -101,6 +101,8 @@ Every move, fill, translation, merge or removal of a must-have block goes here. 
 
 **Dark theme (owner-approved addition):** the header on every route gets one icon button that switches between the light palette and a dark palette (both designs). The first visit follows the OS setting, the choice is saved in the browser. No must-have block was added, moved, filled or removed and no text changed; only the button and its label ("Koyu temaya geç" / "Açık temaya geç") are new.
 
+**Theme picker (owner-approved addition, replaces the dark-theme toggle):** the header button on every route now opens a menu of 8 themes (the original light and dark plus six palettes from the supplied palette sheet, three light and three dark), both designs. Choice saved in the browser, first visit follows the OS setting. No must-have block was added, moved, filled or removed and no text changed; only the button ("Tema seç") and the menu labels are new. Details: `docs/themes.md`.
+
 **Typo fixes (shown in the gallery at `/duzeltmeler`)**
 
 | Route | Live text | Fixed text | Issue |

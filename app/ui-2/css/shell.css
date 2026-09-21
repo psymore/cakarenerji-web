@@ -44,7 +44,7 @@
   background: var(--frost);
 }
 .ui2 .nav__link[aria-current="page"] {
-  background: rgb(217 160 60 / 0.2);
+  background: color-mix(in srgb, var(--sun) 20%, transparent);
   color: var(--strong);
 }
 .ui2 .nav__menu {
@@ -69,6 +69,14 @@
   background: var(--frost);
 }
 
+.ui2 .theme-menu__panel {
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-md);
+}
+.ui2 .theme-menu__item {
+  border-radius: var(--r-sm);
+}
+
 /* Drawer sits inside the rounded header, so it rounds its own bottom corners. */
 .ui2 .drawer {
   max-height: calc(100svh - var(--header-h) - 12px);
@@ -89,7 +97,7 @@
   rx: 11px;
 }
 .ui2 .site-footer__legal {
-  border-top-color: rgb(201 214 220 / 0.2);
+  border-top-color: color-mix(in srgb, var(--silver) 20%, transparent);
 }
 .ui2 .social a {
   border-radius: 50%;

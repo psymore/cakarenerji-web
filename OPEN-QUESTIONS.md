@@ -68,6 +68,7 @@ Bunları iş sahibi olmadan, kendi Chrome'undan alınan veri ya da yeni sitedeki
 | U-20 | Çerez bildirimi mobilde LCP öğesi (4,4 sn) ve ekranın dörtte birini kaplıyor. Sunucu HTML'inde gösterilip mobilde küçültülsün mü? Metin ve "reddet" seçeneği Q-23'e bağlı. | Karar ver, sonra Lighthouse mobil ile yeniden ölç. | UIO-02, UIO-03, Q-23 | open | |
 | U-21 | Mobil hero'nun üst yarısı boş. Hero mobilde kısalsın mı, ızgara büyüsün mü? | Tasarım kararı, iki seçeneğin ekran görüntüsü. | UIO-04 | open | |
 | U-22 | Ölçülmeyenler: kaydırırken yapışkan başlığın bulanıklığı, gerçek telefonlar, ekran okuyucu. Yükleme ölçümü (`load.js`) kendi rAF döngüsüyle şişiyor. | Kullanıcı gerçek cihazda ve kendi Chrome'unda ölçer. | UIO-09 | open | |
+| U-23 | Tema paleti görselindeki bazı hex kodları okunaksız (ör. "#001FSB", "3CC6633", "#FSEADD", Chocolate Brown'un kodu yok; yeşil ve monokrom temalar sonradan kaldırıldı). Gözle okunan değerler doğru mu? Yazı renkleri (ink, slate, sun-deep) görseldeki tonlardan türetildi ve AA kontrastına göre ayarlandı. | Palet görselinin kaynağından (tasarımcı) kodları al ya da mevcut okumayı onayla. Okumalar `docs/themes.md`'de. | | open | |
 
 ## C. Cevaplananlar
 
