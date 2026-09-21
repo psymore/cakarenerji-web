@@ -4,16 +4,24 @@
   Shape scale: 14 / 22 / 32 / 40 px and pill. Panels float on a tinted page instead of full-bleed bands.
 */
 
+/* Default (light) values of the ui-2 tokens; themes override them in app/themes.css. */
+:root {
+  --ui2-frost: #e8eff2;
+  --ui2-line: #d3dee3;
+  --ui2-card: #fff;
+  --ui2-field: #f3f7f9;
+}
+
 body:has(.ui2) {
-  background: #e8eff2;
+  background: var(--ui2-frost);
 }
 
 .ui2 {
   /* The wrapper adds no box: body stays the flex column and main keeps flex: 1. */
   display: contents;
 
-  --frost: #e8eff2;
-  --line: #d3dee3;
+  --frost: var(--ui2-frost);
+  --line: var(--ui2-line);
   --radius: 16px;
   --r-sm: 14px;
   --r-md: 22px;
@@ -24,11 +32,11 @@ body:has(.ui2) {
   /* Side inset shared by header, panels and footer: gutter on phones, centred 1400px column on wide screens. */
   --inset: max(var(--gutter), calc((100% - 1400px) / 2));
 
-  --card: #fff; /* card on the tinted page; panels on white swap it, see .section--white */
-  --field: #f3f7f9;
+  --card: var(--ui2-card); /* card on the tinted page; panels on white swap it, see .section--white */
+  --field: var(--ui2-field);
 
-  --shadow-sm: 0 1px 2px rgb(18 48 63 / 0.06), 0 10px 24px -14px rgb(18 48 63 / 0.22);
-  --shadow-md: 0 2px 6px rgb(18 48 63 / 0.06), 0 26px 48px -26px rgb(18 48 63 / 0.34);
+  --shadow-sm: 0 1px 2px rgb(var(--shade) / 0.06), 0 10px 24px -14px rgb(var(--shade) / 0.22);
+  --shadow-md: 0 2px 6px rgb(var(--shade) / 0.06), 0 26px 48px -26px rgb(var(--shade) / 0.34);
 
   --header-h: 88px; /* 64px bar + 12px above and below; feeds sticky offsets and drawer height */
 
@@ -54,22 +62,15 @@ body:has(.ui2) {
   border-radius: var(--pill);
 }
 
-/* Dark theme (app/themes.css sets the shared tokens; these are the ui-2 specific ones). */
-:root[data-theme="dark"] body:has(.ui2) {
-  background: #091419;
-}
-:root[data-theme="dark"] .ui2 {
-  --frost: #091419;
-  --line: #27404d;
-  --card: #11252e;
-  --field: #0c1b22;
+/* Dark schemes: the shared and ui-2 tokens come from app/themes.css; these are the parts that are not colours. */
+:root[data-scheme="dark"] .ui2 {
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.3), 0 10px 24px -14px rgb(0 0 0 / 0.6);
   --shadow-md: 0 2px 6px rgb(0 0 0 / 0.3), 0 26px 48px -26px rgb(0 0 0 / 0.75);
 }
-:root[data-theme="dark"] .ui2 .field input:not([type="file"]),
-:root[data-theme="dark"] .ui2 .field textarea {
+:root[data-scheme="dark"] .ui2 .field input:not([type="file"]),
+:root[data-scheme="dark"] .ui2 .field textarea {
   border-color: var(--slate);
 }
-:root[data-theme="dark"] .ui2 .cookie {
+:root[data-scheme="dark"] .ui2 .cookie {
   border: 1px solid var(--glass-edge);
 }

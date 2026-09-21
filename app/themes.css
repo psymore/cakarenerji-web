@@ -1,11 +1,14 @@
 /*
-  Colour themes. The light theme is the :root palette in globals.css; every other theme only overrides tokens here.
-  Selected with <html data-theme="…">, set before first paint by lib/theme.ts.
-  Roles: --frost page, --paper raised surface, --panel dark band (white text on it), --strong panel colour used as
-  text/border on the page surface, --sun gold accent, --sun-deep gold used as text on the page surface.
+  Colour themes. The default light theme is the :root palette in globals.css; every other theme only overrides tokens here.
+  Selected with <html data-theme="…"> (plus data-scheme="light|dark"), set before first paint by lib/theme.ts.
+  Roles: --frost page, --paper raised surface, --panel dark band (white text on it), --panel-2 its lighter twin,
+  --strong panel colour used as text/border on the page surface, --sun accent fill (text on it: --on-sun), --sun-deep accent
+  used as text on the page surface, --silver light lines on panels, --shade shadow tint (r g b). --ui2-* feed the /ui-2 design.
+  "dark" is the original site palette. The other six come from the supplied palette sheet; their swatches set the panel, page
+  and accent colours, the text-side colours (ink, slate, sun-deep, …) are derived and checked for WCAG AA contrast (docs/themes.md).
 */
 
-/* Dark, correlated with the light palette: same deep panel blue, silver busbar lines and gold sun, night surfaces. */
+/* Dark (original), correlated with the light palette: same deep panel blue, silver busbar lines and gold sun, night surfaces. */
 :root[data-theme="dark"] {
   --panel: #143444;
   --panel-2: #21506a;
@@ -25,5 +28,202 @@
   --glass-edge: rgb(255 255 255 / 0.08);
   --shadow-menu: rgb(0 0 0 / 0.6);
   --field-alt: #0c1b22;
+  --shade: 0 0 0;
+  --ui2-frost: #091419;
+  --ui2-line: #27404d;
+  --ui2-card: #11252e;
+  --ui2-field: #0c1b22;
+  color-scheme: dark;
+}
+
+/* Mavi & Altın (light) */
+:root[data-theme="blue-gold"] {
+  --panel: #001F5B;
+  --panel-2: #0056A3;
+  --frost: #fdf8e7;
+  --paper: #ffffff;
+  --line: #b2ccc4;
+  --slate: #0056A3;
+  --ink: #001334;
+  --ink-soft: #4c586a;
+  --sun: #D4AF37;
+  --sun-lit: #D4AF37;
+  --sun-hover: #dcbd5b;
+  --sun-deep: #7b6520;
+  --silver: #ccd2de;
+
+  --on-sun: #001F5B;
+  --strong: #001F5B;
+  --strong-ink: #ffffff;
+  --glass: rgb(255 255 255 / 0.92);
+  --glass-soft: rgb(255 255 255 / 0.8);
+  --glass-edge: rgb(255 255 255 / 0.8);
+  --shadow-menu: rgb(0 22 64 / 0.35);
+  --field-alt: #ffffff;
+  --shade: 0 22 64;
+  --ui2-frost: #ebe9dd;
+  --ui2-line: #ccdbd0;
+  --ui2-card: #ffffff;
+  --ui2-field: #fefcf4;
+  color-scheme: light;
+}
+
+/* Toprak Tonları (light) */
+:root[data-theme="earth"] {
+  --panel: #5A3A29;
+  --panel-2: #B35A22;
+  --frost: #F5EADD;
+  --paper: #FFFBF5;
+  --line: #eac5ad;
+  --slate: #8A4A20;
+  --ink: #2E1D14;
+  --ink-soft: #5f5248;
+  --sun: #daa53f;
+  --sun-lit: #daa53f;
+  --sun-hover: #e1b562;
+  --sun-deep: #7a5b21;
+  --silver: #ded8d4;
+
+  --on-sun: #5A3A29;
+  --strong: #5A3A29;
+  --strong-ink: #ffffff;
+  --glass: rgb(255 251 245 / 0.92);
+  --glass-soft: rgb(255 251 245 / 0.8);
+  --glass-edge: rgb(255 255 255 / 0.8);
+  --shadow-menu: rgb(63 41 29 / 0.35);
+  --field-alt: #ffffff;
+  --shade: 63 41 29;
+  --ui2-frost: #eaded0;
+  --ui2-line: #eed2be;
+  --ui2-card: #FFFBF5;
+  --ui2-field: #fbf6f0;
+  color-scheme: light;
+}
+
+/* Okyanus Esintisi (light) */
+:root[data-theme="ocean"] {
+  --panel: #004080;
+  --panel-2: #0055CC;
+  --frost: #edfff9;
+  --paper: #ffffff;
+  --line: #b3f3ec;
+  --slate: #007676;
+  --ink: #002040;
+  --ink-soft: #466176;
+  --sun: #40E0D0;
+  --sun-lit: #40E0D0;
+  --sun-hover: #62e6d8;
+  --sun-deep: #21746c;
+  --silver: #ccd9e6;
+
+  --on-sun: #004080;
+  --strong: #004080;
+  --strong-ink: #ffffff;
+  --glass: rgb(255 255 255 / 0.92);
+  --glass-soft: rgb(255 255 255 / 0.8);
+  --glass-edge: rgb(255 255 255 / 0.8);
+  --shadow-menu: rgb(0 45 90 / 0.35);
+  --field-alt: #ffffff;
+  --shade: 0 45 90;
+  --ui2-frost: #dcf2f1;
+  --ui2-line: #c7f7f1;
+  --ui2-card: #ffffff;
+  --ui2-field: #f7fffc;
+  color-scheme: light;
+}
+
+/* Koyu Mavi & Altın (dark) */
+:root[data-theme="dark-blue-gold"] {
+  --panel: #002B66;
+  --panel-2: #2B77A3;
+  --frost: #000C2E;
+  --paper: #001c4a;
+  --line: #11375d;
+  --slate: #A69578;
+  --ink: #edeae4;
+  --ink-soft: #a6a7ad;
+  --sun: #8F7925;
+  --sun-lit: #a59451;
+  --sun-hover: #a3914c;
+  --sun-deep: #9a863b;
+  --silver: #b2bac5;
+
+  --on-sun: #000820;
+  --strong: #d0d9da;
+  --strong-ink: #000a25;
+  --glass: rgb(0 12 46 / 0.92);
+  --glass-soft: rgb(0 12 46 / 0.78);
+  --glass-edge: rgb(255 255 255 / 0.08);
+  --shadow-menu: rgb(0 0 0 / 0.6);
+  --field-alt: #000b29;
+  --shade: 0 30 71;
+  --ui2-frost: #000923;
+  --ui2-line: #0c2f57;
+  --ui2-card: #001c4a;
+  --ui2-field: #000b29;
+  color-scheme: dark;
+}
+
+/* Derin Toprak (dark) */
+:root[data-theme="dark-earth"] {
+  --panel: #663319;
+  --panel-2: #8F6625;
+  --frost: #2E1F16;
+  --paper: #442614;
+  --line: #4a3c30;
+  --slate: #9f9787;
+  --ink: #e8e6e2;
+  --ink-soft: #b0aaa5;
+  --sun: #9f7b44;
+  --sun-lit: #c2ab87;
+  --sun-hover: #b09366;
+  --sun-deep: #b19466;
+  --silver: #c8b9b0;
+
+  --on-sun: #20160f;
+  --strong: #dbd3c6;
+  --strong-ink: #251912;
+  --glass: rgb(46 31 22 / 0.92);
+  --glass-soft: rgb(46 31 22 / 0.78);
+  --glass-edge: rgb(255 255 255 / 0.08);
+  --shadow-menu: rgb(0 0 0 / 0.6);
+  --field-alt: #291c14;
+  --shade: 71 36 18;
+  --ui2-frost: #231711;
+  --ui2-line: #483528;
+  --ui2-card: #442614;
+  --ui2-field: #291c14;
+  color-scheme: dark;
+}
+
+/* Derin Esinti (dark) */
+:root[data-theme="dark-ocean"] {
+  --panel: #002B80;
+  --panel-2: #21756E;
+  --frost: #001830;
+  --paper: #002456;
+  --line: #1a4657;
+  --slate: #669995;
+  --ink: #dde8e7;
+  --ink-soft: #9baab0;
+  --sun: #4b8782;
+  --sun-lit: #76a4a0;
+  --sun-hover: #6b9d99;
+  --sun-deep: #669995;
+  --silver: #a6b9cd;
+
+  --on-sun: #001122;
+  --strong: #c1d7d5;
+  --strong-ink: #001326;
+  --glass: rgb(0 24 48 / 0.92);
+  --glass-soft: rgb(0 24 48 / 0.78);
+  --glass-edge: rgb(255 255 255 / 0.08);
+  --shadow-menu: rgb(0 0 0 / 0.6);
+  --field-alt: #00162b;
+  --shade: 0 30 90;
+  --ui2-frost: #001224;
+  --ui2-line: #123c57;
+  --ui2-card: #002456;
+  --ui2-field: #00162b;
   color-scheme: dark;
 }

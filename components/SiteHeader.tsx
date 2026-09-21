@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, stripBase } from "@/components/AppLink";
 import { Chevron, CloseIcon, MenuIcon } from "@/components/icons";
 import { Logo } from "@/components/Logo";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { ThemeMenu } from "@/components/ThemeMenu";
 import { navGroups, navHome, navTail, type NavItem } from "@/lib/site";
 import { T } from "@/lib/text";
 
@@ -97,7 +97,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="site-header__tools">
-          <ThemeToggle />
+          <ThemeMenu />
           <button
             type="button"
             className="burger"
