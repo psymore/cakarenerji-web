@@ -112,8 +112,7 @@ export function HomeHero() {
 
   return (
     <section className="hero" ref={hero}>
-      <picture className="hero__photo">
-        <source media="(max-width: 450px)" srcSet={photoSrcSet("homeSmall", [450])} />
+      <div className="hero__photo">
         <img
           src={photoUrl("home", 1535)}
           srcSet={photoSrcSet("home")}
@@ -123,7 +122,7 @@ export function HomeHero() {
           decoding="async"
           referrerPolicy="no-referrer"
         />
-      </picture>
+      </div>
       <div className="hero__glow" ref={glow} aria-hidden />
       <div className="hero__field" aria-hidden>
         <div className="plane plane--dim" />

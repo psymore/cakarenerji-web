@@ -16,7 +16,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 # Goal
 
 - V0 is a pitch: redesign the live site as well as possible to show the business owner and win the job, possibly deployed on Vercel or GitHub. Redesign only: no feature changes, no additions, no removals of pages, content or functionality. Details in `README.md`.
-- `docs/route-must-haves.md` lists the blocks each route must contain. Do not drop one. If you move, fill, translate, merge or remove any block, log it in that file's change log and tell the user. Fixed typos are written as `{ t, fixed: "before → after" }` in the content files: pages show no marking, the gallery route `/duzeltmeler` (linked only from the header gallery icon, `noindex`) shows them with the red border, and they are logged too.
+- `docs/route-must-haves.md` lists the blocks each route must contain. Do not drop one. If you move, fill, translate, merge or remove any block, log it in that file's change log and tell the user. Fixed typos are written as `{ t, fixed: "before → after" }` in the content files: pages show no marking, the gallery route `/duzeltmeler` (linked only from the header settings menu, `noindex`) shows them with the red border, and they are logged too.
 
 # Code
 

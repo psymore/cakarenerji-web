@@ -131,10 +131,10 @@ Every move, fill, translation, merge or removal of a must-have block goes here. 
 |---|---|---|---|
 | all | Contact details | One address / hours / phone source (`lib/site.ts`) instead of per-page values | Sources conflict (table above). Easy to switch. |
 | all | Header | "MORE" menu dropped, all links shown; dropdowns are keyboard-operable buttons | NAV-01, NAV-02, NAV-04. Layout, not content. |
-| `/duzeltmeler` | New route | Typo gallery (review aid), `noindex`. Originally unlinked; now opened from the header gallery icon | Requested: show the live site's errors and what was fixed. |
+| `/duzeltmeler` | New route | Typo gallery (review aid), `noindex`. Originally unlinked; now opened from the header settings menu (section "Yazım düzeltmeleri") | Requested: show the live site's errors and what was fixed. |
 | all | Footer | "Destekli GoDaddy Airo" badge not reproduced; social icons and WhatsApp placed in the footer (live position unknown) | Platform badge of the site being replaced. |
 | all | Logo | Header: typographic wordmark replaces the logo image. Footer: the live logo image (hotlinked) | The live logo is light on transparent, so it only works on the dark footer. |
-| `/` | Hero photo | Live hero photo (`pexels-tom-fisk`, mobile `9D437085…`) behind the hero, under a panel-colour overlay, with the light-grid effect kept on top | Live home hero is that photo (`audit-data/pages/00_home.html`). Was missing in V0. |
+| `/` | Hero photo | Live hero photo (`pexels-tom-fisk`, all widths; the `9D437085…` file is a hidden second header media on the live page and is no longer used) behind the hero, under a panel-colour overlay, with the light-grid effect kept on top | Live home hero is that photo (`audit-data/pages/00_home.html`). Was missing in V0. |
 | `/` | Logo strip | Five logos (Huawei, CW Enerji, Tommatech, Fimer, one unnamed) added after the company text | They are on the live home page and were missing in V0. Live position unknown (U-14); alt text from file names, fifth empty (Q-26). |
 | `/hakkımızda-1`, `/endüstriyel-…`, `/arazi-tipi-…`, `/solar-otopark-…`, `/proje-danışmanlığı`, `/hammadde-…`, `/çatı-ges-konstrüksiyon` | Hero photo | The live page's image behind the page hero, under a panel-colour overlay | Each live page has one image before its h1. Was missing in V0. |
 | `/hakkımızda-1` | "Anahtar Teslim Solar Sistemler" cards | A photo on each of the 5 cards, matched in the live card order | Live cards have photos. Was missing in V0. |
@@ -154,10 +154,13 @@ Every move, fill, translation, merge or removal of a must-have block goes here. 
 | all routes | Heading levels | Contact card and HR `h4` → `h3`; mobile menu group labels `h2` → `p`; cookie title `h4` → `strong`. Look unchanged | Heading order (axe). |
 | all routes | Logo `aria-label` | "ÇAKAR ENERJİ, Ana Sayfa" (was "Çakar Enerji A.Ş, Ana Sayfa") | Label-in-name. |
 | `/` | Hero light | Same look, moved by transform instead of CSS variables | Performance, see `docs/ui-optimization/`. |
-| all routes | Design switch | Header switch "1 / 2" between the main design and `/ui-2`, keeps the current page. In the mobile menu below 640 px | Requested. New UI control, no page content changed. |
-| all routes | Gallery icon | Header icon linking to `/duzeltmeler` (`/ui-2/duzeltmeler` inside the second design). In the mobile menu below 640 px | Requested. Reverses the earlier "unlinked" default (D-07). |
+| all routes | Design switch | Section "Tasarım" of the header settings menu: "Ana tasarım" / "İkinci tasarım (UI 2)", keeps the current page. Replaces the separate "1 / 2" switch | Requested. New UI control, no page content changed. |
+| all routes | Gallery link | Section "Yazım düzeltmeleri" of the header settings menu, link "Hata galerisi" to `/duzeltmeler` (`/ui-2/duzeltmeler` inside the second design). Replaces the separate gallery icon | Requested. Reverses the earlier "unlinked" default (D-07). |
 | `/ui-2/duzeltmeler` | New route | The typo gallery in the second design (re-export of the classic page) | Keeps the visitor in the design being browsed. |
 | all routes | Top menu (desktop) | Groups open on mouse hover and close when the mouse leaves; a click no longer pins them open. Touch and keyboard still toggle. Mobile menu unchanged | Requested fix. |
 | all routes | Header logo | The live logo image replaces the typographic wordmark in the header (dark chip on light themes) | Requested. Same image as the footer. |
 | all routes | WhatsApp icon | Standard WhatsApp glyph, centred, replaces the hand-drawn one (footer and contact card) | Requested (icon looked off-centre). |
 | all routes | Active menu link | The current page is marked in the menu also when the URL ends with `/` (GitHub Pages) | Bug fix found on the deploy. |
+| all routes | Settings menu | The palette button became a settings button (sliders icon). One popover with three titled sections: Tema (8 themes), Tasarım (main / UI 2), Yazım düzeltmeleri (gallery). Same on mobile, so the mobile menu no longer has extra tools | Requested. No page content changed. |
+| `/` | Hero photo, small screens | Removed the `9D437085…` image shown at 450 px and below; the hero uses `pexels-tom-fisk` at every width, as the live CSS does | Requested (wrong first image on mobile). Unverified against the live page by eye, see `docs/images.md`. |
+| `/duzeltmeler` | Card labels | Each card shows a short plain-language mistake name ("Yazım hatası", "Parantez içinde fazladan boşluk", …) instead of the internal ids (YAZ-02 …); short intro line above "Olduğu gibi bırakılanlar"; those cards got shorter, clearer texts | Requested. Review page only. |

@@ -355,88 +355,11 @@ main:focus {
   gap: 8px;
   flex-shrink: 0;
 }
-/* Design switch (1 | 2) and gallery link, beside the theme picker. Below 640px they move into the mobile menu. */
-.design-switch {
-  display: inline-flex;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  overflow: hidden;
-}
-.design-switch a {
-  min-width: 44px;
-  min-height: 44px;
-  display: grid;
-  place-items: center;
-  text-decoration: none;
-  font-family: var(--font-display);
-  font-weight: 700;
-  color: var(--strong);
-}
-.design-switch a[aria-current="true"] {
-  background: var(--strong);
-  color: var(--paper);
-}
-.design-switch a:not([aria-current]):hover {
-  color: var(--sun-deep);
-}
-.gallery-link {
-  width: 46px;
-  height: 46px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--line);
-  background: var(--paper);
-  border-radius: var(--radius);
-  color: var(--strong);
-  transition: border-color 0.15s;
-}
-.gallery-link:hover {
-  border-color: var(--sun);
-}
-.gallery-link svg {
-  width: 22px;
-  height: 22px;
-}
-.header-extra {
-  display: none;
-}
-@media (min-width: 640px) {
-  .header-extra {
-    display: inline-flex;
-  }
-  .gallery-link.header-extra {
-    display: grid;
-  }
-}
-.drawer__tools {
-  margin-top: 22px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.drawer .design-switch a,
-.drawer .gallery-link {
-  display: grid;
-  padding: 0;
-  font-size: 1rem;
-}
-.drawer .design-switch a {
-  border-bottom: 0;
-}
-.drawer .gallery-link {
-  border: 1px solid var(--line);
-}
-@media (min-width: 640px) {
-  .drawer__tools {
-    display: none;
-  }
-}
-/* Theme picker: a palette button plus a popover listing every theme with a colour preview. */
-.theme-menu {
+/* Settings menu: one button, one popover with titled sections (theme with colour previews, design, typo gallery). */
+.settings-menu {
   position: relative;
 }
-.theme-toggle {
+.settings-toggle {
   width: 46px;
   height: 46px;
   display: grid;
@@ -448,15 +371,15 @@ main:focus {
   color: var(--strong);
   transition: border-color 0.15s;
 }
-.theme-toggle:hover,
-.theme-toggle[aria-expanded="true"] {
+.settings-toggle:hover,
+.settings-toggle[aria-expanded="true"] {
   border-color: var(--sun);
 }
-.theme-toggle svg {
+.settings-toggle svg {
   width: 22px;
   height: 22px;
 }
-.theme-menu__panel {
+.settings-menu__panel {
   position: absolute;
   top: calc(100% + 10px);
   right: 0;
@@ -470,16 +393,28 @@ main:focus {
   border-radius: var(--radius);
   box-shadow: 0 18px 40px -12px var(--shadow-menu);
 }
-.theme-menu__panel[hidden] {
+.settings-menu__panel[hidden] {
   display: none;
 }
-.theme-menu__panel ul {
+.settings-menu__panel ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.theme-menu__group {
-  margin: 8px 10px 4px;
+.settings-menu__section + .settings-menu__section {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+.settings-menu__title {
+  margin: 4px 10px 4px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--strong);
+}
+.settings-menu__group {
+  margin: 6px 10px 2px;
   font-family: var(--font-display);
   font-size: 0.75rem;
   font-weight: 700;
@@ -487,11 +422,9 @@ main:focus {
   text-transform: uppercase;
   color: var(--slate);
 }
-.theme-menu__group:first-child {
-  margin-top: 4px;
-}
-.theme-menu__item {
+.settings-menu__item {
   width: 100%;
+  text-decoration: none;
   min-height: 44px;
   display: flex;
   align-items: center;
@@ -507,16 +440,17 @@ main:focus {
   text-align: left;
   cursor: pointer;
 }
-.theme-menu__item:hover {
+.settings-menu__item:hover {
   background: var(--frost);
 }
-.theme-menu__item[aria-pressed="true"] {
+.settings-menu__item[aria-pressed="true"],
+.settings-menu__item[aria-current="true"] {
   background: var(--frost);
   color: var(--strong);
   font-weight: 700;
   box-shadow: inset 3px 0 0 var(--sun);
 }
-.theme-menu__swatch {
+.settings-menu__swatch {
   flex: none;
   width: 44px;
   height: 22px;
@@ -1577,4 +1511,10 @@ main:focus {
   background: var(--panel);
   border-radius: var(--radius);
   padding: 6px 12px;
+}
+
+.settings-menu__icon {
+  flex: none;
+  width: 22px;
+  height: 22px;
 }

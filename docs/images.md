@@ -9,6 +9,7 @@ The live site's images are used in V0 (branch `feature/live-images`). They are *
 - To self-host: download the originals by hand (see `docs/scraping.md`: no automated crawling), put them under `public/images/`, and change `photoUrl` / `originalUrl` in `lib/images.ts`. No other file knows where the images come from.
 
 ## Known limits
+- **Home hero.** The live CSS uses `pexels-tom-fisk` for the header at every width; a second, hidden header media with `9D437085…` was wrongly used for 450 px and below and is removed. The owner saw a different, sunnier first image on the live mobile page; if it is not the tom-fisk photo, the live file name is needed (`audit-data/pages/00_home.html` does not show another one).
 - **Fragile.** If the owner changes or removes an image on the live site, or the site goes away, V0 shows broken images. Self-host before launch (Q-27).
 - **Unverified by eye.** Built and linted, but nobody has looked at the pages with the images loaded (U-24). Check the hero text is readable in all 8 themes and at 390 px, and the home hero light effect still runs smoothly with the photo behind it (U-19).
 - **Placement guessed** where the saved HTML does not say: the "Saha Tipi" photo in the blog EPC block, and which Hakkımızda card gets which photo (matched by the live card order).

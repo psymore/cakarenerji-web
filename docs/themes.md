@@ -18,7 +18,7 @@ Eight themes, chosen from the header palette button (both designs). `<html data-
 - `lib/theme.ts`: the theme list (id, label, scheme, preview swatches), the pre-paint inline script and `applyTheme` / `resolveTheme`.
 - `app/themes.css`: one token block per theme except `light`. Roles are documented at the top of the file.
 - `app/ui-2/css/tokens.css`: `/ui-2` reads `--ui2-frost`, `--ui2-line`, `--ui2-card`, `--ui2-field` and `--shade` from the theme block.
-- `components/ThemeMenu.tsx`: the picker (button + popover, grouped light / dark, Esc and outside click close it).
+- `components/settings/ThemeSection.tsx`: the picker section (grouped light / dark); `components/settings/SettingsMenu.tsx` is the header button and popover (also design and gallery sections; Esc and outside click close it).
 
 ## How a palette sheet turns into tokens
 

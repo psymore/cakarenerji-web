@@ -31,6 +31,9 @@ export function FixGallery() {
           <h2 className="big-h" style={{ marginTop: 0, marginBottom: 36, fontSize: "clamp(1.6rem,3vw,2.3rem)" }}>
             Olduğu gibi bırakılanlar
           </h2>
+          <p className="lead" style={{ marginBottom: 28 }}>
+            Bunlar düzeltilmedi: yazım hatası olmayanlar ve iş sahibinin karar vermesi gerekenler.
+          </p>
           <div className="gallery">
             {untouched.map((u, i) => (
               <UntouchedCard key={i} item={u} />

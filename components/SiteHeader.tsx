@@ -3,11 +3,9 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Link, stripBase } from "@/components/AppLink";
-import { DesignSwitch } from "@/components/DesignSwitch";
-import { GalleryLink } from "@/components/GalleryLink";
 import { Chevron, CloseIcon, MenuIcon } from "@/components/icons";
 import { Logo } from "@/components/Logo";
-import { ThemeMenu } from "@/components/ThemeMenu";
+import { SettingsMenu } from "@/components/settings/SettingsMenu";
 import { navGroups, navHome, navTail, type NavItem } from "@/lib/site";
 import { T } from "@/lib/text";
 
@@ -110,9 +108,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="site-header__tools">
-          <DesignSwitch className="header-extra" />
-          <GalleryLink className="header-extra" />
-          <ThemeMenu />
+          <SettingsMenu />
           <button
             type="button"
             className="burger"
@@ -143,10 +139,6 @@ export function SiteHeader() {
                 {it.label as string}
               </Link>
             ))}
-          </div>
-          <div className="drawer__tools">
-            <DesignSwitch />
-            <GalleryLink />
           </div>
         </nav>
       </div>

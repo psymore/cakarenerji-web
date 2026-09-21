@@ -8,7 +8,7 @@ export function FixCard({ fix }: { fix: Fix }) {
     <article className="fix">
       <header className="fix__head">
         {fix.href ? <Link href={fix.href}>{fix.where}</Link> : <span>{fix.where}</span>}
-        <span className="fix__issue">{fix.issue}</span>
+        <span className="fix__kind">{fix.kind}</span>
       </header>
       <div className="fix__pair">
         <figure>

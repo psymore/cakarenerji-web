@@ -6,7 +6,7 @@ export function UntouchedCard({ item }: { item: Untouched }) {
     <article className="fix fix--kept">
       <header className="fix__head">
         <span>{item.where}</span>
-        {item.ref ? <span className="fix__issue">{item.ref}</span> : null}
+        <span className="fix__kind">{item.kind}</span>
       </header>
       <figure>
         <figcaption>Canlı sitede, olduğu gibi</figcaption>

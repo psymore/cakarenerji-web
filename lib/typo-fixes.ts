@@ -11,21 +11,24 @@ export type Excerpt = { pre: string; mid: string; post: string };
 export type Fix = {
   where: string;
   href?: string;
-  issue: string;
+  /** Short plain-language name of the mistake, shown on the card. */
+  kind: string;
   before: Excerpt;
   after: Excerpt;
   visible: boolean;
 };
 
-const ISSUE: Record<string, string> = {
-  Similasyonu: "YAZ-02",
-  Kordinatlı: "YAZ-02",
-  Alısveriş: "YAZ-03",
-  "almak almak": "YAZ-04",
-  Uygulamalar: "NAV-03",
-  HİZİMETLERİMİZ: "YAZ-05",
-  tesfiye: "YAZ-05",
-  sarj: "YAZ-05",
+/** Mistake type by the wrong text. Anything not listed is a plain misspelling. */
+const DEFAULT_KIND = "Yazım hatası";
+const KIND: Record<string, string> = {
+  "saha kurulumlarını göre": "Ek hatası: “-a göre” yönelme eki ister",
+  "almak almak": "Kelime iki kez yazılmış",
+  "bir biri": "Ayrı yazılmış, bitişik olmalı",
+  "(312 )": "Parantez içinde fazladan boşluk",
+  "ÇatI": "Büyük harf hatası: kelime ortasında büyük I",
+  "inan Çakar": "Eksik harf",
+  "paylaşıyoruz..": "Fazladan nokta",
+  Uygulamalar: "Eksik ek",
 };
 
 type Raw = { t: string; fixed: string };
@@ -60,7 +63,7 @@ function toFix(raw: Raw, where: string, link?: string): Fix {
   return {
     where,
     href: link,
-    issue: ISSUE[before] ?? "yeni",
+    kind: KIND[before] ?? DEFAULT_KIND,
     before: excerpt(wrong, before, idx),
     after: excerpt(raw.t, after, idx),
     visible: true,
@@ -88,7 +91,7 @@ export function allFixes(): Fix[] {
   fixes.push({
     where: "Sekme başlığı: Solar Otopark Uygulamaları",
     href: href(slugs.carpark),
-    issue: "NAV-03",
+    kind: KIND.Uygulamalar,
     before: { pre: "", mid: "Solar Otopark Uygulamalar", post: " | Çakar Enerji" },
     after: { pre: "", mid: "Solar Otopark Uygulamaları", post: " | Çakar Enerji" },
     visible: false,

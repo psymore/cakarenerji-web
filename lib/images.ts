@@ -10,7 +10,6 @@ const BASE = "https://img1.wsimg.com/isteam/ip/dfa0ec36-44a3-43ff-b542-8ec12cf0c
 export const photos = {
   // Hero backgrounds
   home: "pexels-tom-fisk-9893727.jpg",
-  homeSmall: "9D437085-C24C-4DAC-85EC-5805D8CC94E1_L0_001.jpg", // live home hero at <= 450px
   about: "pexels-los-muertos-crew-8853511.jpg",
   industrial: "cati-ustu.jpg",
   land: "solar-panels-gda31f3f20_1920.jpg",
