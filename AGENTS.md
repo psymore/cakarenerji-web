@@ -10,11 +10,17 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Scraping the live site (https://cakarenerji.com/)
 
-- From now on, further data collection from the live site is done with the **Ultimate Web Scraper Chrome extension**, run by the user in their own Chrome. Agents cannot install or drive it: ask the user to run it and hand over the export (HTML, text, JSON, screenshots or HAR), then work from that.
-- Do **not** re-crawl the site with Playwright, curl or fetch scripts, and do not bypass blocks with proxies or IP changes. Automated runs (~1000 requests in a few minutes, mostly the home page at ~118 requests per load) got this machine's IP throttled twice (`ERR_CONNECTION_TIMED_OUT`, TCP 443 drops to both site IPs). The site works on the user's phone.
-- The extension's Claude integration needs a paid plan, so the user collects data by hand in their own Chrome instead: open the page, DevTools (`F12`) → Console → `copy(document.body.innerText)` (or `copy(document.documentElement.outerHTML)` for HTML), then paste into a file. Screenshots only for visual issues (viewport, not full page, a handful at most).
-- **Create the target files yourself, do not ask the user to make them.** Before telling the user to paste something, create the empty files in `audit-data/scraper/` (git-ignored) with `: > name.txt` and list the names and page URLs in your message. Use ASCII, lowercase, hyphenated names by route (`cati-ges.txt`, `iletisim.txt`, `blog-teias.txt`); the user's own copy may have Turkish letters, so `ls` the folder first and reuse an existing file instead of creating a duplicate. Screenshots the user takes cannot be pre-created; give the expected file name instead. Ask for one step at a time, and read the saved files afterwards to check they are not empty (an unsaved IDE tab leaves a 0-byte file).
-- Existing data lives in `audit-data/` (git-ignored). Check it before asking for anything new. What is still unmeasured is listed in `AUDIT.md` section 1 and in `OPEN-QUESTIONS.md`.
+- Do **not** crawl the site with Playwright, curl or fetch scripts, and do not bypass blocks with proxies or IP changes. Automated runs got this machine's IP throttled twice.
+- Live-site data is collected by the user by hand in their own Chrome. Check `audit-data/` (git-ignored) first. Before asking the user for anything, read `docs/scraping.md` (procedure, file naming, what is still unmeasured).
+
+# Goal
+
+- V0 is a pitch: redesign the live site as well as possible to show the business owner and win the job, possibly deployed on Vercel or GitHub. Redesign only: no feature changes, no additions, no removals of pages, content or functionality. Details in `README.md`.
+- `docs/route-must-haves.md` lists the blocks each route must contain. Do not drop one. If you move, fill, translate, merge or remove any block, log it in that file's change log and tell the user. Fixed typos are written as `{ t, fixed: "before → after" }` in the content files: pages show no marking, the gallery route `/duzeltmeler` (not linked from the site) shows them with the red border, and they are logged too.
+
+# Code
+
+- Split a file whenever it is necessary to avoid a "god" component or data file (one view per page kind, one content module per page group). Layout: see `README.md` Architecture.
 
 # Open questions
 
