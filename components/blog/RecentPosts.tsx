@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/components/AppLink";
 import { posts } from "@/content/blog-posts";
 
 /** "Recent Posts": the three newest posts other than the current one, as on the live template. */

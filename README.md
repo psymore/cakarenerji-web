@@ -73,7 +73,9 @@ See [PROJECT-STATUS.md](PROJECT-STATUS.md) for current phase and constraints.
 
 ## Architecture
 
-- `app/` routes: `page.tsx` (home), `[slug]/` (14 content routes, keyed by the live site's percent-encoded slugs, incl. U+0307 ones), `blog-1/` and `blog-1/f/[slug]/`, `duzeltmeler/` (typo gallery, review aid, not linked from the site), `not-found.tsx`, `layout.tsx`, `globals.css` (design tokens and styles).
+- `app/` routes: `layout.tsx` (bare `<html>`/`<body>`, fonts, `globals.css` tokens and styles), `(classic)/` (main design: `layout.tsx` with the site chrome, `page.tsx` home, `[slug]/` 14 content routes keyed by the live site's percent-encoded slugs incl. U+0307 ones, `blog-1/` and `blog-1/f/[slug]/`, `duzeltmeler/` typo gallery, review aid, not linked from the site, `not-found.tsx`), `ui-2/` (second design, rounder and floating panels; same routes under `/ui-2/…`), `not-found.tsx` (unmatched URLs).
+- `app/ui-2/`: `layout.tsx` (own font, `noindex`, `.ui2` wrapper, loads `css/`), route files that only re-export the `(classic)` pages (content and views are shared, never copied), `css/` (`tokens.css`, `shell.css`, `content.css`, all scoped under `.ui2` and overriding `globals.css`). To change the second design, edit only these CSS files.
+- `components/AppLink.tsx`: `Link` that keeps internal links inside the design being browsed (adds `/ui-2` when the current path is under it). Use it instead of `next/link` for internal links in shared components. `SiteChrome` is the shared shell (skip link, header, main, footer, cookie notice).
 - `content/` page text, verbatim from the live site: `pages/` (one module per page group), `home.ts`, `blog-posts.ts`, `blog-body.ts` (parser for `blog/*.txt`), `blog-template.ts`.
 - `components/` UI (`fixes/` = typo gallery): shell (`SiteHeader`, `SiteFooter`, `CookieNotice`), shared (`PageHero`, `Blocks`, `Modules`, `MailForm`, `ContactCard`, `Facades`, `Countdown`), `home/`, `pages/` (one view per page kind), `blog/`.
 - `lib/` `site.ts` (contact data, nav, slugs) and `text.tsx` (text renderer that marks typo fixes).

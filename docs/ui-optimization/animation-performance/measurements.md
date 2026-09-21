@@ -92,6 +92,8 @@ Non-composited animations flagged: 1 before, 0 after. Mobile LCP element is the 
 
 ## Still open
 
+Tracked in `../backlog.md` (UIO-01, UIO-02, UIO-06, UIO-09):
+
 - Software-raster jank: shrink or drop the glow, or a smaller lit window. Needs a visual decision.
 - Mobile LCP 4.4 s: the cookie notice mounts after hydration and is the largest text. Rendering it in the server HTML (hidden by an inline script for returning visitors) should move LCP to the hero.
 - Fonts are 358 KB of the 546 KB page (6 woff2 files). The italic Source Serif is only used for a tagline and the quote.

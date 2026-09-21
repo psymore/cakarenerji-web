@@ -1,0 +1,110 @@
+/* ui-2: floating header, inset footer and cookie card, round logo and social buttons. */
+
+/* ---------- Header ---------- */
+.ui2 .site-header {
+  top: 12px;
+  margin: 12px var(--inset) 0;
+  border: 1px solid rgb(255 255 255 / 0.8);
+  border-radius: var(--r-lg);
+  background: rgb(255 255 255 / 0.8);
+  backdrop-filter: blur(18px) saturate(1.4);
+  box-shadow: var(--shadow-md);
+}
+@media (min-width: 1080px) {
+  .ui2 .site-header {
+    border-radius: var(--pill);
+  }
+}
+.ui2 .site-header__bar {
+  width: auto;
+  margin-inline: 0;
+  padding-inline: 18px 12px;
+  height: 64px;
+}
+
+.ui2 .logo svg rect {
+  rx: 11px;
+}
+.ui2 .logo__word {
+  font-stretch: 100%;
+}
+
+.ui2 .nav__list {
+  gap: 2px;
+}
+.ui2 .nav__link,
+.ui2 .nav__btn {
+  padding: 10px 11px;
+  border-radius: var(--pill);
+  font-stretch: 100%;
+}
+.ui2 .nav__link:hover,
+.ui2 .nav__btn:hover,
+.ui2 .nav__item[data-open="true"] .nav__btn {
+  background: var(--frost);
+}
+.ui2 .nav__link[aria-current="page"] {
+  background: rgb(217 160 60 / 0.2);
+  color: var(--panel);
+}
+.ui2 .nav__menu {
+  top: calc(100% + 14px);
+  padding: 10px;
+  border: 0;
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-md);
+}
+.ui2 .nav__menu a {
+  border-radius: var(--r-sm);
+}
+.ui2 .nav__menu a:hover,
+.ui2 .nav__menu a[aria-current="page"] {
+  background: var(--frost);
+}
+
+.ui2 .burger {
+  border: 0;
+  border-radius: var(--pill);
+  background: var(--frost);
+}
+
+/* Drawer sits inside the rounded header, so it rounds its own bottom corners. */
+.ui2 .drawer {
+  max-height: calc(100svh - var(--header-h) - 12px);
+  background: transparent;
+  border-radius: 0 0 var(--r-lg) var(--r-lg);
+}
+.ui2 .drawer a {
+  border-bottom-color: var(--line);
+}
+
+/* ---------- Footer ---------- */
+.ui2 .site-footer {
+  margin: 16px var(--inset);
+  border-top: 0;
+  border-radius: var(--r-xl);
+}
+.ui2 .site-footer .logo svg rect {
+  rx: 11px;
+}
+.ui2 .site-footer__legal {
+  border-top-color: rgb(201 214 220 / 0.2);
+}
+.ui2 .social a {
+  border-radius: 50%;
+}
+
+/* ---------- Cookie notice ---------- */
+.ui2 .cookie {
+  inset: auto 16px 16px;
+  max-width: 980px;
+  margin-inline: auto;
+  border-top: 0;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+}
+.ui2 .cookie__inner {
+  padding-inline: 12px 12px;
+  width: auto;
+  margin-inline: 18px;
+}

@@ -1,0 +1,55 @@
+/*
+  Second design ("ui-2"): same markup and content as the main design, softer shapes.
+  Everything is scoped under .ui2 and overrides the tokens/classes of app/globals.css.
+  Shape scale: 14 / 22 / 32 / 40 px and pill. Panels float on a tinted page instead of full-bleed bands.
+*/
+
+body:has(.ui2) {
+  background: #e8eff2;
+}
+
+.ui2 {
+  /* The wrapper adds no box: body stays the flex column and main keeps flex: 1. */
+  display: contents;
+
+  --frost: #e8eff2;
+  --line: #d3dee3;
+  --radius: 16px;
+  --r-sm: 14px;
+  --r-md: 22px;
+  --r-lg: 32px;
+  --r-xl: 40px;
+  --pill: 999px;
+
+  /* Side inset shared by header, panels and footer: gutter on phones, centred 1400px column on wide screens. */
+  --inset: max(var(--gutter), calc((100% - 1400px) / 2));
+
+  --card: #fff; /* card on the tinted page; panels on white swap it, see .section--white */
+  --field: #f3f7f9;
+
+  --shadow-sm: 0 1px 2px rgb(18 48 63 / 0.06), 0 10px 24px -14px rgb(18 48 63 / 0.22);
+  --shadow-md: 0 2px 6px rgb(18 48 63 / 0.06), 0 26px 48px -26px rgb(18 48 63 / 0.34);
+
+  --header-h: 88px; /* 64px bar + 12px above and below; feeds sticky offsets and drawer height */
+
+  --font-display: var(--font-jakarta), system-ui, sans-serif;
+  --font-body: var(--font-jakarta), system-ui, sans-serif;
+  font-family: var(--font-body);
+}
+
+.ui2 h1,
+.ui2 h2,
+.ui2 h3,
+.ui2 h4 {
+  font-stretch: 100%;
+  letter-spacing: -0.025em;
+}
+
+/* Shapes on focus follow the element instead of the global 2px. */
+.ui2 :focus-visible {
+  border-radius: var(--r-sm);
+}
+
+.ui2 .skip {
+  border-radius: var(--pill);
+}

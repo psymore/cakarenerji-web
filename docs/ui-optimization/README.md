@@ -5,6 +5,7 @@ Measured audits of the V0 build (2026-09-21), and what was changed because of th
 | Folder | What is in it |
 |---|---|
 | `ui-ux/` | Full UI/UX audit (`audit-2026-09-21.md`): findings, status, remaining work. `scripts/` holds the axe and keyboard checks. |
+| `backlog.md` | Everything the audits found and V0 did not fix, with evidence, proposed fix, priority and status (UIO-01…12). |
 | `animation-performance/` | Hero light and sunrise measurements (`measurements.md`): before, after, method, caveats. `scripts/` holds the harnesses. |
 
 ## Running the scripts

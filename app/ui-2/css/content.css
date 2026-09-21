@@ -1,0 +1,186 @@
+/* ui-2: content. Bands become floating panels, rows/posts/modules become cards, controls are pills. */
+
+/* ---------- Panels ---------- */
+.ui2 .hero,
+.ui2 .page-hero {
+  margin: 12px var(--inset) 0;
+  border-radius: var(--r-xl);
+}
+.ui2 .hero__inner {
+  padding-block: 72px clamp(48px, 9vh, 96px);
+}
+.ui2 .hero h1 {
+  font-stretch: 100%;
+  letter-spacing: -0.045em;
+}
+.ui2 .hero__tag {
+  font-style: normal;
+  font-weight: 500;
+}
+.ui2 .hero__phone,
+.ui2 .page-hero .meta {
+  font-stretch: 100%;
+}
+
+.ui2 .section--white,
+.ui2 .section--dark,
+.ui2 .band {
+  margin: 16px var(--inset);
+  border-radius: var(--r-xl);
+}
+.ui2 .section--white {
+  --card: var(--frost);
+  --field: #fff;
+  box-shadow: var(--shadow-sm);
+}
+.ui2 .section--dark {
+  --field: #fff;
+}
+.ui2 .band h2,
+.ui2 .quote h2,
+.ui2 .big-h,
+.ui2 .page-hero h1 {
+  font-stretch: 100%;
+}
+
+/* Plain sections hold cards straight on the page: align them with the panel edges. */
+.ui2 .section:not(.section--white, .section--dark) > .wrap {
+  width: min(1400px, 100% - 2 * var(--gutter));
+}
+
+/* ---------- Buttons ---------- */
+.ui2 .btn {
+  padding-inline: 1.8em;
+  border-radius: var(--pill);
+  font-stretch: 100%;
+  box-shadow: 0 10px 22px -12px rgb(217 160 60 / 0.9);
+}
+.ui2 .btn--ghost,
+.ui2 .cta-row .btn {
+  box-shadow: none;
+}
+.ui2 .textlink {
+  font-stretch: 100%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ui2 .btn {
+    transition:
+      background 0.18s,
+      color 0.18s,
+      border-color 0.18s,
+      transform 0.18s;
+  }
+  .ui2 .btn:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* ---------- Cards ---------- */
+.ui2 .rows,
+.ui2 .posts {
+  display: grid;
+  gap: 16px;
+  border-top: 0;
+}
+.ui2 .row,
+.ui2 .post-row,
+.ui2 .module,
+.ui2 .form,
+.ui2 .contact-card {
+  border: 0;
+  border-radius: var(--r-lg);
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+}
+.ui2 .row,
+.ui2 .post-row {
+  padding: clamp(24px, 3.5vw, 40px);
+}
+.ui2 .form,
+.ui2 .contact-card {
+  padding: clamp(22px, 3vw, 36px);
+}
+.ui2 .row__head h2,
+.ui2 .row__head h3,
+.ui2 .post-row h2,
+.ui2 .faq .row__head h2 {
+  font-stretch: 100%;
+}
+
+.ui2 .modules {
+  gap: 16px;
+  border: 0;
+  background: none;
+}
+.ui2 .module {
+  margin: 0;
+}
+.ui2 .module::after {
+  top: 22px;
+  right: 22px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--sun);
+}
+
+.ui2 .ticks li::before,
+.ui2 .article ul li::before {
+  border-radius: 50%;
+}
+.ui2 .ticks li::before {
+  background: linear-gradient(var(--sun), var(--sun)) center / 5px 5px no-repeat;
+  background-clip: padding-box;
+}
+.ui2 .chips li {
+  border-color: var(--line);
+  background: var(--card);
+}
+
+.ui2 .info-list li {
+  grid-template-columns: 36px 1fr;
+}
+.ui2 .info-list svg {
+  width: 36px;
+  height: 36px;
+  margin-top: 0;
+  padding: 8px;
+  border-radius: 50%;
+  background: rgb(217 160 60 / 0.18);
+}
+.ui2 .info-list strong {
+  font-stretch: 100%;
+}
+
+.ui2 .frame {
+  border: 0;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.ui2 .countdown div {
+  border-radius: var(--r-md);
+}
+
+/* ---------- Forms ---------- */
+.ui2 .field label {
+  font-stretch: 100%;
+}
+.ui2 .field input:not([type="file"]),
+.ui2 .field textarea {
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--field);
+}
+.ui2 .field textarea {
+  border-radius: var(--r-md);
+}
+.ui2 .newsletter .field input {
+  border-radius: var(--pill);
+  padding-inline: 20px;
+}
+.ui2 .file label {
+  border: 1.5px dashed var(--slate);
+  border-radius: var(--pill);
+  background: var(--field);
+}

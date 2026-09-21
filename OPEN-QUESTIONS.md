@@ -64,6 +64,10 @@ Bunları iş sahibi olmadan, kendi Chrome'undan alınan veri ya da yeni sitedeki
 | U-16 | Blog yazı sayfalarındaki "Share this post:" hangi paylaşım düğmelerini gösteriyordu? | Bir yazı sayfasının ekran görüntüsü. | BLG-02 | open | |
 | U-17 | SSS ve landing sayfalarındaki listelerin öğe sınırları ve Hakkımızda kalite politikasının yapısı (liste mi, paragraf mı). | İlgili sayfaların `outerHTML` ya da ekran görüntüsü. | Bölüm 10 | open | |
 | U-18 | Blog yazı gövdelerinde başka yazım hatası var mı? V0'da yalnızca iki net hata düzeltildi. | `content/blog/*.txt` dosyalarını satır satır oku (U-09 ile birlikte). | BLG-04 | open | |
+| U-19 | Ana sayfa mouse ışığı GPU hızlandırması kapalı makinelerde saniyede 48-50 kareye düşüyor. Işığın parıltısı küçülsün ya da kalksın mı? | Görsel karar. Sonra `docs/ui-optimization/animation-performance/scripts/perf2.js` `sw` moduyla yeniden ölç. | `docs/ui-optimization/backlog.md` UIO-01 | open | |
+| U-20 | Çerez bildirimi mobilde LCP öğesi (4,4 sn) ve ekranın dörtte birini kaplıyor. Sunucu HTML'inde gösterilip mobilde küçültülsün mü? Metin ve "reddet" seçeneği Q-23'e bağlı. | Karar ver, sonra Lighthouse mobil ile yeniden ölç. | UIO-02, UIO-03, Q-23 | open | |
+| U-21 | Mobil hero'nun üst yarısı boş. Hero mobilde kısalsın mı, ızgara büyüsün mü? | Tasarım kararı, iki seçeneğin ekran görüntüsü. | UIO-04 | open | |
+| U-22 | Ölçülmeyenler: kaydırırken yapışkan başlığın bulanıklığı, gerçek telefonlar, ekran okuyucu. Yükleme ölçümü (`load.js`) kendi rAF döngüsüyle şişiyor. | Kullanıcı gerçek cihazda ve kendi Chrome'unda ölçer. | UIO-09 | open | |
 
 ## C. Cevaplananlar
 

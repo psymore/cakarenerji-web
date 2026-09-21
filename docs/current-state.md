@@ -23,7 +23,7 @@ Details: `docs/ui-optimization/`.
 
 - **Owner answers** to `OPEN-QUESTIONS.md` (Q-01…Q-25). Business facts stay placeholders until answered.
 - **Decision D-07:** does the gallery ship with the public deploy or come out at launch.
-- **UI/UX left:** empty upper half of the mobile hero, mobile cookie notice size and its effect on mobile LCP (4.4 s), blog post body heading levels, software-raster jank of the hero light. See `docs/ui-optimization/ui-ux/audit-2026-09-21.md` and `animation-performance/measurements.md`.
+- **UI/UX left (backlog `docs/ui-optimization/backlog.md`, UIO-01…12):** empty upper half of the mobile hero, mobile cookie notice size and its effect on mobile LCP (4.4 s), blog post body heading levels, software-raster jank of the hero light. See `docs/ui-optimization/ui-ux/audit-2026-09-21.md` and `animation-performance/measurements.md`.
 - **Not done:** deploy (Vercel or GitHub), a git remote (the repo has none), owner review.
 
 ## Where things are recorded

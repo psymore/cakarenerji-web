@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/components/AppLink";
 import { FacebookIcon, InstagramIcon, LinkedInIcon, WhatsAppIcon } from "@/components/icons";
 import { Logo } from "@/components/Logo";
 import { productLinks, site } from "@/lib/site";

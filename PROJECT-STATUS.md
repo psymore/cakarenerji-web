@@ -12,11 +12,13 @@ Phase 1 done: live-site audit (`AUDIT.md`, `docs/audit/`). V0 frontend built for
 - 23 live pages crawled into `audit-data/` (git-ignored); runtime text, cookie banner and menu captured by hand in `audit-data/scraper/`.
 - Audit written and split into `docs/audit/`.
 - V0 frontend: all 23 routes with the live site's exact slugs (incl. U+0307), verbatim text, new visual design. What was moved, filled or changed: `docs/route-must-haves.md` (change log).
+- Second design with rounder shapes under `/ui-2/…` (same routes, same content, `noindex`); see `README.md` Architecture.
 
 ## Not done
 
 - Remaining measurements and open owner questions (`OPEN-QUESTIONS.md`).
 - Form backend, real logo and photos, legal texts, deployment.
+- UI/UX and performance leftovers from the 2026-09-21 audits: `docs/ui-optimization/backlog.md` (mobile LCP 4.4 s from the cookie notice, empty mobile hero, hero light without GPU, blog heading order, fonts, unmeasured items).
 
 ## Constraints
 

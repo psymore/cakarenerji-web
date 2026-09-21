@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { Link, stripBase } from "@/components/AppLink";
 import { Chevron, CloseIcon, MenuIcon } from "@/components/icons";
 import { Logo } from "@/components/Logo";
 import { navGroups, navHome, navTail, type NavItem } from "@/lib/site";
@@ -18,15 +18,16 @@ function Item({ item, path }: { item: NavItem; path: string }) {
 }
 
 export function SiteHeader() {
-  const path = usePathname();
+  const rawPath = usePathname();
+  const path = stripBase(rawPath);
   const [open, setOpen] = useState<string | null>(null);
   const [drawer, setDrawer] = useState(false);
   const navRef = useRef<HTMLElement>(null);
 
   // Close menus on navigation (state reset during render, not in an effect).
-  const [lastPath, setLastPath] = useState(path);
-  if (lastPath !== path) {
-    setLastPath(path);
+  const [lastPath, setLastPath] = useState(rawPath);
+  if (lastPath !== rawPath) {
+    setLastPath(rawPath);
     setOpen(null);
     setDrawer(false);
   }

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/components/AppLink";
 
 /** Typographic stand-in for the live logo image (original not available, TD-01 / Q-14). */
 export function Logo() {

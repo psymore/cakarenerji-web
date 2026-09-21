@@ -97,6 +97,8 @@ Suspected typos **not** touched (ambiguous, your call): `birikimdir..` and the u
 
 Every move, fill, translation, merge or removal of a must-have block goes here. Nothing was **moved to another route** and no empty page was **filled with new content**.
 
+**Second design at `/ui-2`:** every route above is also served under `/ui-2/…` (same slugs, same content, same must-have blocks, another visual style: rounded, floating panels). No block was added, moved, filled or removed. `/ui-2` pages are `noindex`. Internal links stay inside the design being browsed.
+
 **Typo fixes (shown in the gallery at `/duzeltmeler`)**
 
 | Route | Live text | Fixed text | Issue |

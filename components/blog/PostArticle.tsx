@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/components/AppLink";
 import { BlogTemplate } from "@/components/blog/BlogTemplate";
 import { RecentPosts } from "@/components/blog/RecentPosts";
 import { PageHero } from "@/components/PageHero";

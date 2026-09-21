@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
-import { CookieNotice } from "@/components/CookieNotice";
-import { SiteFooter } from "@/components/SiteFooter";
-import { SiteHeader } from "@/components/SiteHeader";
 
 const archivo = Archivo({
   variable: "--font-archivo",
@@ -26,17 +23,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="tr-TR" className={`${archivo.variable} ${sourceSerif.variable}`}>
-      <body>
-        <a className="skip" href="#main">
-          İçeriğe geç
-        </a>
-        <SiteHeader />
-        <main id="main" tabIndex={-1}>
-          {children}
-        </main>
-        <SiteFooter />
-        <CookieNotice />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
