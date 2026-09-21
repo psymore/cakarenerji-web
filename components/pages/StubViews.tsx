@@ -20,6 +20,7 @@ export function StubView({ page }: { page: StubPage }) {
               label="Fotoğraflar"
               prevLabel="Önceki fotoğraf"
               nextLabel="Sonraki fotoğraf"
+              dotLabel="Fotoğraf"
               dwell={4500}
               items={page.gallery.photos.map((id) => (
                 <Photo key={id} id={id} sizes="(min-width: 1240px) 1200px, 100vw" widths={[767, 1023, 1535]} />

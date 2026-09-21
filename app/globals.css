@@ -1439,13 +1439,23 @@ main:focus {
   margin-bottom: 22px;
   border: 1px solid var(--line);
 }
-/* Looping carousel (see LoopCarousel): a scroll-snap track, scrolled by swipe, arrows or by itself.
-   Each use sets how many items are in view (--per-view) and the gap. */
+/* Looping carousel (see LoopCarousel): a scroll-snap track with the active slide centred and its
+   neighbours peeking. Sizes use the carousel's own width (cqw), so they follow the frame, not the screen. */
+.loop {
+  container-type: inline-size;
+  --slide: 0.82; /* slide width as a fraction of the frame */
+  --gap: 12px;
+}
+@media (min-width: 900px) {
+  .loop {
+    --slide: 0.72;
+    --gap: 18px;
+  }
+}
 .loop__list {
-  --per-view: 1;
-  --gap: 16px;
   display: flex;
   gap: var(--gap);
+  padding-inline: calc(100cqw * (1 - var(--slide)) / 2);
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
@@ -1455,16 +1465,19 @@ main:focus {
   display: none;
 }
 .loop__list > li {
-  flex: 0 0 calc((100% - (var(--per-view) - 1) * var(--gap)) / var(--per-view));
-  scroll-snap-align: start;
+  flex: 0 0 calc(100cqw * var(--slide));
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
 }
 .loop__nav {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-top: 20px;
+  gap: 14px;
+  margin-top: 22px;
 }
-.loop__nav button {
+.loop__arrow {
+  flex: none;
   width: 44px;
   height: 44px;
   display: grid;
@@ -1474,37 +1487,144 @@ main:focus {
   background: var(--paper);
   color: var(--strong);
   cursor: pointer;
-  transition: border-color 0.15s;
+  transition: border-color 0.15s, background 0.15s;
 }
-.loop__nav button:hover {
+.loop__arrow:hover {
   border-color: var(--sun);
 }
-.loop__nav svg {
+.loop__arrow svg {
   width: 20px;
   height: 20px;
 }
+/* Dots: small pills, the active one is long and fills over the dwell time. The fill is the timer (see LoopCarousel). */
+.loop__dots {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  max-width: 70%;
+}
+.loop__dot {
+  position: relative;
+  width: 24px; /* touch target; the visible pill is the ::before */
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.loop__dot::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--strong) 22%, transparent);
+  transition: inset 0.3s, background 0.3s;
+}
+.loop__dot[aria-current="true"] {
+  width: 44px;
+}
+.loop__dot[aria-current="true"]::before {
+  inset: 8px 2px;
+  overflow: hidden;
+}
+.loop__dot[aria-current="true"]::after {
+  content: "";
+  position: absolute;
+  inset: 8px 2px;
+  border-radius: 8px;
+  background: var(--sun);
+  transform-origin: left;
+  animation: loop-fill var(--dwell) linear forwards;
+}
+.loop[data-held="true"] .loop__dot[aria-current="true"]::after {
+  animation-play-state: paused;
+}
+@keyframes loop-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .loop__dot[aria-current="true"]::after {
+    animation: none;
+    transform: none;
+  }
+}
 
-/* Photo slider (one wide picture at a time, e.g. Arazi GES Konstrüksiyon). */
+/* Photo slider (Arazi GES, Solar Carport). On phones it runs edge to edge so the neighbours peek in. */
+.slider {
+  width: 100%;
+}
+@media (min-width: 900px) {
+  .slider {
+    width: min(1200px, 100% - 2 * var(--gutter));
+  }
+}
 .slider .loop {
   /* tall frames (4:3) would fill the screen on desktop: cap the height at about 78% of it */
-  max-width: calc(78svh * var(--ratio));
+  max-width: calc(78svh * var(--ratio) / var(--slide) + 2 * var(--gap));
   margin-inline: auto;
-}
-.slider .loop__list {
-  --gap: 0px;
 }
 .slider .loop__list > li {
   aspect-ratio: var(--ratio);
+  overflow: hidden;
+  border-radius: 10px;
   background: var(--frost);
-}
-.slider--contain .loop__list img {
-  object-fit: contain;
 }
 .slider .loop__list img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.slider--contain .loop__list img {
+  object-fit: contain;
+}
+/* Driven by each slide's position in the track (scroll-driven animations, no JS): the slide in front is
+   full size, the neighbours are smaller and dimmer, and the picture drifts against the frame.
+   Browsers without support show plain slides. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .slider .loop__list > li {
+      animation: slide-focus linear both;
+      animation-timeline: view(inline);
+    }
+    .slider .loop__list img {
+      scale: 1.16;
+      animation: slide-drift linear both;
+      animation-timeline: view(inline);
+    }
+    @keyframes slide-focus {
+      0%,
+      100% {
+        opacity: 0.5;
+        scale: 0.93;
+      }
+      50% {
+        opacity: 1;
+        scale: 1;
+      }
+    }
+    @keyframes slide-drift {
+      from {
+        translate: -7% 0;
+      }
+      to {
+        translate: 7% 0;
+      }
+    }
+  }
+}
+
+/* Whole pictures (mixed portrait and landscape) are not zoomed or shifted. */
+.slider--contain .loop__list img {
+  scale: 1;
+  animation: none;
 }
 
 /* Photo strip under the hero. */
