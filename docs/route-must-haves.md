@@ -31,7 +31,7 @@ Issue IDs refer to `AUDIT.md` / `docs/audit/`. Owner questions (Q-xx) are in `OP
 | `/proje-danışmanlığı` | h1 "Proje, Mühendislik ve Yatırım Danışmanlığı" and its four lists: Proje, Mühendislik, Saha Geliştirme, Proje Uygulama EPC. "Ayrıntıları öğrenin". |
 | `/hammadde-ve-ürün-tedariği` | h1 "Ürün Tedariği ve Planlama", "Ürün Tedariği" text, "Ayrıntıları öğrenin". |
 | `/arazi-ges-konstrüksiyon` | Heading "Arazi Tipi Güneş Enerji Santrali Taşıyıcı Sistemleri" only. |
-| `/solar-carport-sistemleri` | Heading "Solar Carport Sistemleri" only. |
+| `/solar-carport-sistemleri` | Heading "Solar Carport Sistemleri" and a photo slider of 9 pictures (live page checked 2026-09-22; the saved 2023 HTML had the heading only). |
 | `/çatı-ges-konstrüksiyon` | "Deneyimsel Çözümler Yakında...", "Zaman daraldığı için hazırlıkları elden bırakmıyoruz. Kaçırmayın!", countdown (Gün/Saat/Dakika/Saniye). |
 | `/projeleri̇mi̇z-1` | Heading "TEKLİF AL", form "Bize mesaj atın!": Şirket Adı, E-posta*, Mesaj, "Gönder". Visit text, WhatsApp button, company name, address, e-mail, phone. No projects (as on live). |
 | `/blog-1` | Heading "Çakar Enerji'den Faydalı İçerikler". 7 post entries: date, title, excerpt, "Continue Reading" link. Then the live template's EPC block. |
@@ -43,7 +43,7 @@ Musts on the live site whose content is missing or unknown. They are **not** inv
 
 | Block | Route | Status in V0 |
 |---|---|---|
-| Arazi GES / Solar Carport content | 2 stub routes | Heading only, as on live (BRK-01, Q-06). |
+| Arazi GES / Solar Carport content | 2 routes | Heading and photo slider, no other text, as on the live pages in 2026 (BRK-01, Q-06). Slider layout is a guess (U-26). |
 | Countdown target | `/çatı-ges-konstrüksiyon` | Approximated: capture said 131 d 02:44:26 at 2026-09-21 16:15:53 +03:00, so target = 2027-01-30 19:00:19 +03:00. Real date and purpose unknown (BRK-02, Q-07, U-03). |
 | Map location | `/` | Embeds a Google Map searched by the address text (street without the disputed number); the live embed's exact place is not recorded. Loaded on click. |
 | Vimeo video | `/` | URL is known (`player.vimeo.com/video/738877978`, from `audit-data/pages/00_home.html`). What it shows is unknown (Q-15). Embedded lazily (poster visible without a click). Its position on the live page is unknown (placed beside the HAKKIMIZDA teaser). |
@@ -170,3 +170,6 @@ Every move, fill, translation, merge or removal of a must-have block goes here. 
 | `/` | Partner logos | The five logos (Huawei, CW Enerji, Tommatech, Fimer, the fifth) are a carousel: 4 in view on desktop, 3 / 2.4 / 1.6 on narrower screens, turns by itself every 3.4 s, endless loop, swipe or arrow buttons. Stops while the pointer, focus or a finger is on it, when off screen or the tab is hidden, and never turns with reduced motion. Two arrow buttons (aria-labels "Önceki logolar" / "Sonraki logolar") and a region label "İş ortakları" are new UI text; the list is rendered three times for the loop (extra copies are `aria-hidden`) | Requested. Logos, order and alt texts unchanged. |
 | `/` | Photo strip | A wide photo strip (the green field) sits between the hero and Hakkımızda, as on the live page. Decorative (`aria-hidden`), no text. The live strip also carries a second "İLETİŞİM KURUN" button; not added (the hero already has it) | Requested. Until the sunset hero photo is known (U-25) the hero uses the same field photo, so the two show the same picture cropped differently. |
 | all routes | Header on narrow phones | The logo shrinks instead of pushing the buttons off the screen (checked 320 / 360 / 390 px, no horizontal scroll); on phones the settings panel spans the header width (it used to hang off the left edge below about 370 px); buttons 42 px below 400 px | Requested fix. Same in UI 2. |
+| `/arazi-ges-konstrüksiyon` | Photo slider | Added the live page's 9 pictures (`1.jpg` … `9.jpg`) as a self-turning, swipeable slider under the heading (same component as the partner logos, arrows labelled "Önceki fotoğraf" / "Sonraki fotoğraf", region "Fotoğraflar"). Order follows the picture list from the live page; the pictures have no alt text on live and none here | Requested. Was heading only, from the 2023 saved HTML. The list held 9 files, the owner's phone screenshots showed about 6 in the loop, so a few may belong to another breakpoint (U-26). |
+| `/solar-carport-sistemleri` | Photo slider | Added the live page's 9 `pexels-kindelmedia-…` pictures as the same slider, whole pictures shown (one is portrait) | Requested. Layout on live (slider or grid) not seen (U-26). |
+| `/` | Partner carousel | Same look, now built on the shared `LoopCarousel` component | Refactor, no visible change. |

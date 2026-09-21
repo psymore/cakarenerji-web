@@ -42,6 +42,26 @@ export const photos = {
   tomma: "2_tommatech_0.jpg",
   fimer: "7_fimer_0.jpg",
   partner5: "indir.png",
+  // Arazi GES Konstrüksiyon: photo slider, in the order the files appear on the live page
+  frame4: "4.jpg",
+  frame1: "1.jpg",
+  frame2: "2.jpg",
+  frame7: "7.jpg",
+  frame8: "8.jpg",
+  frame9: "9.jpg",
+  frame6: "6.jpg",
+  frame5: "5.jpg",
+  frame3: "3.jpg",
+  // Solar Carport Sistemleri: photo slider, in the order the files appear on the live page (the 5th is portrait)
+  carport1: "pexels-kindelmedia-9800005-9e282fd.jpg",
+  carport2: "pexels-kindelmedia-9799757-29c97e2.jpg",
+  carport3: "pexels-kindelmedia-9800008.jpg",
+  carport4: "pexels-kindelmedia-9799767-8680332.jpg",
+  carport5: "pexels-kindelmedia-9799756-7d6794d.jpg",
+  carport6: "pexels-kindelmedia-9799763-acf19d5.jpg",
+  carport7: "pexels-kindelmedia-9799759-f11980c.jpg",
+  carport8: "pexels-kindelmedia-9799728-5cc57ad.jpg",
+  carport9: "pexels-kindelmedia-9799764-12cdbf0.jpg",
   // Brand
   logo: "%C3%87AKAR%20ENERJ%C4%B0-0001.png",
 } as const;

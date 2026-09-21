@@ -30,7 +30,9 @@ export type FormPage = {
   title: string;
   h1: Txt;
 };
-export type StubPage = { kind: "stub"; title: string; h1: Txt };
+/** Photo slider of a live page: `ratio` is width / height of the frame; `contain` shows whole pictures (mixed portrait and landscape). */
+export type Gallery = { photos: PhotoId[]; ratio: number; contain?: boolean };
+export type StubPage = { kind: "stub"; title: string; h1: Txt; gallery?: Gallery };
 export type SoonPage = { kind: "soon"; title: string; h1: Txt; text: Txt; photo?: PhotoId };
 export type PageDef = DocPage | FaqPage | FormPage | StubPage | SoonPage;
 
