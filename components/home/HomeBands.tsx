@@ -33,3 +33,12 @@ export function HomeQuote() {
     </section>
   );
 }
+
+/** Field photo under the hero, as on the live page (a wide photo strip; the live one carries a second contact button). */
+export function HomePhotoBand() {
+  return (
+    <div className="photo-band" aria-hidden>
+      <Photo id="home" widths={[767, 1023, 1535, 1920]} />
+    </div>
+  );
+}

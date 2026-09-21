@@ -117,3 +117,14 @@
   width: auto;
   margin-inline: 18px;
 }
+
+/* Phones: the settings panel spans the floating header. */
+@media (max-width: 639px) {
+  .ui2 .settings-menu__panel {
+    left: 4px;
+    right: 4px;
+  }
+  .ui2 .site-header__bar {
+    padding-inline: 12px 8px;
+  }
+}

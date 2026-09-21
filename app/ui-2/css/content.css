@@ -185,3 +185,9 @@
   border-radius: var(--pill);
   background: var(--field);
 }
+
+/* Photo strip under the hero floats like the other panels. */
+.ui2 .photo-band {
+  margin: 16px var(--inset) 0;
+  border-radius: var(--r-xl);
+}

@@ -1,5 +1,5 @@
 import { HomeAbout } from "@/components/home/HomeAbout";
-import { HomeSlogan, HomeQuote } from "@/components/home/HomeBands";
+import { HomePhotoBand, HomeSlogan, HomeQuote } from "@/components/home/HomeBands";
 import { HomeCompany } from "@/components/home/HomeCompany";
 import { HomeContact } from "@/components/home/HomeContact";
 import { HomeHero } from "@/components/home/HomeHero";
@@ -13,6 +13,7 @@ export default function Home() {
   return (
     <>
       <HomeHero />
+      <HomePhotoBand />
       <HomeAbout />
       <HomeCompany />
       <HomePartners />
