@@ -39,3 +39,11 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 1. Update the docs the change touches (`docs/route-must-haves.md` change log, `docs/images.md`, `docs/current-state.md`, `OPEN-QUESTIONS.md`, `README.md`, ...). Create a doc if it should exist and does not. If it was already updated or created for this change, leave it: do not redo it.
 2. Commit on the current topic branch (message ends with the Co-Authored-By line from the session), fast-forward merge it into `main`, push `main` (a push deploys the site through GitHub Actions), delete the merged branch.
 3. Report the pushed commit range. Without "CMP" (or an explicit merge/push request), only commit on the topic branch and leave `main` and the remote alone.
+
+# CRIT
+
+"CRIT" is the user's marker, said before the work starts, that the change may be looked at by the business owner as soon as it is on `main`, so the user must test it first. For a CRIT task:
+
+- Do the work and commit on the topic branch as usual, and do the docs update of CMP.
+- **Do not merge into `main` and do not push. Ask the user first**, even when the user says or has said "CMP" for it, and wait for a clear yes after they have tested. Say which branch holds the work and how to run it.
+- CRIT applies only to the task it was said for. Tasks without it follow the CMP rule above (merge and push without asking).
