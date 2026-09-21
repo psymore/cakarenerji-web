@@ -1,0 +1,102 @@
+/* Typo gallery (/duzeltmeler): review page, not part of the live site's routes. */
+
+/* Faded red box-shadow border: frames the live site's wrong text. */
+.typo-fixed {
+  border-radius: 0.25rem;
+  box-shadow:
+    0 0 0 2px rgb(var(--typo) / 0.35),
+    0 0 8px 2px rgb(var(--typo) / 0.2);
+}
+
+.gallery {
+  display: grid;
+  gap: 24px;
+}
+@media (min-width: 900px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.fix {
+  padding: 22px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--panel);
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+.section--white .fix {
+  background: var(--frost);
+}
+.fix__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  font-family: var(--font-display);
+  font-stretch: 108%;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.fix__head a {
+  text-decoration: none;
+}
+.fix__head a:hover {
+  color: var(--sun-deep);
+  text-decoration: underline;
+}
+.fix__issue {
+  font-weight: 600;
+  color: var(--sun-deep);
+}
+.fix__pair {
+  display: grid;
+  gap: 16px;
+}
+@media (min-width: 620px) {
+  .fix__pair {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.fix figure {
+  margin: 0;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+.fix figcaption {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+.fix figure p {
+  padding: 12px 14px;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+.fix mark {
+  background: none;
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+.fix figure:first-child mark {
+  text-decoration-style: wavy;
+  text-decoration-color: rgb(var(--typo));
+}
+.fix--kept {
+  border-top-color: var(--line);
+}
+.fix--kept .fix__kept-text {
+  border: 1px dashed var(--slate);
+  border-radius: 0.25rem;
+}
+.fix__why {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}

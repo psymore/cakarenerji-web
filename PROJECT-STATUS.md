@@ -4,21 +4,22 @@ Source site: https://cakarenerji.com/ (GoDaddy Website Builder, no source code a
 
 ## Current phase
 
-Phase 1: live-site audit written (`AUDIT.md`). Waiting on the owner's answers (AUDIT.md section 19, Phase 0) before content work starts.
+Phase 1 done: live-site audit (`AUDIT.md`, `docs/audit/`). V0 frontend built for all 23 routes (redesign only, live content verbatim). Waiting on the owner's answers (`OPEN-QUESTIONS.md`) before any content decision; deployment (Vercel or GitHub) not done.
 
 ## Done
 
-- Next.js 16, React 19, TypeScript, Tailwind 4 and ESLint set up. `npm run dev` and `npm run build` work. Dev and start ports are 3100.
+- Next.js 16, React 19, TypeScript, Tailwind 4 and ESLint set up. `npm run dev`, `npm run lint` and `npm run build` work. Dev and start ports are 3100.
 - 23 live pages crawled into `audit-data/` (git-ignored); runtime text, cookie banner and menu captured by hand in `audit-data/scraper/`.
-- `AUDIT.md` written.
+- Audit written and split into `docs/audit/`.
+- V0 frontend: all 23 routes with the live site's exact slugs (incl. U+0307), verbatim text, new visual design. What was moved, filled or changed: `docs/route-must-haves.md` (change log).
 
 ## Not done
 
-- Remaining measurements (some responsive widths, keyboard/focus, runtime contrast); listed in `AUDIT.md` section 1.
-- Design system, components, routes, content
+- Remaining measurements and open owner questions (`OPEN-QUESTIONS.md`).
+- Form backend, real logo and photos, legal texts, deployment.
 
 ## Constraints
 
 - Do not invent business information.
 - Preserve existing content, functionality and routes (percent-encoded slugs exactly as on the live site).
-- Further data collection from the live site is done by the user in their own Chrome, never by automated crawling (see `AGENTS.md`).
+- Further data collection from the live site is done by the user in their own Chrome, never by automated crawling (see `AGENTS.md`, `docs/scraping.md`).

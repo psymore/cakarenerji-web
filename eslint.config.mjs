@@ -14,6 +14,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Raw audit data and one-off scripts (git-ignored).
     "audit-data/**",
+    // Measurement harnesses (run by hand, not part of the app).
+    "docs/ui-optimization/**/scripts/**",
   ]),
 ]);
 
