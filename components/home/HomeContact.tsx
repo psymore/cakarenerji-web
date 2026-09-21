@@ -1,5 +1,5 @@
 import { ContactCard } from "@/components/ContactCard";
-import { MapFacade } from "@/components/Facades";
+import { MapEmbed } from "@/components/Embeds";
 import { home } from "@/content/home";
 import { mapsQuery } from "@/lib/site";
 
@@ -14,7 +14,7 @@ export function HomeContact() {
         <div className="split" style={{ alignItems: "start" }}>
           <ContactCard name="Çakar Enerji A.Ş" hours />
           <div className="stack">
-            <MapFacade />
+            <MapEmbed />
             <a className="textlink" href={directions} target="_blank" rel="noopener noreferrer">
               {home.directions}
             </a>

@@ -72,6 +72,7 @@ Bunları iş sahibi olmadan, kendi Chrome'undan alınan veri ya da yeni sitedeki
 | U-22 | Ölçülmeyenler: kaydırırken yapışkan başlığın bulanıklığı, gerçek telefonlar, ekran okuyucu. Yükleme ölçümü (`load.js`) kendi rAF döngüsüyle şişiyor. | Kullanıcı gerçek cihazda ve kendi Chrome'unda ölçer. | UIO-09 | open | |
 | U-23 | Tema paleti görselindeki bazı hex kodları okunaksız (ör. "#001FSB", "3CC6633", "#FSEADD", Chocolate Brown'un kodu yok; yeşil ve monokrom temalar sonradan kaldırıldı). Gözle okunan değerler doğru mu? Yazı renkleri (ink, slate, sun-deep) görseldeki tonlardan türetildi ve AA kontrastına göre ayarlandı. | Palet görselinin kaynağından (tasarımcı) kodları al ya da mevcut okumayı onayla. Okumalar `docs/themes.md`'de. | | open | |
 | U-24 | Canlı sitedeki görsellerin tam yerleşimi: hangi görsel hangi bölümde. V0 yerleşimi kayıtlı HTML'deki sıraya göre yaptı. Blog şablonundaki "Saha Tipi" görseli (`solar-panels…`) ve Hakkımızda kartlarının görsel eşleşmesi kesin değil. Ayrıca fotoğraflı hero'nun 8 temada ve mobilde okunaklılığı, ana sayfa hero'sunda fotoğrafın maliyeti (U-19) gözle doğrulanmadı. | Kendi Chrome'unda V0'ı 8 temada ve 390 px'te aç, canlı sitedeki ilgili sayfalarla yan yana bak. | VIS-01 | open | |
+| U-25 | Canlı sitede ana sayfanın ilk görseli (gün batımı, tepede panel dizisi) hangi dosya? Kayıtlı HTML'de yok; V0 hero'da şimdilik yeşil tarla (`pexels-tom-fisk`) duruyor. | Kendi Chrome'unda görsele sağ tık > Görseli yeni sekmede aç (telefonda uzun bas), adres çubuğundaki URL'yi ver. | VIS-01 | open | |
 
 ## C. Cevaplananlar
 

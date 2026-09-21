@@ -46,7 +46,7 @@ Musts on the live site whose content is missing or unknown. They are **not** inv
 | Arazi GES / Solar Carport content | 2 stub routes | Heading only, as on live (BRK-01, Q-06). |
 | Countdown target | `/çatı-ges-konstrüksiyon` | Approximated: capture said 131 d 02:44:26 at 2026-09-21 16:15:53 +03:00, so target = 2027-01-30 19:00:19 +03:00. Real date and purpose unknown (BRK-02, Q-07, U-03). |
 | Map location | `/` | Embeds a Google Map searched by the address text (street without the disputed number); the live embed's exact place is not recorded. Loaded on click. |
-| Vimeo video | `/` | URL is known (`player.vimeo.com/video/738877978`, from `audit-data/pages/00_home.html`). What it shows is unknown (Q-15). Loaded on click. Its position on the live page is unknown (placed beside the HAKKIMIZDA teaser). |
+| Vimeo video | `/` | URL is known (`player.vimeo.com/video/738877978`, from `audit-data/pages/00_home.html`). What it shows is unknown (Q-15). Embedded lazily (poster visible without a click). Its position on the live page is unknown (placed beside the HAKKIMIZDA teaser). |
 | "Başvuru Formu (doc)" | `/i̇nsan-kaynakları` | Linked to the live site's CDN URL (`img1.wsimg.com/blobby/...`). The file is not in the repo; needs to be self-hosted (TD-01). |
 | Form backend | 4 forms | Submitting opens the visitor's mail client addressed to info@cakarenerji.com (stand-in, CNV-02, Q-10). File uploads cannot be attached this way. |
 | reCAPTCHA note | forms | Not shown: reCAPTCHA is not wired, so the sentence would be false. |
@@ -146,14 +146,14 @@ Every move, fill, translation, merge or removal of a must-have block goes here. 
 | forms | Mesaj field | Visible label "Mesaj" (live: placeholder only) | A11Y-08. |
 | posts | "Share this post:" | Not reproduced | Buttons unknown. |
 | `/hakkımızda-1` | Quality policy | Rendered as a list | Run-on sentence in saved text. |
-| `/` | Video, map | Click-to-load facades | PRF-01. |
+| `/` | Video, map | Both embeds are in the page and load lazily when they scroll near (Vimeo poster and Google map visible without a click) | Requested: they looked empty. Undoes the click-to-load default of PRF-01 (Maps ~600 KB and Vimeo ~490 KB now load on scroll). |
 | unknown routes | 404 page | New minimal page "Sayfa bulunamadı" + "Ana Sayfa" | Live shows the GoDaddy default (UX-03). New copy. |
 | `/çatı-ges-konstrüksiyon` | Countdown | Live ticking to an approximated target | See above. |
 | hr | Download | Points at the live CDN file | See above. |
 | all routes | Skip link | Added "İçeriğe geç", visible only on keyboard focus | A11y. New UI string, no page content changed. |
 | all routes | Heading levels | Contact card and HR `h4` → `h3`; mobile menu group labels `h2` → `p`; cookie title `h4` → `strong`. Look unchanged | Heading order (axe). |
 | all routes | Logo `aria-label` | "ÇAKAR ENERJİ, Ana Sayfa" (was "Çakar Enerji A.Ş, Ana Sayfa") | Label-in-name. |
-| `/` | Hero light | Same look, moved by transform instead of CSS variables | Performance, see `docs/ui-optimization/`. |
+| `/` | Hero light | Glow only (the lit cell grid is removed), moved by transform; position eased in one rAF loop, touch driven by touchmove so it glides on phones | Performance, see `docs/ui-optimization/`. |
 | all routes | Design switch | Section "Tasarım" of the header settings menu: "Ana tasarım" / "İkinci tasarım (UI 2)", keeps the current page. Replaces the separate "1 / 2" switch | Requested. New UI control, no page content changed. |
 | all routes | Gallery link | Section "Yazım düzeltmeleri" of the header settings menu, link "Hata galerisi" to `/duzeltmeler` (`/ui-2/duzeltmeler` inside the second design). Replaces the separate gallery icon | Requested. Reverses the earlier "unlinked" default (D-07). |
 | `/ui-2/duzeltmeler` | New route | The typo gallery in the second design (re-export of the classic page) | Keeps the visitor in the design being browsed. |
@@ -164,3 +164,6 @@ Every move, fill, translation, merge or removal of a must-have block goes here. 
 | all routes | Settings menu | The palette button became a settings button (sliders icon). One popover with three titled sections: Tema (8 themes), Tasarım (main / UI 2), Yazım düzeltmeleri (gallery). Same on mobile, so the mobile menu no longer has extra tools | Requested. No page content changed. |
 | `/` | Hero photo, small screens | Removed the `9D437085…` image shown at 450 px and below; the hero uses `pexels-tom-fisk` at every width, as the live CSS does | Requested (wrong first image on mobile). Unverified against the live page by eye, see `docs/images.md`. |
 | `/duzeltmeler` | Card labels | Each card shows a short plain-language mistake name ("Yazım hatası", "Parantez içinde fazladan boşluk", …) instead of the internal ids (YAZ-02 …); short intro line above "Olduğu gibi bırakılanlar"; those cards got shorter, clearer texts | Requested. Review page only. |
+| `/` | Hero grid | The cell grid (dim and lit) behind the hero title is removed; the photo is shown as it is in the upper part, the panel colour only fades in at the bottom behind the text | Requested. Decorative only, no content. |
+| `/` | Slogan band | "Enerji daha güçlü atılımlar için birikimdir.." now sits on its live photo (`9D437085…`, lit bulb with energy icons) under a panel-colour veil, white text, as in the live mobile screenshot | Requested (looks like the live site). Was a plain gold band. |
+| `/` | Hero photo | Still `pexels-tom-fisk`, the green field. The live mobile hero shows a sunset over a hill with panels; that file is not in the saved HTML, so it could not be used yet | Waiting for the file name (U-25). The field is a lower band on the live page. |

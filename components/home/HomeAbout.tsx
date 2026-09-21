@@ -1,5 +1,5 @@
 import { Link } from "@/components/AppLink";
-import { VideoFacade } from "@/components/Facades";
+import { VideoEmbed } from "@/components/Embeds";
 import { home } from "@/content/home";
 import { href, slugs } from "@/lib/site";
 
@@ -17,7 +17,7 @@ export function HomeAbout() {
             </Link>
           </p>
         </div>
-        <VideoFacade />
+        <VideoEmbed />
       </div>
     </section>
   );

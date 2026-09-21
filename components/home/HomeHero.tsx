@@ -7,105 +7,113 @@ import { site } from "@/lib/site";
 import { T } from "@/lib/text";
 
 const GLOW = 420; // glow radius, px (matches .hero__glow width / 2)
-const SPOT = 300; // lit-grid radius, px (matches .hero__lit width / 2)
-const REST = [0.76, 0.62] as const; // where the sun settles, fractions of the hero
-const START = [0.08, 1.12] as const; // where it rises from
-const RISE_MS = 3200;
-const RISE_EASE = "cubic-bezier(0.22, 0.8, 0.24, 1)";
+const REST = [0.76, 0.3] as const; // where the sun settles, fractions of the hero
+const START = [0.9, 1.15] as const; // where it rises from
+const RISE_TAU = 0.9; // seconds: how slowly the sun climbs to REST on load
+const FOLLOW_TAU = 0.14; // seconds: how softly it trails the pointer or finger
 
 /**
- * Home hero: a PV cell field lit by a "sun" that rises once, then follows the pointer.
- * The sun only ever moves by transform (compositor), never by changing a mask or CSS variable,
- * so pointer moves cost no style recalc and no repaint. The lit grid is a fixed-size masked
- * window that moves with the sun while its inner plane moves the opposite way, so the grid stays put.
+ * Home hero: the live photo with a warm "sun" glow that rises once, then glides to wherever the
+ * pointer or finger is. The glow only moves by transform. The position is eased in one rAF loop
+ * (exponential smoothing), so sparse touch events still give a smooth glide, and the loop sleeps
+ * when the glow has arrived. Touch uses touchmove because pointermove stops once a scroll starts;
+ * the glow stays under the finger while the page scrolls.
  */
 export function HomeHero() {
   const hero = useRef<HTMLElement>(null);
   const glow = useRef<HTMLDivElement>(null);
-  const spot = useRef<HTMLDivElement>(null);
-  const plane = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const root = hero.current;
     const g = glow.current;
-    const s = spot.current;
-    const p = plane.current;
-    if (!root || !g || !s || !p) return;
+    if (!root || !g) return;
 
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
     let w = 0;
     let h = 0;
-    let fx: number = REST[0];
-    let fy: number = REST[1];
-    let rise: Animation[] = [];
+    const measure = () => {
+      const r = root.getBoundingClientRect();
+      w = r.width;
+      h = r.height;
+    };
+    measure();
+
+    // Current and target position (px inside the hero); `input` holds viewport coords while the visitor points.
+    let cx = (reduced ? REST[0] : START[0]) * w;
+    let cy = (reduced ? REST[1] : START[1]) * h;
+    let tx = REST[0] * w;
+    let ty = REST[1] * h;
+    let input: { x: number; y: number } | null = null;
+    let tau = reduced ? 0 : RISE_TAU;
     let frame = 0;
+    let last = 0;
 
-    const tf = (x: number, y: number) => ({
-      glow: `translate3d(${x - GLOW}px,${y - GLOW}px,0)`,
-      spot: `translate3d(${x - SPOT}px,${y - SPOT}px,0)`,
-      plane: `translate3d(${SPOT - x}px,${SPOT - y}px,0)`,
-    });
-    const place = (x: number, y: number) => {
-      const t = tf(x, y);
-      g.style.transform = t.glow;
-      s.style.transform = t.spot;
-      p.style.transform = t.plane;
+    const draw = () => g.style.setProperty("transform", `translate3d(${cx - GLOW}px,${cy - GLOW}px,0)`);
+    const step = (now: number) => {
+      const dt = Math.min((now - last) / 1000, 0.05);
+      last = now;
+      if (input) {
+        const b = root.getBoundingClientRect();
+        tx = input.x - b.left;
+        ty = input.y - b.top;
+      }
+      const k = tau > 0 ? 1 - Math.exp(-dt / tau) : 1;
+      cx += (tx - cx) * k;
+      cy += (ty - cy) * k;
+      draw();
+      // Keep running while following a finger (it may scroll under it) or while still gliding.
+      frame = input || Math.hypot(tx - cx, ty - cy) > 0.5 ? requestAnimationFrame(step) : 0;
     };
-    const settle = () => place(fx * w, fy * h);
-    const stopRise = () => {
-      rise.forEach((a) => a.cancel());
-      rise = [];
+    const wake = () => {
+      if (frame) return;
+      last = performance.now();
+      frame = requestAnimationFrame(step);
     };
 
-    const ro = new ResizeObserver(([entry]) => {
-      w = entry.contentRect.width;
-      h = entry.contentRect.height;
-      p.style.width = `${w}px`;
-      p.style.height = `${h}px`;
-      if (!rise.length) settle();
+    const point = (x: number, y: number) => {
+      input = { x, y };
+      tau = FOLLOW_TAU;
+      wake();
+    };
+    const release = () => {
+      input = null;
+      wake();
+    };
+    const onPointer = (e: PointerEvent) => {
+      if (e.pointerType !== "touch") point(e.clientX, e.clientY);
+    };
+    const onTouch = (e: TouchEvent) => {
+      const t = e.touches[0];
+      if (t) point(t.clientX, t.clientY);
+    };
+
+    const ro = new ResizeObserver(() => {
+      measure();
+      if (!input) {
+        tx = REST[0] * w;
+        ty = REST[1] * h;
+        wake();
+      }
     });
     ro.observe(root);
-    const r = root.getBoundingClientRect();
-    w = r.width;
-    h = r.height;
-    p.style.width = `${w}px`;
-    p.style.height = `${h}px`;
 
-    settle();
+    draw();
     root.classList.add("is-armed");
+    wake();
 
-    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      const from = tf(START[0] * w, START[1] * h);
-      const to = tf(REST[0] * w, REST[1] * h);
-      const opts = { duration: RISE_MS, easing: RISE_EASE, fill: "forwards" as const };
-      rise = [
-        g.animate([{ transform: from.glow }, { transform: to.glow }], opts),
-        s.animate([{ transform: from.spot }, { transform: to.spot }], opts),
-        p.animate([{ transform: from.plane }, { transform: to.plane }], opts),
-      ];
-      rise[0].finished.then(stopRise, () => {});
-    }
-
-    let px = 0;
-    let py = 0;
-    const flush = () => {
-      frame = 0;
-      place(px, py);
-    };
-    const onMove = (e: PointerEvent) => {
-      const b = root.getBoundingClientRect();
-      px = e.clientX - b.left;
-      py = e.clientY - b.top;
-      fx = px / b.width;
-      fy = py / b.height;
-      if (rise.length) stopRise();
-      if (!frame) frame = requestAnimationFrame(flush);
-    };
-    root.addEventListener("pointermove", onMove, { passive: true });
+    root.addEventListener("pointermove", onPointer, { passive: true });
+    root.addEventListener("touchstart", onTouch, { passive: true });
+    root.addEventListener("touchmove", onTouch, { passive: true });
+    root.addEventListener("touchend", release, { passive: true });
+    root.addEventListener("touchcancel", release, { passive: true });
 
     return () => {
-      root.removeEventListener("pointermove", onMove);
+      root.removeEventListener("pointermove", onPointer);
+      root.removeEventListener("touchstart", onTouch);
+      root.removeEventListener("touchmove", onTouch);
+      root.removeEventListener("touchend", release);
+      root.removeEventListener("touchcancel", release);
       cancelAnimationFrame(frame);
-      stopRise();
       ro.disconnect();
     };
   }, []);
@@ -125,14 +133,6 @@ export function HomeHero() {
         />
       </div>
       <div className="hero__glow" ref={glow} aria-hidden />
-      <div className="hero__field" aria-hidden>
-        <div className="plane plane--dim" />
-        <div className="hero__lit" ref={spot}>
-          <div className="hero__lit-plane" ref={plane}>
-            <div className="plane plane--lit" />
-          </div>
-        </div>
-      </div>
       <div className="wrap hero__inner">
         <h1>ÇAKAR ENERJİ</h1>
         <p className="hero__tag">{site.tagline}</p>

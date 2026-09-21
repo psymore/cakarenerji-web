@@ -60,11 +60,6 @@ export const UploadIcon = (p: P) => (
     <path d="M12 16V4m0 0-4 4m4-4 4 4M5 20h14" />
   </svg>
 );
-export const PlayIcon = (p: P) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden {...p}>
-    <path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5Z" />
-  </svg>
-);
 export const WhatsAppIcon = (p: P) => (
   // Standard WhatsApp glyph, centred in its box; the wider viewBox gives it the same padding as the other icons.
   <svg viewBox="-1.5 -1.5 27 27" fill="currentColor" aria-hidden {...p}>

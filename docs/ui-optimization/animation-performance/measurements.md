@@ -1,5 +1,7 @@
 # Hero animation performance (2026-09-21)
 
+> Later change (2026-09-21): the lit grid window and its counter-moving plane described below were removed; only the glow remains, eased in one rAF loop and driven by touchmove on touch. The numbers below describe the old build and were not re-measured.
+
 Question: does the pointer-following light on the home hero run badly on desktop?
 
 ## Answer

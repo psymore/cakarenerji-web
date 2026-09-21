@@ -34,6 +34,8 @@ export const photos = {
   sulama: "pexels-red-zeppelin-4148472.jpg",
   gida: "pexels-pixabay-414837%20(1).jpg",
   yenilenebilir: "pexels-pixabay-459728.jpg",
+  // Home: slogan band background ("Enerji daha güçlü atılımlar için birikimdir")
+  slogan: "9D437085-C24C-4DAC-85EC-5805D8CC94E1_L0_001.jpg",
   // Home: partner logos
   huawei: "10_huawei_0.jpg",
   cw: "1_cw-enerji_0.jpg",

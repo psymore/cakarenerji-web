@@ -519,32 +519,7 @@ main:focus {
   }
 }
 
-/* ---------- PV field (cell grid) ---------- */
-.plane {
-  position: absolute;
-  inset: -60% -30% -5%;
-  transform-origin: 50% 100%;
-  transform: perspective(700px) rotateX(60deg);
-  background-image:
-    linear-gradient(to right, var(--c1) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--c1) 1px, transparent 1px),
-    linear-gradient(to right, var(--c2) 2px, transparent 2px),
-    linear-gradient(to bottom, var(--c2) 2px, transparent 2px);
-  background-size:
-    36px 36px,
-    36px 36px,
-    144px 144px,
-    144px 144px;
-}
-.plane--dim {
-  --c1: color-mix(in srgb, var(--silver) 9%, transparent);
-  --c2: color-mix(in srgb, var(--silver) 22%, transparent);
-}
-.plane--lit {
-  --c1: color-mix(in srgb, var(--sun) 42%, transparent);
-  --c2: color-mix(in srgb, var(--sun-hover) 95%, transparent);
-}
-
+/* ---------- Flat cell grid (dark bands and page heroes) ---------- */
 .flat-cells {
   background-image:
     linear-gradient(to right, color-mix(in srgb, var(--silver) 8%, transparent) 1px, transparent 1px),
@@ -571,46 +546,21 @@ main:focus {
     var(--panel);
   color: #fff;
 }
-.hero__field {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 4%, #000 40%);
-  mask-image: linear-gradient(to bottom, transparent 4%, #000 40%);
-}
-/* Sun: fixed-size layers moved by transform only (see HomeHero). Hidden until armed, then placed by JS. */
-.hero__lit,
+/* Sun: one fixed-size layer moved by transform only (see HomeHero). Hidden until armed, then placed by JS. */
 .hero__glow {
   position: absolute;
   top: 0;
   left: 0;
-  opacity: 0;
-  will-change: transform;
-  pointer-events: none;
-}
-.hero.is-armed .hero__lit,
-.hero.is-armed .hero__glow {
-  opacity: 1;
-}
-.hero__lit {
-  width: 600px;
-  height: 600px;
-  overflow: hidden;
-  -webkit-mask-image: radial-gradient(circle closest-side, #000 0%, transparent 100%);
-  mask-image: radial-gradient(circle closest-side, #000 0%, transparent 100%);
-}
-.hero__lit-plane {
-  position: absolute;
-  top: 0;
-  left: 0;
-  will-change: transform;
-}
-.hero__glow {
   z-index: -1;
   width: 840px;
   height: 840px;
-  background: radial-gradient(circle closest-side, color-mix(in srgb, var(--sun) 30%, transparent), transparent 70%);
+  opacity: 0;
+  will-change: transform;
+  pointer-events: none;
+  background: radial-gradient(circle closest-side, color-mix(in srgb, var(--sun) 38%, transparent), transparent 70%);
+}
+.hero.is-armed .hero__glow {
+  opacity: 1;
 }
 .hero__inner {
   padding-block: calc(var(--header-h) + 40px) clamp(48px, 9vh, 96px);
@@ -711,7 +661,7 @@ main:focus {
   margin-top: 20px;
 }
 
-/* ---------- Video / map facades ---------- */
+/* ---------- Video / map embeds ---------- */
 .frame {
   position: relative;
   aspect-ratio: 16 / 10;
@@ -726,47 +676,6 @@ main:focus {
   height: 100%;
   border: 0;
 }
-.frame__btn {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  border: 0;
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-  background:
-    radial-gradient(80% 80% at 70% 20%, color-mix(in srgb, var(--sun) 25%, transparent), transparent 60%),
-    var(--panel);
-  color: #fff;
-}
-.frame__btn.flat-cells {
-  background-color: var(--panel);
-}
-.frame__btn .play {
-  width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  background: var(--sun);
-  color: var(--on-sun);
-  display: grid;
-  place-items: center;
-  transition: transform 0.2s;
-}
-.frame__btn:hover .play {
-  transform: scale(1.08);
-}
-.frame__btn svg {
-  width: 34px;
-  height: 34px;
-}
-.frame__btn--map .play {
-  width: 64px;
-  height: 64px;
-}
-.frame__btn--map svg {
-  width: 28px;
-  height: 28px;
-}
 
 /* ---------- Slogan band ---------- */
 .band {
@@ -780,6 +689,31 @@ main:focus {
   font-stretch: 122%;
   font-weight: 800;
   line-height: 1.08;
+}
+
+/* Slogan band with its live photo behind; the panel colour keeps the white text readable in every theme. */
+.band--photo {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--panel);
+  color: #fff;
+}
+.band__photo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.band__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.band__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--panel) 55%, transparent);
 }
 
 /* ---------- Quote CTA ---------- */
@@ -1436,13 +1370,15 @@ main:focus {
   position: absolute;
   inset: 0;
 }
-/* The panel colour is laid over the photo so the white text stays readable in every theme. */
+/* Only the lower part carries the panel colour (white text sits there and it blends into the next band);
+   the upper part shows the live photo as it is, sunset included. */
 .hero__photo::after {
   background: linear-gradient(
     to top,
-    var(--panel) 2%,
-    color-mix(in srgb, var(--panel) 58%, transparent) 60%,
-    color-mix(in srgb, var(--panel) 40%, transparent)
+    var(--panel) 0%,
+    color-mix(in srgb, var(--panel) 72%, transparent) 32%,
+    color-mix(in srgb, var(--panel) 20%, transparent) 62%,
+    transparent 82%
   );
 }
 .page-hero__photo::after {
