@@ -113,6 +113,7 @@ export function HomeHero() {
   return (
     <section className="hero" ref={hero}>
       <div className="hero__photo">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={photoUrl("home", 1535)}
           srcSet={photoSrcSet("home")}
