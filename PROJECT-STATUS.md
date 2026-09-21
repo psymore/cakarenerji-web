@@ -4,7 +4,7 @@ Source site: https://cakarenerji.com/ (GoDaddy Website Builder, no source code a
 
 ## Current phase
 
-Phase 1 done: live-site audit (`AUDIT.md`, `docs/audit/`). V0 frontend built for all 23 routes (redesign only, live content verbatim). Waiting on the owner's answers (`OPEN-QUESTIONS.md`) before any content decision; deployment (Vercel or GitHub) not done.
+Phase 1 done: live-site audit (`AUDIT.md`, `docs/audit/`). V0 frontend built for all 23 routes (redesign only, live content verbatim). Waiting on the owner's answers (`OPEN-QUESTIONS.md`) before any content decision; deployed as a GitHub Pages preview (`docs/deploy.md`).
 
 ## Done
 
@@ -20,7 +20,7 @@ Phase 1 done: live-site audit (`AUDIT.md`, `docs/audit/`). V0 frontend built for
 ## Not done
 
 - Remaining measurements and open owner questions (`OPEN-QUESTIONS.md`).
-- Form backend, legal texts, deployment. Images are hotlinked from the live site: self-host them, get the original logo and real project photos (`docs/images.md`, Q-13, Q-14, Q-27).
+- Form backend, legal texts. Images are hotlinked from the live site: self-host them, get the original logo and real project photos (`docs/images.md`, Q-13, Q-14, Q-27).
 - UI/UX and performance leftovers from the 2026-09-21 audits: `docs/ui-optimization/backlog.md` (mobile LCP 4.4 s from the cookie notice, empty mobile hero, hero light without GPU, blog heading order, fonts, unmeasured items).
 
 ## Constraints

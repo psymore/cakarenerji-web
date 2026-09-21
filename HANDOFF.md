@@ -21,4 +21,4 @@ Tarih: 2026-09-21. Hedef site: https://cakarenerji.com/
 1. Faz 0: iş sahibinden gereken bilgiler (`docs/audit/07-plan-ve-riskler.md`, bölüm 19). Cevaplar `OPEN-QUESTIONS.md`'ye işlenir.
 2. Kalan ölçümler (`OPEN-QUESTIONS.md` bölüm B, U-02…U-10): kullanıcı kendi Chrome'undan alır.
 3. UI/UX ve performans kalanları: `docs/ui-optimization/backlog.md` (UIO-01…12), sorular `OPEN-QUESTIONS.md` U-19…U-22 ve Q-25.
-4. Cevaplar geldikçe `lib/site.ts` (iletişim bilgileri) ve içerik dosyalarını (`content/`) güncelle. Deploy (Vercel ya da GitHub) henüz yapılmadı.
+4. Cevaplar geldikçe `lib/site.ts` (iletişim bilgileri) ve içerik dosyalarını (`content/`) güncelle. Deploy GitHub Pages ile yapıldı (`docs/deploy.md`).
