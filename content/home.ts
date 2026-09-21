@@ -1,3 +1,4 @@
+import type { PhotoId } from "@/lib/images";
 import type { Txt } from "@/lib/text";
 
 /** Home page text (verbatim, first HTML of the live site). */
@@ -25,4 +26,12 @@ export const home = {
   quoteAfter: ".",
   contactH2: "Bize Ulaşın",
   directions: "Bilgi edinin",
+  /** Logo strip of the live home page. The live images have no alt text; names come from the file names (Q-26). */
+  partners: [
+    { id: "huawei", alt: "Huawei" },
+    { id: "cw", alt: "CW Enerji" },
+    { id: "tomma", alt: "Tommatech" },
+    { id: "fimer", alt: "Fimer" },
+    { id: "partner5", alt: "" },
+  ] as { id: PhotoId; alt: string }[],
 };

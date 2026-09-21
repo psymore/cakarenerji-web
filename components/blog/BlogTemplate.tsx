@@ -1,3 +1,4 @@
+import { Photo } from "@/components/Photo";
 import { blogTemplate } from "@/content/blog-template";
 import { T } from "@/lib/text";
 
@@ -28,6 +29,11 @@ export function BlogTemplate() {
                     {g.lead ? <p className="label" style={{ marginTop: 8 }}>{g.lead}</p> : null}
                   </div>
                   <div className="row__body">
+                    {g.photo ? (
+                      <div className="row__photo">
+                        <Photo id={g.photo} alt={g.photoAlt} sizes="(min-width: 900px) 60vw, 100vw" widths={[450, 767, 1023, 1535]} />
+                      </div>
+                    ) : null}
                     {g.paras?.map((p, k) => <T key={k} v={p} />)}
                     {g.list ? (
                       <>

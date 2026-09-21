@@ -114,6 +114,7 @@
 }
 .ui2 .module {
   margin: 0;
+  overflow: hidden;
 }
 .ui2 .module::after {
   top: 22px;

@@ -15,11 +15,12 @@ Phase 1 done: live-site audit (`AUDIT.md`, `docs/audit/`). V0 frontend built for
 - Second design with rounder shapes under `/ui-2/…` (same routes, same content, `noindex`); see `README.md` Architecture.
 - Dark theme (branch `feature/dark-theme`, merged): header toggle, saved choice, OS preference on first visit, both designs.
 - Theme picker (branch `feature/themes-palettes`): the toggle became a menu of 8 themes (original light and dark plus six palettes from the supplied sheet), both designs. See `docs/themes.md`.
+- Live-site images (branch `feature/live-images`): hero and page photos, Hakkımızda cards, blog template photos, home logo strip, footer logo, `og:image`. Hotlinked from the live host, not yet checked by eye. See `docs/images.md`.
 
 ## Not done
 
 - Remaining measurements and open owner questions (`OPEN-QUESTIONS.md`).
-- Form backend, real logo and photos, legal texts, deployment.
+- Form backend, legal texts, deployment. Images are hotlinked from the live site: self-host them, get the original logo and real project photos (`docs/images.md`, Q-13, Q-14, Q-27).
 - UI/UX and performance leftovers from the 2026-09-21 audits: `docs/ui-optimization/backlog.md` (mobile LCP 4.4 s from the cookie notice, empty mobile hero, hero light without GPU, blog heading order, fonts, unmeasured items).
 
 ## Constraints

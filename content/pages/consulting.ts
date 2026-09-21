@@ -8,6 +8,7 @@ export const consultingPages: Record<string, PageDef> = {
     title: "Proje Danışmanlığı | Çakar Enerji",
     h1: "Proje, Mühendislik ve Yatırım Danışmanlığı",
     layout: "facts",
+    photo: "consulting",
     cta: { label: "Ayrıntıları öğrenin", href: "/" },
     sections: [
       {

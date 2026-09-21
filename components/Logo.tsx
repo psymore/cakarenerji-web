@@ -1,7 +1,18 @@
 import { Link } from "@/components/AppLink";
+import { Photo } from "@/components/Photo";
 
-/** Typographic stand-in for the live logo image (original not available, TD-01 / Q-14). */
-export function Logo() {
+/**
+ * Typographic stand-in for the live logo image (original not available, TD-01 / Q-14).
+ * `image` shows the live logo instead: it is light on transparent, so use it only on a dark surface.
+ */
+export function Logo({ image }: { image?: boolean }) {
+  if (image) {
+    return (
+      <Link href="/" className="logo logo--image" aria-label="ÇAKAR ENERJİ, Ana Sayfa">
+        <Photo id="logo" sizes="240px" widths={[274, 548, 822]} />
+      </Link>
+    );
+  }
   return (
     <Link href="/" className="logo" aria-label="ÇAKAR ENERJİ, Ana Sayfa">
       <svg viewBox="0 0 40 40" aria-hidden>
