@@ -157,3 +157,4 @@ Every move, fill, translation, merge or removal of a must-have block goes here. 
 | all routes | Design switch | Header switch "1 / 2" between the main design and `/ui-2`, keeps the current page. In the mobile menu below 640 px | Requested. New UI control, no page content changed. |
 | all routes | Gallery icon | Header icon linking to `/duzeltmeler` (`/ui-2/duzeltmeler` inside the second design). In the mobile menu below 640 px | Requested. Reverses the earlier "unlinked" default (D-07). |
 | `/ui-2/duzeltmeler` | New route | The typo gallery in the second design (re-export of the classic page) | Keeps the visitor in the design being browsed. |
+| all routes | Top menu (desktop) | Groups open on mouse hover and close when the mouse leaves; a click no longer pins them open. Touch and keyboard still toggle. Mobile menu unchanged | Requested fix. |

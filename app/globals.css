@@ -324,10 +324,14 @@ main:focus {
 .nav__item[data-open="true"] .nav__menu {
   display: block;
 }
-@media (hover: hover) {
-  .nav__item:hover .nav__menu {
-    display: block;
-  }
+/* Invisible bridge over the gap under the button, so moving the mouse down into the menu does not close it. */
+.nav__menu::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -16px;
+  height: 16px;
 }
 .nav__menu a {
   display: block;

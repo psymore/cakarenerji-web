@@ -66,13 +66,24 @@ export function SiteHeader() {
               </Link>
             </li>
             {navGroups.map((g) => (
-              <li className="nav__item" key={g.label} data-open={open === g.label}>
+              <li
+                className="nav__item"
+                key={g.label}
+                data-open={open === g.label}
+                // Mouse only: hover opens, leaving closes. Touch and keyboard keep tap/Enter toggling.
+                onPointerEnter={(e) => e.pointerType === "mouse" && setOpen(g.label)}
+                onPointerLeave={(e) => e.pointerType === "mouse" && setOpen(null)}
+              >
                 <button
                   type="button"
                   className="nav__btn"
                   aria-expanded={open === g.label}
                   aria-controls={`menu-${g.label}`}
-                  onClick={() => setOpen(open === g.label ? null : g.label)}
+                  onClick={(e) => {
+                    // A real mouse click lands on an already hover-opened menu: keep it open. Keyboard and touch toggle.
+                    const mouse = (e.nativeEvent as PointerEvent).pointerType === "mouse";
+                    setOpen(mouse || open !== g.label ? g.label : null);
+                  }}
                 >
                   {g.label}
                   <Chevron />
