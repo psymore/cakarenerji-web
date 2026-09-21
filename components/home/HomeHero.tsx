@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { Photo } from "@/components/Photo";
 import { home } from "@/content/home";
 import { photoSrcSet, photoUrl } from "@/lib/images";
 import { site } from "@/lib/site";
@@ -13,7 +14,8 @@ const RISE_TAU = 0.9; // seconds: how slowly the sun climbs to REST on load
 const FOLLOW_TAU = 0.14; // seconds: how softly it trails the pointer or finger
 
 /**
- * Home hero: the live photo with a warm "sun" glow that rises once, then glides to wherever the
+ * Home hero: two live photos stacked (sunset on top behind the name, field below behind the contact
+ * buttons), split by a shadowed divider under the tagline, with a warm "sun" glow that rises once, then glides to wherever the
  * pointer or finger is. The glow only moves by transform. The position is eased in one rAF loop
  * (exponential smoothing), so sparse touch events still give a smooth glide, and the loop sleeps
  * when the glow has arrived. Touch uses touchmove because pointermove stops once a scroll starts;
@@ -120,29 +122,39 @@ export function HomeHero() {
 
   return (
     <section className="hero" ref={hero}>
-      <div className="hero__photo">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={photoUrl("home", 1535)}
-          srcSet={photoSrcSet("home")}
-          sizes="max(100vw, 130svh)" /* on a phone the photo is cropped by height: ask for the width it is really drawn at */
-          alt=""
-          fetchPriority="high"
-          decoding="async"
-          referrerPolicy="no-referrer"
-        />
-      </div>
-      <div className="hero__glow" ref={glow} aria-hidden />
-      <div className="wrap hero__inner">
-        <h1>ÇAKAR ENERJİ</h1>
-        <p className="hero__tag">{site.tagline}</p>
-        <div className="hero__actions">
-          <a className="btn" href={`tel:${site.phone.tel}`}>
-            İletişim Kurun
-          </a>
-          <T as="a" v={home.heroPhone} className="hero__phone" href={`tel:${site.phone.tel}`} />
+      <div className="hero__top">
+        <div className="hero__photo">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={photoUrl("home", 1535)}
+            srcSet={photoSrcSet("home")}
+            sizes="100vw"
+            alt=""
+            fetchPriority="high"
+            decoding="async"
+            referrerPolicy="no-referrer"
+          />
+        </div>
+        <div className="wrap hero__inner">
+          <h1>ÇAKAR ENERJİ</h1>
+          <p className="hero__tag">{site.tagline}</p>
         </div>
       </div>
+      <div className="hero-divider" aria-hidden />
+      <div className="hero__bottom">
+        <div className="hero__photo hero__photo--field" aria-hidden>
+          <Photo id="homeField" sizes="100vw" widths={[767, 1023, 1535, 1920]} />
+        </div>
+        <div className="wrap hero__inner">
+          <div className="hero__actions">
+            <a className="btn" href={`tel:${site.phone.tel}`}>
+              İletişim Kurun
+            </a>
+            <T as="a" v={home.heroPhone} className="hero__phone" href={`tel:${site.phone.tel}`} />
+          </div>
+        </div>
+      </div>
+      <div className="hero__glow" ref={glow} aria-hidden />
     </section>
   );
 }

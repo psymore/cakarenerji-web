@@ -6,8 +6,8 @@
   margin: 12px var(--inset) 0;
   border-radius: var(--r-xl);
 }
-.ui2 .hero__inner {
-  padding-block: 72px clamp(48px, 9vh, 96px);
+.ui2 .hero__top .hero__inner {
+  padding-block: 72px 28px;
 }
 .ui2 .hero h1 {
   font-stretch: 100%;
@@ -186,11 +186,3 @@
   background: var(--field);
 }
 
-/* The field strip under the hero floats like the other panels; the gap replaces the divider. */
-.ui2 .hero-divider {
-  display: none;
-}
-.ui2 .hero-field {
-  margin: 16px var(--inset) 0;
-  border-radius: var(--r-xl);
-}

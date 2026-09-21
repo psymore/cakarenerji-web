@@ -570,9 +570,6 @@ main:focus {
 .hero {
   position: relative;
   isolation: isolate;
-  min-height: min(64svh, 600px); /* the field strip below shares the first screen */
-  display: grid;
-  align-items: end;
   overflow: hidden;
   background:
     radial-gradient(120% 80% at 80% 0%, var(--panel-2), transparent 60%),
@@ -595,8 +592,16 @@ main:focus {
 .hero.is-armed .hero__glow {
   opacity: 1;
 }
-.hero__inner {
-  padding-block: calc(var(--header-h) + 40px) clamp(48px, 9vh, 96px);
+/* Two stacked photo panes split under the tagline; each pane is as tall as its text, the photos are cropped, not scaled. */
+.hero__top,
+.hero__bottom {
+  position: relative;
+}
+.hero__top .hero__inner {
+  padding-block: calc(var(--header-h) + 40px) 28px;
+}
+.hero__bottom .hero__inner {
+  padding-block: 32px clamp(32px, 6vh, 56px);
 }
 .hero h1 {
   font-size: clamp(2.6rem, 8.2vw, 8.2rem);
@@ -1383,24 +1388,13 @@ main:focus {
   }
 }
 
-/* Second hero photo: the field, cropped (object-fit: cover, never squeezed), under a shadowed gold divider. */
+/* Divider between the two hero photos: a gold bar whose shadow falls on both. */
 .hero-divider {
   position: relative;
   z-index: 2;
   height: 6px;
   background: linear-gradient(90deg, var(--sun-deep), var(--sun), var(--sun-deep));
   box-shadow: 0 0 26px 8px rgb(6 10 18 / 0.5);
-}
-.hero-field {
-  height: clamp(170px, 24vw, 320px);
-  overflow: hidden;
-}
-.hero-field img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 70%;
 }
 
 /* ---------- Photos (the live site's images, linked from its CDN; see lib/images.ts) ---------- */
@@ -1417,11 +1411,12 @@ main:focus {
   height: 100%;
   object-fit: cover;
 }
-/* On a phone the landscape photo is cropped to a narrow window: aim it where the panel rows are (left of the sun). */
-@media (max-width: 639px) {
-  .hero__photo img {
-    object-position: 38% 50%;
-  }
+/* The photos fit the width and are cropped in height: show the lower part of the sunset (panel rows). */
+.hero__photo img {
+  object-position: 50% 70%;
+}
+.hero__photo--field img {
+  object-position: 50% 60%;
 }
 .hero__photo::after,
 .page-hero__photo::after {
@@ -1438,6 +1433,14 @@ main:focus {
     color-mix(in srgb, var(--panel) 72%, transparent) 32%,
     color-mix(in srgb, var(--panel) 20%, transparent) 62%,
     transparent 82%
+  );
+}
+/* The field is bright and carries the button and phone number: it gets an even panel veil. */
+.hero__photo--field::after {
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--panel) 62%, transparent),
+    color-mix(in srgb, var(--panel) 82%, transparent)
   );
 }
 .page-hero__photo::after {
