@@ -30,7 +30,7 @@ Issue IDs refer to `AUDIT.md` / `docs/audit/`. Owner questions (Q-xx) are in `OP
 | `/solar-otopark-uygulamalar` | h1 "Solar Otopark Uygulamaları", GENEL, AVANTAJLARI, UYGULAMA ALANLARI, "Ayrıntıları öğrenin". |
 | `/proje-danışmanlığı` | h1 "Proje, Mühendislik ve Yatırım Danışmanlığı" and its four lists: Proje, Mühendislik, Saha Geliştirme, Proje Uygulama EPC. "Ayrıntıları öğrenin". |
 | `/hammadde-ve-ürün-tedariği` | h1 "Ürün Tedariği ve Planlama", "Ürün Tedariği" text, "Ayrıntıları öğrenin". |
-| `/arazi-ges-konstrüksiyon` | Heading "Arazi Tipi Güneş Enerji Santrali Taşıyıcı Sistemleri" only. |
+| `/arazi-ges-konstrüksiyon` | Heading "Arazi Tipi Güneş Enerji Santrali Taşıyıcı Sistemleri" and a photo slider of 9 pictures (live page checked 2026-09-22). |
 | `/solar-carport-sistemleri` | Heading "Solar Carport Sistemleri" and a photo slider of 9 pictures (live page checked 2026-09-22; the saved 2023 HTML had the heading only). |
 | `/çatı-ges-konstrüksiyon` | "Deneyimsel Çözümler Yakında...", "Zaman daraldığı için hazırlıkları elden bırakmıyoruz. Kaçırmayın!", countdown (Gün/Saat/Dakika/Saniye). |
 | `/projeleri̇mi̇z-1` | Heading "TEKLİF AL", form "Bize mesaj atın!": Şirket Adı, E-posta*, Mesaj, "Gönder". Visit text, WhatsApp button, company name, address, e-mail, phone. No projects (as on live). |
