@@ -6,7 +6,7 @@ import { href, slugs } from "@/lib/site";
 export function HomeSlogan() {
   return (
     <section className="band band--photo">
-      <div className="band__photo" aria-hidden>
+      <div className="bg-photo" aria-hidden>
         <Photo id="slogan" />
       </div>
       <div className="wrap">
@@ -31,14 +31,5 @@ export function HomeQuote() {
         </p>
       </div>
     </section>
-  );
-}
-
-/** Field photo under the hero, as on the live page (a wide photo strip; the live one carries a second contact button). */
-export function HomePhotoBand() {
-  return (
-    <div className="photo-band" aria-hidden>
-      <Photo id="homeField" widths={[767, 1023, 1535, 1920]} />
-    </div>
   );
 }

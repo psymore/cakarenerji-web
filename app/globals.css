@@ -724,7 +724,7 @@ main:focus {
   line-height: 1.08;
 }
 
-/* Slogan band with its live photo behind; the panel colour keeps the white text readable in every theme. */
+/* Band or section with a live photo behind; the panel colour keeps the white text readable in every theme. */
 .band--photo {
   position: relative;
   isolation: isolate;
@@ -732,21 +732,28 @@ main:focus {
   background: var(--panel);
   color: #fff;
 }
-.band__photo {
+.bg-photo {
   position: absolute;
   inset: 0;
   z-index: -1;
 }
-.band__photo img {
+.bg-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.band__photo::after {
+.bg-photo::after {
   content: "";
   position: absolute;
   inset: 0;
   background: color-mix(in srgb, var(--panel) 55%, transparent);
+}
+/* Long text on a photo (home, "Çakar Enerji A.Ş."): a heavier veil than the slogan band's. */
+.section--photo {
+  overflow: hidden;
+}
+.section--photo .bg-photo::after {
+  background: color-mix(in srgb, var(--panel) 78%, transparent);
 }
 
 /* ---------- Quote CTA ---------- */
@@ -1397,10 +1404,10 @@ main:focus {
   height: 100%;
   object-fit: cover;
 }
-/* On a phone the landscape photo is cropped to a narrow window: aim it at the sun (right of the picture). */
+/* On a phone the landscape photo is cropped to a narrow window: aim it where the panel rows are (left of the sun). */
 @media (max-width: 639px) {
   .hero__photo img {
-    object-position: 80% 50%;
+    object-position: 38% 50%;
   }
 }
 .hero__photo::after,
@@ -1772,17 +1779,6 @@ html.has-lightbox {
   animation: none;
 }
 
-/* Photo strip under the hero. */
-.photo-band {
-  height: clamp(200px, 40vw, 460px);
-  overflow: hidden;
-}
-.photo-band img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 70%;
-}
 .logo--image img {
   display: block;
   height: 56px;
