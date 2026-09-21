@@ -21,7 +21,7 @@
   padding: 22px;
   background: var(--paper);
   border: 1px solid var(--line);
-  border-top: 3px solid var(--panel);
+  border-top: 3px solid var(--strong);
   display: grid;
   gap: 16px;
   align-content: start;

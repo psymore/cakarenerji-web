@@ -1,0 +1,29 @@
+/*
+  Colour themes. The light theme is the :root palette in globals.css; every other theme only overrides tokens here.
+  Selected with <html data-theme="…">, set before first paint by lib/theme.ts.
+  Roles: --frost page, --paper raised surface, --panel dark band (white text on it), --strong panel colour used as
+  text/border on the page surface, --sun gold accent, --sun-deep gold used as text on the page surface.
+*/
+
+/* Dark, correlated with the light palette: same deep panel blue, silver busbar lines and gold sun, night surfaces. */
+:root[data-theme="dark"] {
+  --panel: #143444;
+  --panel-2: #21506a;
+  --frost: #0b1920;
+  --paper: #11252e;
+  --line: #2b4553;
+  --slate: #7a95a1;
+  --ink: #e6eef1;
+  --ink-soft: #a8bcc4;
+  --sun-deep: #e6b458;
+
+  --on-sun: #12303f;
+  --strong: #dde8ec;
+  --strong-ink: #12303f;
+  --glass: rgb(11 25 32 / 0.92);
+  --glass-soft: rgb(11 25 32 / 0.78);
+  --glass-edge: rgb(255 255 255 / 0.08);
+  --shadow-menu: rgb(0 0 0 / 0.6);
+  --field-alt: #0c1b22;
+  color-scheme: dark;
+}
