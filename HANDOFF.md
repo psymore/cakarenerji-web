@@ -3,7 +3,7 @@
 Tarih: 2026-09-21. Hedef site: https://cakarenerji.com/
 
 ## Durum
-- **AUDIT.md yazılmadı.** Denetim verisinin büyük kısmı toplandı, ama site bu bilgisayardan erişilemez hale gelince dosya yazılmadan durduruldu.
+- **`AUDIT.md` yazıldı (2026-09-21, ikinci oturum).** Eksik veri, kullanıcının kendi Chrome'unda topladığı çalışma anı metin ve ekran görüntüleriyle tamamlandı (`audit-data/scraper/`). Bu dosyanın aşağıdaki bulguları, `AUDIT.md` bölüm 1'teki düzeltmelerle birlikte okunmalı: "© 2023" bulgusu yanlış (tarayıcıda 2026), Çatı GES geri sayımı çalışma anında `131 gün` gösteriyor (sıfırda takılı değil), çerez banner ölçümü `fixed` listesinde vardı.
 - Repo: `D:\CodeSpace\cakarenerji-web` (`C:\Users\4D\cakarenerji-web`'ten taşındı). Next.js 16.3.5, React 19, TypeScript, Tailwind 4 ve ESLint kurulu. `npm run dev` ve `npm run build` çalıştı.
 - Bu repo canlı sitenin kaynağı değil, kurulum iskeleti. Canlı site **GoDaddy Website Builder** ile yapılmış. Kanıt: `Server: DPS`, `wsimg.com` varlıkları, footer'da "Destekli GoDaddy Airo". Kaynak kod yok, tek referans canlı site.
 
