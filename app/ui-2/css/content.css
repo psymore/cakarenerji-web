@@ -186,4 +186,11 @@
   background: var(--field);
 }
 
-/* Photo strip under the hero floats like the other panels. */
+/* The field strip under the hero floats like the other panels; the gap replaces the divider. */
+.ui2 .hero-divider {
+  display: none;
+}
+.ui2 .hero-field {
+  margin: 16px var(--inset) 0;
+  border-radius: var(--r-xl);
+}
