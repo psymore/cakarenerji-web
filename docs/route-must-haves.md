@@ -51,7 +51,7 @@ Musts on the live site whose content is missing or unknown. They are **not** inv
 | Form backend | 4 forms | Submitting opens the visitor's mail client addressed to info@cakarenerji.com (stand-in, CNV-02, Q-10). File uploads cannot be attached this way. |
 | reCAPTCHA note | forms | Not shown: reCAPTCHA is not wired, so the sentence would be false. |
 | "Share this post:" | posts | Not reproduced: which share buttons existed is unknown. |
-| Logo | all | Header: typographic stand-in (the live logo is light on transparent and would vanish on the light header). Footer: the live logo image, linked from the live CDN. Originals not available (TD-01, Q-14). |
+| Logo | all | Header and footer: the live logo image, linked from the live CDN. On the light themes the header logo sits on a dark chip because the logo is light on transparent. The typographic stand-in is no longer used. Originals not available (TD-01, Q-14). |
 | 65×65 fixed element | all | Not reproduced, unidentified (RSP-05, Q-22). |
 
 ## Contradictions between sources (not resolved by the source; V0 default in brackets)
@@ -158,3 +158,6 @@ Every move, fill, translation, merge or removal of a must-have block goes here. 
 | all routes | Gallery icon | Header icon linking to `/duzeltmeler` (`/ui-2/duzeltmeler` inside the second design). In the mobile menu below 640 px | Requested. Reverses the earlier "unlinked" default (D-07). |
 | `/ui-2/duzeltmeler` | New route | The typo gallery in the second design (re-export of the classic page) | Keeps the visitor in the design being browsed. |
 | all routes | Top menu (desktop) | Groups open on mouse hover and close when the mouse leaves; a click no longer pins them open. Touch and keyboard still toggle. Mobile menu unchanged | Requested fix. |
+| all routes | Header logo | The live logo image replaces the typographic wordmark in the header (dark chip on light themes) | Requested. Same image as the footer. |
+| all routes | WhatsApp icon | Standard WhatsApp glyph, centred, replaces the hand-drawn one (footer and contact card) | Requested (icon looked off-centre). |
+| all routes | Active menu link | The current page is marked in the menu also when the URL ends with `/` (GitHub Pages) | Bug fix found on the deploy. |

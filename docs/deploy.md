@@ -9,3 +9,4 @@ The site is a static export served from GitHub Pages: `https://psymore.github.io
 - **Slugs:** Turkish and combining-dot slugs (`i̇letişim`) are exported as folders with the same bytes as the links use. Pages does not normalise Unicode, so only that exact form resolves.
 - **Gallery:** `/duzeltmeler` is part of the deploy (linked from the header icon, `noindex`); see decision D-07.
 - **Custom domain:** none. cakarenerji.com stays on GoDaddy; this is a preview for the owner.
+- **Trailing slash:** the export serves pages as `/x/`. `stripBase` in `components/AppLink.tsx` trims it so the menu's active-link check works. To build the export without touching a running dev server: `NEXT_DIST_DIR=.next-pages PAGES_EXPORT=1 PAGES_BASE_PATH=/cakarenerji-web npm run build` (output lands in `.next-pages/`; ignored by git).

@@ -56,7 +56,7 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="wrap site-header__bar">
-        <Logo />
+        <Logo image />
 
         <nav className="nav" aria-label="Ana menü" ref={navRef}>
           <ul className="nav__list">

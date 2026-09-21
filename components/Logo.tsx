@@ -3,7 +3,8 @@ import { Photo } from "@/components/Photo";
 
 /**
  * Typographic stand-in for the live logo image (original not available, TD-01 / Q-14).
- * `image` shows the live logo instead: it is light on transparent, so use it only on a dark surface.
+ * `image` shows the live logo instead (header and footer). It is light on transparent, so on light
+ * themes the header gives it a dark chip (see `.logo--image` in globals.css).
  */
 export function Logo({ image }: { image?: boolean }) {
   if (image) {

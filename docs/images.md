@@ -12,7 +12,7 @@ The live site's images are used in V0 (branch `feature/live-images`). They are *
 - **Fragile.** If the owner changes or removes an image on the live site, or the site goes away, V0 shows broken images. Self-host before launch (Q-27).
 - **Unverified by eye.** Built and linted, but nobody has looked at the pages with the images loaded (U-24). Check the hero text is readable in all 8 themes and at 390 px, and the home hero light effect still runs smoothly with the photo behind it (U-19).
 - **Placement guessed** where the saved HTML does not say: the "Saha Tipi" photo in the blog EPC block, and which Hakkımızda card gets which photo (matched by the live card order).
-- **Header logo not replaced.** The live logo is light (gold and white) on transparent, so it is used only on the dark footer. The header keeps the typographic wordmark (Q-14, TD-01).
+- **Header logo.** The live logo is light (gold and white) on transparent. The header now uses it too; on the light themes it sits on a dark chip (`--panel`). Original file still wanted (Q-14, TD-01).
 - **Partner logos.** Five logos on the home page, shown on white chips (opaque white JPGs, the one hard-coded colour). Alt text comes from the file names; the fifth (`indir.png`) has none because the brand is unknown. They are third-party marks (Q-26).
 - **Stock photos.** Most are Pexels/Pixabay (`pexels-…`). Free to use, but the owner may want real project photos (Q-13, Q-27). No photo credits are shown yet.
 - **Blog posts** use their own photo only as `og:image`, as on the live site. The pages do not show it, so as not to add a block.

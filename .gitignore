@@ -42,3 +42,4 @@ next-env.d.ts
 
 # raw audit data (crawl output, sitemaps, scripts)
 /audit-data/
+/.next-pages/

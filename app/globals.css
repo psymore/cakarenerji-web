@@ -1564,3 +1564,17 @@ main:focus {
   height: 56px;
   width: auto;
 }
+.site-header .logo--image img {
+  height: 40px;
+}
+@media (min-width: 640px) {
+  .site-header .logo--image img {
+    height: 46px;
+  }
+}
+/* The logo is light on transparent: on light themes the header logo sits on a dark chip. */
+:root[data-scheme="light"] .site-header .logo--image {
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 6px 12px;
+}
