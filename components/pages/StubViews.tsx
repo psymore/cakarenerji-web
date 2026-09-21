@@ -1,7 +1,6 @@
 import { Countdown } from "@/components/Countdown";
-import { LoopCarousel } from "@/components/LoopCarousel";
 import { PageHero } from "@/components/PageHero";
-import { Photo } from "@/components/Photo";
+import { PhotoGallery } from "@/components/PhotoGallery";
 import type { SoonPage, StubPage } from "@/content/pages";
 import { T } from "@/lib/text";
 
@@ -16,16 +15,7 @@ export function StubView({ page }: { page: StubPage }) {
             className={`wrap slider${page.gallery.contain ? " slider--contain" : ""}`}
             style={{ "--ratio": page.gallery.ratio } as React.CSSProperties}
           >
-            <LoopCarousel
-              label="Fotoğraflar"
-              prevLabel="Önceki fotoğraf"
-              nextLabel="Sonraki fotoğraf"
-              dotLabel="Fotoğraf"
-              dwell={4500}
-              items={page.gallery.photos.map((id) => (
-                <Photo key={id} id={id} sizes="(min-width: 1240px) 1200px, 100vw" widths={[767, 1023, 1535]} />
-              ))}
-            />
+            <PhotoGallery photos={page.gallery.photos} />
           </div>
         </section>
       )}

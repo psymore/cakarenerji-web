@@ -13,7 +13,8 @@ const COPIES = 3; // the list is rendered three times so it can loop without a v
  * The timing is a CSS animation on the active dot (`loop-fill`): when it ends the next slide comes.
  * That makes the progress visible and lets "pause" be a plain animation-play-state. It is paused
  * (`data-held`) while the pointer or focus is inside, a finger is down, the strip is off screen or the
- * tab is hidden, and does not exist with reduced motion.
+ * tab is hidden, or while the parent says so (`paused`, e.g. a picture is enlarged), and does not exist with
+ * reduced motion. A button lets the visitor stop and restart it for good.
  */
 export function LoopCarousel({
   items,
@@ -23,6 +24,11 @@ export function LoopCarousel({
   nextLabel,
   dotLabel,
   dwell = 4500,
+  pauseLabel,
+  playLabel,
+  paused = false,
+  onZoom,
+  zoomLabel,
 }: {
   items: ReactNode[];
   label: string;
@@ -32,10 +38,20 @@ export function LoopCarousel({
   /** Prefix of the dot buttons' names: "Fotoğraf" gives "Fotoğraf 3". */
   dotLabel: string;
   dwell?: number;
+  /** Names of the stop / restart button (it is one button that swaps). */
+  pauseLabel: string;
+  playLabel: string;
+  /** Held from outside, e.g. while a picture is shown enlarged. */
+  paused?: boolean;
+  /** When given, every slide gets a "zoom" button that calls this with the slide's index. */
+  onZoom?: (index: number) => void;
+  zoomLabel?: string;
 }) {
   const box = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLUListElement>(null);
   const [index, setIndex] = useState(0);
+  const [stopped, setStopped] = useState(false);
+  const holdRef = useRef<((key: string, on: boolean) => void) | null>(null);
   const n = items.length;
 
   // Layout positions (offsetLeft), not getBoundingClientRect: the slides are scaled by scroll-driven animations.
@@ -98,6 +114,7 @@ export function LoopCarousel({
       else holds.delete(key);
       root.dataset.held = String(holds.size > 0);
     };
+    holdRef.current = hold;
     hold("offscreen", true);
     const io = new IntersectionObserver(([e]) => hold("offscreen", !e.isIntersecting));
     io.observe(root);
@@ -106,7 +123,8 @@ export function LoopCarousel({
     const leave = (e: PointerEvent) => e.pointerType === "mouse" && hold("pointer", false);
     const touchOn = () => hold("touch", true);
     const touchOff = () => hold("touch", false);
-    const focusOn = () => hold("focus", true);
+    // Only keyboard focus holds it: after a click on the stop/restart button the carousel must run again.
+    const focusOn = (e: FocusEvent) => hold("focus", (e.target as HTMLElement).matches(":focus-visible"));
     const focusOff = () => hold("focus", false);
     // The dot's animation ended: time for the next slide.
     const onEnd = (e: AnimationEvent) => e.animationName === "loop-fill" && step(1);
@@ -120,6 +138,7 @@ export function LoopCarousel({
     root.addEventListener("animationend", onEnd);
     document.addEventListener("visibilitychange", tab);
     return () => {
+      holdRef.current = null;
       io.disconnect();
       root.removeEventListener("pointerenter", enter);
       root.removeEventListener("pointerleave", leave);
@@ -133,6 +152,9 @@ export function LoopCarousel({
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => holdRef.current?.("parent", paused), [paused]);
+  useEffect(() => holdRef.current?.("user", stopped), [stopped]);
 
   return (
     <div
@@ -148,6 +170,26 @@ export function LoopCarousel({
           items.map((item, i) => (
             <li key={`${c}-${i}`} aria-hidden={c === 1 ? undefined : true}>
               {item}
+              {onZoom && (
+                <button
+                  type="button"
+                  className="loop__zoom"
+                  onClick={() => onZoom(i)}
+                  aria-label={`${zoomLabel} ${i + 1}`}
+                  tabIndex={c === 1 ? undefined : -1}
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden>
+                    <path
+                      d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              )}
             </li>
           )),
         ).flat()}
@@ -173,6 +215,20 @@ export function LoopCarousel({
         <button type="button" className="loop__arrow" onClick={() => step(1)} aria-label={nextLabel}>
           <svg viewBox="0 0 24 24" aria-hidden>
             <path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          className="loop__arrow loop__pause"
+          onClick={() => setStopped((v) => !v)}
+          aria-label={stopped ? playLabel : pauseLabel}
+        >
+          <svg viewBox="0 0 24 24" aria-hidden>
+            {stopped ? (
+              <path d="M8 5.5v13l11-6.5z" fill="currentColor" />
+            ) : (
+              <path d="M8 5v14M16 5v14" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+            )}
           </svg>
         </button>
       </div>

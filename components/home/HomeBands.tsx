@@ -38,7 +38,7 @@ export function HomeQuote() {
 export function HomePhotoBand() {
   return (
     <div className="photo-band" aria-hidden>
-      <Photo id="home" widths={[767, 1023, 1535, 1920]} />
+      <Photo id="homeField" widths={[767, 1023, 1535, 1920]} />
     </div>
   );
 }

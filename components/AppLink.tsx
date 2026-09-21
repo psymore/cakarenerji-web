@@ -2,7 +2,7 @@
 
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
-import type { ComponentProps } from "react";
+import type { ComponentProps, MouseEvent } from "react";
 
 /** Route prefix of the second design (same routes, another look). Empty for the classic design. */
 export const UI2_BASE = "/ui-2";
@@ -21,9 +21,31 @@ export const stripBase = (path: string) => {
   return p.length > 1 ? p.replace(/\/+$/, "") : p;
 };
 
-/** next/link that keeps internal links inside the design the visitor is browsing. */
-export function Link({ href, ...rest }: ComponentProps<typeof NextLink>) {
+const samePath = (a: string, b: string) => {
+  try {
+    return decodeURIComponent(stripBase(a)) === decodeURIComponent(stripBase(b));
+  } catch {
+    return stripBase(a) === stripBase(b);
+  }
+};
+
+/**
+ * next/link that keeps internal links inside the design the visitor is browsing. A link to the page the
+ * visitor is already on scrolls back to the top (next/link does nothing then).
+ */
+export function Link({ href, onClick, ...rest }: ComponentProps<typeof NextLink>) {
   const base = useBase();
+  const path = usePathname();
   const internal = typeof href === "string" && href.startsWith("/") && !href.startsWith("//");
-  return <NextLink href={internal ? `${base}${href === "/" ? "" : href}` || "/" : href} {...rest} />;
+  const to = internal ? `${base}${href === "/" ? "" : href}` || "/" : href;
+
+  const click = (e: MouseEvent<HTMLAnchorElement>) => {
+    onClick?.(e);
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (internal && path && typeof to === "string" && !/[?#]/.test(to) && samePath(to, path)) {
+      const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: calm ? "auto" : "smooth" });
+    }
+  };
+  return <NextLink href={to} onClick={click} {...rest} />;
 }

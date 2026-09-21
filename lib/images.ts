@@ -4,12 +4,16 @@
  * `photoUrl` and put the files in `public/`: no other file knows where the images come from.
  * The live CDN resizes on the fly with `/:/rs=w:<px>,m`; the widths below are the ones the live site
  * itself asks for.
+ * A value starting with `getty/` is a stock image the site builder hosts outside the site's own folder
+ * (`isteam/getty/<id>`); it resizes the same way.
  */
-const BASE = "https://img1.wsimg.com/isteam/ip/dfa0ec36-44a3-43ff-b542-8ec12cf0ce89/";
+const ROOT = "https://img1.wsimg.com/isteam/";
+const BASE = `${ROOT}ip/dfa0ec36-44a3-43ff-b542-8ec12cf0ce89/`;
 
 export const photos = {
   // Hero backgrounds
-  home: "pexels-tom-fisk-9893727.jpg",
+  home: "getty/2155735205", // sunset over hills with a panel array (the live first image)
+  homeField: "pexels-tom-fisk-9893727.jpg", // green field with panel rows (under the hero on the live page)
   about: "pexels-los-muertos-crew-8853511.jpg",
   industrial: "cati-ustu.jpg",
   land: "solar-panels-gda31f3f20_1920.jpg",
@@ -64,11 +68,13 @@ export type PhotoId = keyof typeof photos;
 
 export const PHOTO_WIDTHS = [450, 767, 1023, 1535, 1920] as const;
 
-/** Original file (no resize), for social previews. */
-export const originalUrl = (id: PhotoId) => `${BASE}${photos[id]}`;
+const base = (id: PhotoId) => (photos[id].startsWith("getty/") ? ROOT : BASE) + photos[id];
 
 /** File resized to a width by the live CDN. */
-export const photoUrl = (id: PhotoId, width: number) => `${BASE}${photos[id]}/:/rs=w:${width},m`;
+export const photoUrl = (id: PhotoId, width: number) => `${base(id)}/:/rs=w:${width},m`;
+
+/** Original file (no resize), for social previews. Stock images have no plain original: the largest size is used. */
+export const originalUrl = (id: PhotoId) => (photos[id].startsWith("getty/") ? photoUrl(id, 1920) : base(id));
 
 export const photoSrcSet = (id: PhotoId, widths: readonly number[] = PHOTO_WIDTHS) =>
   widths.map((w) => `${photoUrl(id, w)} ${w}w`).join(", ");
