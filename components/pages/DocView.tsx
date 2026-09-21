@@ -8,7 +8,7 @@ import type { DocPage } from "@/content/pages";
 export function DocView({ page }: { page: DocPage }) {
   return (
     <>
-      <PageHero title={page.h1} solo={page.layout === "datasheet"} />
+      <PageHero title={page.h1} solo={page.layout === "datasheet"} photo={page.photo} />
       <section className="section">
         <div className="wrap">
           <div className="rows" data-layout={page.layout}>

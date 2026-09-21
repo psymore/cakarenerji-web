@@ -8,6 +8,7 @@ export const landingPages: Record<string, PageDef> = {
     title: "Endüstriyel GES Kurulumu",
     h1: "Endüstriyel Çatı Güneş Enerji Santralleri",
     layout: "facts",
+    photo: "industrial",
     cta: { label: "Ayrıntıları öğrenin", href: "/hizmetlerimiz" },
     sections: [
       {
@@ -62,6 +63,7 @@ export const landingPages: Record<string, PageDef> = {
     title: "Arazi Tipi GES Kurulumu",
     h1: "Arazi Tipi Güneş Enerji Santralleri",
     layout: "facts",
+    photo: "land",
     cta: { label: "Ayrıntıları öğrenin", href: "/" },
     sections: [
       {
@@ -114,6 +116,7 @@ export const landingPages: Record<string, PageDef> = {
     title: "Solar Otopark Uygulamaları | Çakar Enerji", // typo fix: Uygulamalar → Uygulamaları (not visible on page)
     h1: "Solar Otopark Uygulamaları",
     layout: "facts",
+    photo: "carpark",
     cta: { label: "Ayrıntıları öğrenin", href: "/" },
     sections: [
       {

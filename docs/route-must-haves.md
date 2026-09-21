@@ -51,7 +51,7 @@ Musts on the live site whose content is missing or unknown. They are **not** inv
 | Form backend | 4 forms | Submitting opens the visitor's mail client addressed to info@cakarenerji.com (stand-in, CNV-02, Q-10). File uploads cannot be attached this way. |
 | reCAPTCHA note | forms | Not shown: reCAPTCHA is not wired, so the sentence would be false. |
 | "Share this post:" | posts | Not reproduced: which share buttons existed is unknown. |
-| Logo | all | Typographic stand-in (original not available, TD-01, Q-14). No stock photos are used. |
+| Logo | all | Header: typographic stand-in (the live logo is light on transparent and would vanish on the light header). Footer: the live logo image, linked from the live CDN. Originals not available (TD-01, Q-14). |
 | 65×65 fixed element | all | Not reproduced, unidentified (RSP-05, Q-22). |
 
 ## Contradictions between sources (not resolved by the source; V0 default in brackets)
@@ -133,7 +133,14 @@ Every move, fill, translation, merge or removal of a must-have block goes here. 
 | all | Header | "MORE" menu dropped, all links shown; dropdowns are keyboard-operable buttons | NAV-01, NAV-02, NAV-04. Layout, not content. |
 | `/duzeltmeler` | New route | Typo gallery (review aid), not linked from the site, `noindex` | Requested: show the live site's errors and what was fixed. |
 | all | Footer | "Destekli GoDaddy Airo" badge not reproduced; social icons and WhatsApp placed in the footer (live position unknown) | Platform badge of the site being replaced. |
-| all | Logo | Typographic wordmark replaces the logo image | Original not available. |
+| all | Logo | Header: typographic wordmark replaces the logo image. Footer: the live logo image (hotlinked) | The live logo is light on transparent, so it only works on the dark footer. |
+| `/` | Hero photo | Live hero photo (`pexels-tom-fisk`, mobile `9D437085…`) behind the hero, under a panel-colour overlay, with the light-grid effect kept on top | Live home hero is that photo (`audit-data/pages/00_home.html`). Was missing in V0. |
+| `/` | Logo strip | Five logos (Huawei, CW Enerji, Tommatech, Fimer, one unnamed) added after the company text | They are on the live home page and were missing in V0. Live position unknown (U-14); alt text from file names, fifth empty (Q-26). |
+| `/hakkımızda-1`, `/endüstriyel-…`, `/arazi-tipi-…`, `/solar-otopark-…`, `/proje-danışmanlığı`, `/hammadde-…`, `/çatı-ges-konstrüksiyon` | Hero photo | The live page's image behind the page hero, under a panel-colour overlay | Each live page has one image before its h1. Was missing in V0. |
+| `/hakkımızda-1` | "Anahtar Teslim Solar Sistemler" cards | A photo on each of the 5 cards, matched in the live card order | Live cards have photos. Was missing in V0. |
+| `/blog-1`, 7 posts | EPC block | Photo on the "Saha Tipi" group (`solar-panels…`) and on the "Otopark Üzeri" group (`29052017…`, live alt kept) | The live template shows these images; the exact spot of the first is not recorded (U-24). |
+| `/`, 7 posts | Social preview | `og:image` set to the live site's image for the page (posts: their own photo, listed in `lib/images.ts`) | Live sets these in its `<head>`. |
+| all | Images | Linked straight from the live CDN (`img1.wsimg.com`), not stored in the repo | They break if the owner changes the live site. Move to `public/` before launch (Q-27). |
 | forms | reCAPTCHA note | Not shown | reCAPTCHA is not wired. |
 | forms | Submit | Opens mail client (mailto) | Backend unknown. |
 | forms | Mesaj field | Visible label "Mesaj" (live: placeholder only) | A11Y-08. |

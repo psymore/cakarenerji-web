@@ -8,6 +8,7 @@ export const aboutPages: Record<string, PageDef> = {
     title: "Hakkımızda",
     h1: "Hakkımızda",
     layout: "prose",
+    photo: "about",
     sections: [
       {
         heading: "Çakar Enerji",
@@ -77,14 +78,17 @@ export const aboutPages: Record<string, PageDef> = {
         cards: [
           {
             heading: "Mekanik Montaj",
+            photo: "mechanical",
             text: "Güneş Santralinizi kurulum sürecinden başlayıp tesliminden itibaren 2 yıl boyunca Garantisini verdiğimiz teknik mekanik montaj sistemimiz üstün kalitedeki ekipman kullanımını uzman teknik ekip ile harmanlayarak kusursuz sonucu elde ediyoruz.",
           },
           {
             heading: "Elektrik Montaj",
+            photo: "electrical",
             text: "Fotovoltaik güneş paneller ile üreteceğiniz elektrik enerjisini minimal düzeyde kayıpla üretiminizi sağlayacak tasarım uygulayıcısı teknik personelimizle enerji verimliliğinizi maksimum düzeyde tutuyoruz.",
           },
           {
             heading: "Ürün Seçimi",
+            photo: "product",
             text: {
               t: "Güneşi en verimli enerji santraliniz haline getireceğiniz birbiri ile uyumlu birçok ürün ve markayı yatırım tercihlerinize göre beraber planlayalım.",
               fixed: "bir biri → birbiri",
@@ -92,10 +96,12 @@ export const aboutPages: Record<string, PageDef> = {
           },
           {
             heading: "Uzman Mühendislerle Bilimsel Çözümler",
+            photo: "engineers",
             text: "İşletmenizde en verimli çatı tipi güneş enerji santrali kurulumu için alanlarında uzman mühendis ekibimiz sizlere analiz ve projelendirme hizmetleri sunuyor.",
           },
           {
             heading: "Yatırım Fizibilitesi",
+            photo: "feasibility",
             text: "Güneş Enerjisi Santralinizin yıllık üretim kapasitesi ve güneşlenme süresi ile beraber yatırımınızın yaklaşık geri dönüşünü, yıllık kazanç miktarınızı sizler için önceden hesaplayarak yatırımınızı mantıksal ekonomik seviyede tutuyoruz.",
           },
         ],

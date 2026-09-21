@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { home } from "@/content/home";
+import { photoSrcSet, photoUrl } from "@/lib/images";
 import { site } from "@/lib/site";
 import { T } from "@/lib/text";
 
@@ -111,6 +112,18 @@ export function HomeHero() {
 
   return (
     <section className="hero" ref={hero}>
+      <picture className="hero__photo">
+        <source media="(max-width: 450px)" srcSet={photoSrcSet("homeSmall", [450])} />
+        <img
+          src={photoUrl("home", 1535)}
+          srcSet={photoSrcSet("home")}
+          sizes="100vw"
+          alt=""
+          fetchPriority="high"
+          decoding="async"
+          referrerPolicy="no-referrer"
+        />
+      </picture>
       <div className="hero__glow" ref={glow} aria-hidden />
       <div className="hero__field" aria-hidden>
         <div className="plane plane--dim" />

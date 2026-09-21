@@ -1,3 +1,4 @@
+import type { PhotoId } from "@/lib/images";
 import type { Txt } from "@/lib/text";
 
 /** Page text is verbatim from the live site (audit-data/pages, audit-data/scraper).
@@ -6,13 +7,14 @@ export type Block = { p: Txt } | { ul: Txt[] } | { chips: Txt[] };
 export type Section = {
   heading?: Txt;
   body: Block[];
-  cards?: { heading: string; text: Txt }[];
+  cards?: { heading: string; text: Txt; photo?: PhotoId }[];
 };
 export type DocPage = {
   kind: "doc";
   title: string;
   h1: Txt;
   layout: "prose" | "datasheet" | "facts";
+  photo?: PhotoId; // hero background, from the live page
   sections: Section[];
   cta?: { label: string; href: string };
 };
@@ -29,7 +31,7 @@ export type FormPage = {
   h1: Txt;
 };
 export type StubPage = { kind: "stub"; title: string; h1: Txt };
-export type SoonPage = { kind: "soon"; title: string; h1: Txt; text: Txt };
+export type SoonPage = { kind: "soon"; title: string; h1: Txt; text: Txt; photo?: PhotoId };
 export type PageDef = DocPage | FaqPage | FormPage | StubPage | SoonPage;
 
 export const p = (v: Txt): Block => ({ p: v });

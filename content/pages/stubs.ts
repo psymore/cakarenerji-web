@@ -16,6 +16,7 @@ export const stubPages: Record<string, PageDef> = {
     kind: "soon",
     title: "Çatı GES Konstrüksiyon",
     h1: "Deneyimsel Çözümler Yakında...",
+    photo: "roof",
     text: "Zaman daraldığı için hazırlıkları elden bırakmıyoruz. Kaçırmayın!",
   },
 };

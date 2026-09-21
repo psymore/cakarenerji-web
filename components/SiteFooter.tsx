@@ -9,7 +9,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="wrap site-footer__grid">
         <div>
-          <Logo />
+          <Logo image />
           <address>
             {site.name}
             <br />
