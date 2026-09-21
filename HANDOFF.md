@@ -4,12 +4,12 @@ Tarih: 2026-09-21. Hedef site: https://cakarenerji.com/
 
 ## Durum
 - **AUDIT.md yazılmadı.** Denetim verisinin büyük kısmı toplandı, ama site bu bilgisayardan erişilemez hale gelince dosya yazılmadan durduruldu.
-- Repo: `C:\Users\4D\cakarenerji-web`. Next.js 16.3.5, React 19, TypeScript, Tailwind 4 ve ESLint kurulu. `npm run dev` ve `npm run build` çalıştı.
+- Repo: `D:\CodeSpace\cakarenerji-web` (`C:\Users\4D\cakarenerji-web`'ten taşındı). Next.js 16.3.5, React 19, TypeScript, Tailwind 4 ve ESLint kurulu. `npm run dev` ve `npm run build` çalıştı.
 - Bu repo canlı sitenin kaynağı değil, kurulum iskeleti. Canlı site **GoDaddy Website Builder** ile yapılmış. Kanıt: `Server: DPS`, `wsimg.com` varlıkları, footer'da "Destekli GoDaddy Airo". Kaynak kod yok, tek referans canlı site.
 
 ## İlk kurulumdaki hatalar (düzeltilmeli)
 - İlk raporda `tailwind.config.ts` ve `postcss.config.js` var denmişti, yok. Sadece `postcss.config.mjs` var.
-- "Git ile başlatıldı" denmişti, başlatılmadı. Klasör `C:\Users\4D` reposunun içinde (commit yok) ve `--skip-git` ile oluşturuldu.
+- "Git ile başlatıldı" denmişti, başlatılmadı (`--skip-git`). **Düzeltildi:** kendi deposu açıldı (`main`), ilk commit atıldı, klasör `D:\CodeSpace`'e taşındı.
 - `app/page.tsx` tasarım kararı içeren bir placeholder. Var olmayan `/project-status` rotasına ve `github.com/anthropics/claude-code` adresine link veriyor. Bunlar yapılmamalıydı.
 - `PROJECT-STATUS.md` istenen basit formatta değil, emojili ve uzun.
 - README'de olmayan `/styles` klasörü yazıyor. `public/` içinde varsayılan Next SVG'leri duruyor.
@@ -109,4 +109,4 @@ Olay dökümü:
 ## Önerilen sonraki adımlar
 1. Site erişilebilir olunca **düşük hızda** kalan ölçümleri yap: ~6 sayfa, 8 genişlik, sıralı, aralarında bekleme.
 2. `AUDIT.md`'yi 19 bölümlü formatta yaz. Sorun tablolarında ID, rota, kategori, kanıt, kullanıcı ve iş etkisi, çözüm, karmaşıklık ve P0–P3 olsun.
-3. Uygulamadan önce iskeleti temizle: placeholder sayfa, `PROJECT-STATUS.md`, README ve gerçek bir `git init`.
+3. ~~Uygulamadan önce iskeleti temizle~~ Yapıldı (placeholder sayfa, `PROJECT-STATUS.md`, README, `git init`).

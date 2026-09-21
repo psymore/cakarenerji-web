@@ -16,7 +16,6 @@ Phase 1: live-site audit. Data collected, `AUDIT.md` not written yet. See `HANDO
 - `AUDIT.md`
 - Remaining measurements (responsive, accessibility, blog bodies); listed in `HANDOFF.md`
 - Design system, components, routes, content
-- Real `git init` for this folder
 
 ## Constraints
 

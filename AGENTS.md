@@ -16,5 +16,5 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Git
 
-- This folder has its own repo (`git init -b main`). Run git from here only.
-- The parent `C:\Users\4D` is an unrelated repo with 10k+ untracked files. Never commit to it, never run `git add`/`git status` there, and do not touch its `.gitignore`.
+- The project lives at `D:\CodeSpace\cakarenerji-web` and has its own repo (branch `main`, no remote). Run git from there.
+- It was moved here from `C:\Users\4D\cakarenerji-web`. The old accidental repo in `C:\Users\4D` was deleted by the user.
