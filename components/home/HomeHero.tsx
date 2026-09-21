@@ -125,7 +125,7 @@ export function HomeHero() {
         <img
           src={photoUrl("home", 1535)}
           srcSet={photoSrcSet("home")}
-          sizes="100vw"
+          sizes="max(100vw, 130svh)" /* on a phone the photo is cropped by height: ask for the width it is really drawn at */
           alt=""
           fetchPriority="high"
           decoding="async"

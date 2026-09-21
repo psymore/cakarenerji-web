@@ -1397,6 +1397,12 @@ main:focus {
   height: 100%;
   object-fit: cover;
 }
+/* On a phone the landscape photo is cropped to a narrow window: aim it at the sun (right of the picture). */
+@media (max-width: 639px) {
+  .hero__photo img {
+    object-position: 80% 50%;
+  }
+}
 .hero__photo::after,
 .page-hero__photo::after {
   content: "";

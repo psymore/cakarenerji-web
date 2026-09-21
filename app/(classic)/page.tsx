@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <>
       <HomeHero />
-      <HomePhotoBand />
       <HomeAbout />
+      <HomePhotoBand />
       <HomeCompany />
       <HomeNewsletter />
       <HomeSlogan />
