@@ -4,9 +4,9 @@ V0 pitch of https://cakarenerji.com/ is built and runs. Redesign only: no featur
 
 ## What exists
 
-- **Site:** Next.js 16.3.5 App Router, all pages statically generated. 23 live routes (home, service and product pages, about, FAQ, HR, contact, projects, blog list and 7 posts) plus the new 404 and the unlinked gallery `/duzeltmeler`. Live slugs with Turkish and combining-dot characters resolve through one `app/[slug]` route.
+- **Site:** Next.js 16.3.5 App Router, all pages statically generated. 23 live routes (home, service and product pages, about, FAQ, HR, contact, projects, blog list and 7 posts) plus the new 404 and the typo gallery `/duzeltmeler`. Live slugs with Turkish and combining-dot characters resolve through one `app/[slug]` route.
 - **Design:** PV-module idea. Panel blue, silver busbar lines, one gold sun. Archivo (width axis) and Source Serif 4. The home hero is a cell grid lit by a sun that rises once, then follows the pointer.
-- **Typo gallery `/duzeltmeler`:** 18 fixes shown as before/after with a faded red border on the live wording, plus 7 errors left as they are. Not linked from anywhere, `noindex`, built from the `{ t, fixed }` records in the content files.
+- **Typo gallery `/duzeltmeler`:** 18 fixes shown as before/after with a faded red border on the live wording, plus 7 errors left as they are. Opened from a gallery icon in the header, `noindex`, built from the `{ t, fixed }` records in the content files.
 - **Code layout:** see `README.md` Architecture. Content in `content/`, one component per view in `components/`.
 - **Build:** lint and typecheck clean, `npm run build` succeeds.
 

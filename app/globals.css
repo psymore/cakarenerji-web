@@ -351,6 +351,83 @@ main:focus {
   gap: 8px;
   flex-shrink: 0;
 }
+/* Design switch (1 | 2) and gallery link, beside the theme picker. Below 640px they move into the mobile menu. */
+.design-switch {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  overflow: hidden;
+}
+.design-switch a {
+  min-width: 44px;
+  min-height: 44px;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--strong);
+}
+.design-switch a[aria-current="true"] {
+  background: var(--strong);
+  color: var(--paper);
+}
+.design-switch a:not([aria-current]):hover {
+  color: var(--sun-deep);
+}
+.gallery-link {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: var(--radius);
+  color: var(--strong);
+  transition: border-color 0.15s;
+}
+.gallery-link:hover {
+  border-color: var(--sun);
+}
+.gallery-link svg {
+  width: 22px;
+  height: 22px;
+}
+.header-extra {
+  display: none;
+}
+@media (min-width: 640px) {
+  .header-extra {
+    display: inline-flex;
+  }
+  .gallery-link.header-extra {
+    display: grid;
+  }
+}
+.drawer__tools {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.drawer .design-switch a,
+.drawer .gallery-link {
+  display: grid;
+  padding: 0;
+  font-size: 1rem;
+}
+.drawer .design-switch a {
+  border-bottom: 0;
+}
+.drawer .gallery-link {
+  border: 1px solid var(--line);
+}
+@media (min-width: 640px) {
+  .drawer__tools {
+    display: none;
+  }
+}
 /* Theme picker: a palette button plus a popover listing every theme with a colour preview. */
 .theme-menu {
   position: relative;
@@ -474,6 +551,9 @@ main:focus {
 }
 .drawer__group {
   padding: 18px 0 6px;
+  font-family: var(--font-display);
+  font-stretch: 112%;
+  font-weight: 600;
   font-size: 0.78rem;
   letter-spacing: 0.14em;
   color: var(--sun-deep);

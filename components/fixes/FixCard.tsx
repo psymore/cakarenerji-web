@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/components/AppLink";
 import { Mark } from "@/components/fixes/Mark";
 import type { Fix } from "@/lib/typo-fixes";
 

@@ -86,7 +86,7 @@ Cevap beklemeden uygulanan kararlar. "Açık uçlu" = gerçek cevap iş sahibind
 | D-04 | Çatı GES geri sayımı yaklaşık 2027-01-30 19:00'a sayıyor (yakalamadan hesaplandı). | Evet | `components/Countdown.tsx` | Q-07, U-15, BRK-02 |
 | D-05 | Blogdaki EPC şablon bloğu duruyor (hataları düzeltildi), "Share this post:" eklenmedi, "Recent Posts" eklendi. Kaldırmak kapsam kararı. | Evet | `content/blog-template.ts`, `components/blog/` | BLG-02, U-16 |
 | D-06 | Bilinmeyen adreslerde yeni, minimal 404 ("Sayfa bulunamadı"). Canlıda GoDaddy varsayılanı var, bu yeni metin. | Hayır (onay yeter) | `app/not-found.tsx` | UX-03 |
-| D-07 | Yazım düzeltmeleri yalnızca `/duzeltmeler` galerisinde kırmızı çerçeveyle gösteriliyor, sitede hiçbir yerden bağlanmıyor, arama motorlarına kapalı. Yayına alınırken galerinin kalıp kalmayacağı kararı. | Evet | `app/duzeltmeler/` | docs/route-must-haves.md |
+| D-07 | Yazım düzeltmeleri yalnızca `/duzeltmeler` galerisinde kırmızı çerçeveyle gösteriliyor, başlıktaki galeri simgesinden açılıyor (kullanıcı isteği, 2026-09-21), arama motorlarına kapalı. Yayına alınırken galerinin kalıp kalmayacağı kararı. | Evet | `app/duzeltmeler/` | docs/route-must-haves.md |
 
 ### Olduğu gibi bırakılanlar
 

@@ -63,10 +63,20 @@
 }
 
 .ui2 .theme-toggle,
+.ui2 .gallery-link,
 .ui2 .burger {
   border: 0;
   border-radius: var(--pill);
   background: var(--frost);
+}
+
+.ui2 .design-switch {
+  border: 0;
+  border-radius: var(--pill);
+  background: var(--frost);
+}
+.ui2 .design-switch a[aria-current="true"] {
+  border-radius: var(--pill);
 }
 
 .ui2 .theme-menu__panel {

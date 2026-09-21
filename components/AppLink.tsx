@@ -7,7 +7,7 @@ import type { ComponentProps } from "react";
 /** Route prefix of the second design (same routes, another look). Empty for the classic design. */
 export const UI2_BASE = "/ui-2";
 
-const inUi2 = (path: string | null) => path === UI2_BASE || !!path?.startsWith(`${UI2_BASE}/`);
+export const inUi2 = (path: string | null) => path === UI2_BASE || !!path?.startsWith(`${UI2_BASE}/`);
 
 /** Current design's route prefix: "" or "/ui-2". */
 export const useBase = () => (inUi2(usePathname()) ? UI2_BASE : "");

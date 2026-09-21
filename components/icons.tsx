@@ -8,6 +8,13 @@ export const Chevron = (p: P) => (
     <path d="m6 9 6 6 6-6" />
   </svg>
 );
+export const GalleryIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <rect x="3" y="4" width="18" height="16" rx="2" />
+    <circle cx="9" cy="10" r="1.6" />
+    <path d="m4 18 5-5 4 4 3-3 4 4" />
+  </svg>
+);
 export const MenuIcon = (p: P) => (
   <svg {...base} strokeWidth={2} {...p}>
     <path d="M4 7h16M4 12h16M4 17h16" />

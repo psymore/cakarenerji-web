@@ -89,7 +89,7 @@ Removing these is a scope decision, not a redesign choice. They stayed.
 
 ## Typo fixes: where they are shown
 
-Pages show the corrected text with **no marking**. Every fix is recorded once in the content files as `{ t: corrected, fixed: "before → after" }`, and the gallery route **`/duzeltmeler`** collects them automatically (`lib/typo-fixes.ts`) and shows the live site's wrong text with the faded red box-shadow border (`.typo-fixed`, defined only in `app/duzeltmeler/gallery.css`) next to the corrected text. The gallery is a review aid, not one of the live site's routes: nothing on the site links to it, it is `noindex`, and it also lists the errors left as they are. Only spelling is changed, never meaning. Wrong facts, numbers and claims are not typos (Q-04, Q-08, Q-19).
+Pages show the corrected text with **no marking**. Every fix is recorded once in the content files as `{ t: corrected, fixed: "before → after" }`, and the gallery route **`/duzeltmeler`** collects them automatically (`lib/typo-fixes.ts`) and shows the live site's wrong text with the faded red box-shadow border (`.typo-fixed`, defined only in `app/duzeltmeler/gallery.css`) next to the corrected text. The gallery is a review aid, not one of the live site's routes: the only link is the gallery icon in the header, it is `noindex`, and it also lists the errors left as they are. Only spelling is changed, never meaning. Wrong facts, numbers and claims are not typos (Q-04, Q-08, Q-19).
 
 Suspected typos **not** touched (ambiguous, your call): `birikimdir..` and the unmatched quote in the slogan; " ?" with a space before the question mark (FAQ, blog); "%50si" (hibe post); "yapılabiliyoruz" / "sunulabiliyoruz" (Hizmetlerimiz, should be "-yoruz" forms); "Şebeke Bağlantılı (Off-Grid)" (a fact, YAZ-01); lowercase vs capitalised document lists between FAQ Q1 and Q4.
 
@@ -131,7 +131,7 @@ Every move, fill, translation, merge or removal of a must-have block goes here. 
 |---|---|---|---|
 | all | Contact details | One address / hours / phone source (`lib/site.ts`) instead of per-page values | Sources conflict (table above). Easy to switch. |
 | all | Header | "MORE" menu dropped, all links shown; dropdowns are keyboard-operable buttons | NAV-01, NAV-02, NAV-04. Layout, not content. |
-| `/duzeltmeler` | New route | Typo gallery (review aid), not linked from the site, `noindex` | Requested: show the live site's errors and what was fixed. |
+| `/duzeltmeler` | New route | Typo gallery (review aid), `noindex`. Originally unlinked; now opened from the header gallery icon | Requested: show the live site's errors and what was fixed. |
 | all | Footer | "Destekli GoDaddy Airo" badge not reproduced; social icons and WhatsApp placed in the footer (live position unknown) | Platform badge of the site being replaced. |
 | all | Logo | Typographic wordmark replaces the logo image | Original not available. |
 | forms | reCAPTCHA note | Not shown | reCAPTCHA is not wired. |
@@ -147,3 +147,6 @@ Every move, fill, translation, merge or removal of a must-have block goes here. 
 | all routes | Heading levels | Contact card and HR `h4` → `h3`; mobile menu group labels `h2` → `p`; cookie title `h4` → `strong`. Look unchanged | Heading order (axe). |
 | all routes | Logo `aria-label` | "ÇAKAR ENERJİ, Ana Sayfa" (was "Çakar Enerji A.Ş, Ana Sayfa") | Label-in-name. |
 | `/` | Hero light | Same look, moved by transform instead of CSS variables | Performance, see `docs/ui-optimization/`. |
+| all routes | Design switch | Header switch "1 / 2" between the main design and `/ui-2`, keeps the current page. In the mobile menu below 640 px | Requested. New UI control, no page content changed. |
+| all routes | Gallery icon | Header icon linking to `/duzeltmeler` (`/ui-2/duzeltmeler` inside the second design). In the mobile menu below 640 px | Requested. Reverses the earlier "unlinked" default (D-07). |
+| `/ui-2/duzeltmeler` | New route | The typo gallery in the second design (re-export of the classic page) | Keeps the visitor in the design being browsed. |

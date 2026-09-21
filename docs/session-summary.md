@@ -12,7 +12,7 @@ In order. Decisions and rules are in the files named in the right column.
 | 6 | Fix typos without other content changes | 18 fixes recorded as data, 7 suspicious items left | `content/typo-notes.ts`, `lib/typo-fixes.ts` |
 | 7 | Avoid god components | One view per page kind, one content module per page group | `README.md` Architecture |
 | 8 | Note open-ended decisions and everything left as is | Section D (D-01…D-07) and the "left as is" table | `OPEN-QUESTIONS.md` |
-| 9 | Move typo marking out of the pages into a gallery | `/duzeltmeler`, unlinked and `noindex`, red border only there | `app/duzeltmeler/`, `components/fixes/` |
+| 9 | Move typo marking out of the pages into a gallery | `/duzeltmeler`, `noindex`, red border only there (first unlinked, later opened from a header icon) | `app/duzeltmeler/`, `components/fixes/` |
 | 10 | Full UI/UX audit | 9 findings, axe, keyboard and screenshot checks | `docs/ui-optimization/ui-ux/` |
 | 11 | Performance analysis of the mouse light and load | Light fine with a GPU, janky without; sunrise was the bigger cost | `docs/ui-optimization/animation-performance/` |
 | 12 | Fix what the audits found | Hero light and sunrise moved to transforms; skip link; heading levels; tap targets; menu scroll lock; logo label; Q-25 for the meta description | code, `docs/route-must-haves.md` change log |
