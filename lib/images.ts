@@ -36,12 +36,6 @@ export const photos = {
   yenilenebilir: "pexels-pixabay-459728.jpg",
   // Home: slogan band background ("Enerji daha güçlü atılımlar için birikimdir")
   slogan: "9D437085-C24C-4DAC-85EC-5805D8CC94E1_L0_001.jpg",
-  // Home: partner logos
-  huawei: "10_huawei_0.jpg",
-  cw: "1_cw-enerji_0.jpg",
-  tomma: "2_tommatech_0.jpg",
-  fimer: "7_fimer_0.jpg",
-  partner5: "indir.png",
   // Arazi GES Konstrüksiyon: photo slider, in the order the files appear on the live page
   frame4: "4.jpg",
   frame1: "1.jpg",
