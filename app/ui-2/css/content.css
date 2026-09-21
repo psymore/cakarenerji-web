@@ -30,11 +30,11 @@
 }
 .ui2 .section--white {
   --card: var(--frost);
-  --field: #fff;
+  --field: var(--field-alt);
   box-shadow: var(--shadow-sm);
 }
 .ui2 .section--dark {
-  --field: #fff;
+  --field: var(--field-alt);
 }
 .ui2 .band h2,
 .ui2 .quote h2,

@@ -4,9 +4,9 @@
 .ui2 .site-header {
   top: 12px;
   margin: 12px var(--inset) 0;
-  border: 1px solid rgb(255 255 255 / 0.8);
+  border: 1px solid var(--glass-edge);
   border-radius: var(--r-lg);
-  background: rgb(255 255 255 / 0.8);
+  background: var(--glass-soft);
   backdrop-filter: blur(18px) saturate(1.4);
   box-shadow: var(--shadow-md);
 }
@@ -45,7 +45,7 @@
 }
 .ui2 .nav__link[aria-current="page"] {
   background: rgb(217 160 60 / 0.2);
-  color: var(--panel);
+  color: var(--strong);
 }
 .ui2 .nav__menu {
   top: calc(100% + 14px);
@@ -62,6 +62,7 @@
   background: var(--frost);
 }
 
+.ui2 .theme-toggle,
 .ui2 .burger {
   border: 0;
   border-radius: var(--pill);

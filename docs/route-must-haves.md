@@ -99,6 +99,8 @@ Every move, fill, translation, merge or removal of a must-have block goes here. 
 
 **Second design at `/ui-2`:** every route above is also served under `/ui-2/…` (same slugs, same content, same must-have blocks, another visual style: rounded, floating panels). No block was added, moved, filled or removed. `/ui-2` pages are `noindex`. Internal links stay inside the design being browsed.
 
+**Dark theme (owner-approved addition):** the header on every route gets one icon button that switches between the light palette and a dark palette (both designs). The first visit follows the OS setting, the choice is saved in the browser. No must-have block was added, moved, filled or removed and no text changed; only the button and its label ("Koyu temaya geç" / "Açık temaya geç") are new.
+
 **Typo fixes (shown in the gallery at `/duzeltmeler`)**
 
 | Route | Live text | Fixed text | Issue |

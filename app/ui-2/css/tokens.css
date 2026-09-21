@@ -53,3 +53,23 @@ body:has(.ui2) {
 .ui2 .skip {
   border-radius: var(--pill);
 }
+
+/* Dark theme (app/themes.css sets the shared tokens; these are the ui-2 specific ones). */
+:root[data-theme="dark"] body:has(.ui2) {
+  background: #091419;
+}
+:root[data-theme="dark"] .ui2 {
+  --frost: #091419;
+  --line: #27404d;
+  --card: #11252e;
+  --field: #0c1b22;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.3), 0 10px 24px -14px rgb(0 0 0 / 0.6);
+  --shadow-md: 0 2px 6px rgb(0 0 0 / 0.3), 0 26px 48px -26px rgb(0 0 0 / 0.75);
+}
+:root[data-theme="dark"] .ui2 .field input:not([type="file"]),
+:root[data-theme="dark"] .ui2 .field textarea {
+  border-color: var(--slate);
+}
+:root[data-theme="dark"] .ui2 .cookie {
+  border: 1px solid var(--glass-edge);
+}

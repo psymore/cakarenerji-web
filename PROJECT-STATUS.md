@@ -13,6 +13,7 @@ Phase 1 done: live-site audit (`AUDIT.md`, `docs/audit/`). V0 frontend built for
 - Audit written and split into `docs/audit/`.
 - V0 frontend: all 23 routes with the live site's exact slugs (incl. U+0307), verbatim text, new visual design. What was moved, filled or changed: `docs/route-must-haves.md` (change log).
 - Second design with rounder shapes under `/ui-2/…` (same routes, same content, `noindex`); see `README.md` Architecture.
+- Dark theme (branch `feature/dark-theme`): header toggle, saved choice, OS preference on first visit, both designs. Stage 1 of 4 themes (2 light, 2 dark); the other two are not started.
 
 ## Not done
 

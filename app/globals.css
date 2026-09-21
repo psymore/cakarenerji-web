@@ -19,6 +19,18 @@
   --sun-deep: #8a5a12; /* gold for text on light backgrounds */
   --typo: 239 68 68;
 
+  /* Theme-aware roles. --panel is always a dark band; --strong is the panel colour used as text/border on the page surface. */
+  --on-sun: #12303f; /* text on gold */
+  --sun-hover: #e8b45a;
+  --strong: var(--panel);
+  --strong-ink: #fff; /* text on a --strong fill */
+  --glass: rgb(255 255 255 / 0.94);
+  --glass-soft: rgb(255 255 255 / 0.8); /* ui-2 header */
+  --glass-edge: rgb(255 255 255 / 0.8);
+  --shadow-menu: rgb(18 48 63 / 0.35);
+  --field-alt: #fff; /* ui-2 inputs on panels */
+  color-scheme: light;
+
   --gutter: clamp(16px, 4vw, 40px);
   --header-h: 72px;
   --radius: 4px;
@@ -115,7 +127,7 @@ svg {
   left: 8px;
   padding: 12px 18px;
   background: var(--sun);
-  color: var(--panel);
+  color: var(--on-sun);
   font-family: var(--font-display);
   font-weight: 700;
   transform: translateY(-200%);
@@ -145,7 +157,7 @@ main:focus {
   border: 2px solid var(--sun);
   border-radius: var(--radius);
   background: var(--sun);
-  color: var(--panel);
+  color: var(--on-sun);
   font-family: var(--font-display);
   font-stretch: 108%;
   font-weight: 700;
@@ -159,8 +171,8 @@ main:focus {
     border-color 0.18s;
 }
 .btn:hover {
-  background: #e8b45a;
-  border-color: #e8b45a;
+  background: var(--sun-hover);
+  border-color: var(--sun-hover);
 }
 .btn--ghost {
   background: transparent;
@@ -170,7 +182,7 @@ main:focus {
 .btn--ghost:hover {
   background: var(--sun);
   border-color: var(--sun);
-  color: var(--panel);
+  color: var(--on-sun);
 }
 .btn svg {
   width: 1.2em;
@@ -192,7 +204,7 @@ main:focus {
   transition: color 0.15s;
 }
 .textlink:hover {
-  color: var(--panel);
+  color: var(--strong);
 }
 .on-dark .textlink {
   color: var(--sun);
@@ -206,7 +218,7 @@ main:focus {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgb(255 255 255 / 0.94);
+  background: var(--glass);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
@@ -223,7 +235,7 @@ main:focus {
   align-items: center;
   gap: 12px;
   text-decoration: none;
-  color: var(--panel);
+  color: var(--strong);
   flex-shrink: 0;
 }
 .logo svg {
@@ -303,7 +315,7 @@ main:focus {
   background: var(--paper);
   border: 1px solid var(--line);
   border-top: 3px solid var(--sun);
-  box-shadow: 0 18px 40px -18px rgb(18 48 63 / 0.35);
+  box-shadow: 0 18px 40px -18px var(--shadow-menu);
   display: none;
 }
 .nav__item[data-open="true"] .nav__menu {
@@ -330,6 +342,41 @@ main:focus {
   color: var(--sun-deep);
 }
 
+.site-header__tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+/* Shows the theme it switches to: moon on the light theme, sun on the dark one. */
+.theme-toggle {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: var(--radius);
+  cursor: pointer;
+  color: var(--strong);
+  transition: border-color 0.15s;
+}
+.theme-toggle:hover {
+  border-color: var(--sun);
+}
+.theme-toggle svg {
+  grid-area: 1 / 1;
+  width: 22px;
+  height: 22px;
+}
+.theme-toggle__sun,
+:root[data-theme="dark"] .theme-toggle__moon {
+  display: none;
+}
+:root[data-theme="dark"] .theme-toggle__sun {
+  display: block;
+}
+
 .burger {
   width: 46px;
   height: 46px;
@@ -339,7 +386,7 @@ main:focus {
   background: var(--paper);
   border-radius: var(--radius);
   cursor: pointer;
-  color: var(--panel);
+  color: var(--strong);
 }
 .burger svg {
   width: 22px;
@@ -616,7 +663,7 @@ main:focus {
   height: 88px;
   border-radius: 50%;
   background: var(--sun);
-  color: var(--panel);
+  color: var(--on-sun);
   display: grid;
   place-items: center;
   transition: transform 0.2s;
@@ -641,7 +688,7 @@ main:focus {
 .band {
   padding-block: clamp(48px, 8vw, 96px);
   background: var(--sun);
-  color: var(--panel);
+  color: var(--on-sun);
 }
 .band h2 {
   max-width: 24ch;
@@ -846,7 +893,7 @@ main:focus {
 
 /* ---------- Content rows (datasheet) ---------- */
 .rows {
-  border-top: 2px solid var(--panel);
+  border-top: 2px solid var(--strong);
 }
 .row {
   display: grid;
@@ -901,7 +948,7 @@ main:focus {
   top: 19px;
   width: 15px;
   height: 15px;
-  border: 2px solid var(--panel);
+  border: 2px solid var(--strong);
   background:
     linear-gradient(var(--sun), var(--sun)) center / 5px 5px no-repeat;
 }
@@ -913,7 +960,7 @@ main:focus {
 }
 .chips li {
   padding: 8px 16px;
-  border: 1px solid var(--panel);
+  border: 1px solid var(--strong);
   border-radius: 999px;
   background: var(--paper);
   font-family: var(--font-display);
@@ -926,7 +973,7 @@ main:focus {
 .modules {
   display: grid;
   gap: 0;
-  border: 2px solid var(--panel);
+  border: 2px solid var(--strong);
   background: var(--paper);
 }
 @media (min-width: 720px) {
@@ -973,14 +1020,14 @@ main:focus {
   margin-top: 48px;
 }
 .cta-row .btn {
-  background: var(--panel);
-  border-color: var(--panel);
-  color: #fff;
+  background: var(--strong);
+  border-color: var(--strong);
+  color: var(--strong-ink);
 }
 .cta-row .btn:hover {
   background: var(--sun);
   border-color: var(--sun);
-  color: var(--panel);
+  color: var(--on-sun);
 }
 
 /* ---------- Countdown ---------- */
@@ -1017,7 +1064,7 @@ main:focus {
 
 /* ---------- Blog ---------- */
 .posts {
-  border-top: 2px solid var(--panel);
+  border-top: 2px solid var(--strong);
 }
 .post-row {
   display: grid;
@@ -1199,7 +1246,7 @@ main:focus {
 .social a:hover {
   background: var(--sun);
   border-color: var(--sun);
-  color: var(--panel);
+  color: var(--on-sun);
 }
 .social svg {
   width: 20px;

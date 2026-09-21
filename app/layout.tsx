@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Archivo, Source_Serif_4 } from "next/font/google";
+import { DEFAULT_THEME, themeInitScript } from "@/lib/theme";
 import "./globals.css";
+import "./themes.css";
 
 const archivo = Archivo({
   variable: "--font-archivo",
@@ -22,7 +24,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="tr-TR" className={`${archivo.variable} ${sourceSerif.variable}`}>
+    <html
+      lang="tr-TR"
+      data-theme={DEFAULT_THEME}
+      className={`${archivo.variable} ${sourceSerif.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body>{children}</body>
     </html>
   );

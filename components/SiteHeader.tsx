@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, stripBase } from "@/components/AppLink";
 import { Chevron, CloseIcon, MenuIcon } from "@/components/icons";
 import { Logo } from "@/components/Logo";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { navGroups, navHome, navTail, type NavItem } from "@/lib/site";
 import { T } from "@/lib/text";
 
@@ -95,16 +96,19 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <button
-          type="button"
-          className="burger"
-          aria-expanded={drawer}
-          aria-controls="drawer"
-          aria-label={drawer ? "Menüyü kapat" : "Menüyü aç"}
-          onClick={() => setDrawer(!drawer)}
-        >
-          {drawer ? <CloseIcon /> : <MenuIcon />}
-        </button>
+        <div className="site-header__tools">
+          <ThemeToggle />
+          <button
+            type="button"
+            className="burger"
+            aria-expanded={drawer}
+            aria-controls="drawer"
+            aria-label={drawer ? "Menüyü kapat" : "Menüyü aç"}
+            onClick={() => setDrawer(!drawer)}
+          >
+            {drawer ? <CloseIcon /> : <MenuIcon />}
+          </button>
+        </div>
       </div>
 
       <div className="drawer" id="drawer" data-open={drawer}>
