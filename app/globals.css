@@ -384,10 +384,10 @@ main:focus {
   top: calc(100% + 10px);
   right: 0;
   z-index: 60;
-  width: min(300px, calc(100vw - 2 * var(--gutter)));
-  max-height: calc(100vh - var(--header-h) - 24px);
+  width: min(360px, calc(100vw - 2 * var(--gutter)));
+  max-height: calc(100svh - var(--header-h) - 24px);
   overflow-y: auto;
-  padding: 8px;
+  padding: 6px;
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -402,21 +402,28 @@ main:focus {
   padding: 0;
 }
 .settings-menu__section + .settings-menu__section {
-  margin-top: 10px;
-  padding-top: 10px;
+  margin-top: 6px;
+  padding-top: 6px;
   border-top: 1px solid var(--line);
 }
+/* Two columns (light | dark themes, layouts, designs); the panel is small enough for a phone screen. */
+.settings-menu__cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 6px;
+  align-items: start;
+}
 .settings-menu__title {
-  margin: 4px 10px 4px;
+  margin: 2px 8px 2px;
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 800;
   color: var(--strong);
 }
 .settings-menu__group {
-  margin: 6px 10px 2px;
+  margin: 2px 8px 2px;
   font-family: var(--font-display);
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -425,18 +432,19 @@ main:focus {
 .settings-menu__item {
   width: 100%;
   text-decoration: none;
-  min-height: 44px;
+  min-height: 36px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 6px 10px;
+  gap: 8px;
+  padding: 3px 8px;
   border: 0;
   border-radius: var(--radius);
   background: transparent;
   color: var(--ink);
   font: inherit;
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 0.8rem;
+  line-height: 1.15;
   text-align: left;
   cursor: pointer;
 }
@@ -452,8 +460,8 @@ main:focus {
 }
 .settings-menu__swatch {
   flex: none;
-  width: 44px;
-  height: 22px;
+  width: 30px;
+  height: 16px;
   border-radius: 999px;
   border: 1px solid var(--line);
 }
@@ -634,6 +642,84 @@ main:focus {
 }
 .hero__phone:hover {
   color: var(--sun-lit);
+}
+
+/* ---------- Home layouts (chosen in the settings menu, see lib/home-layout.ts) ----------
+   The rules above are the default, "split". The other layouts change what is shown or how tall. */
+.photo-strip,
+.photo-strip__divider,
+.company .bg-photo {
+  display: none;
+}
+.photo-strip__img {
+  height: clamp(200px, 40vw, 460px);
+  overflow: hidden;
+}
+.photo-strip__img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 70%;
+}
+/* Every layout but "split": one hero, the sunset behind all of its text, as tall as before. */
+:root[data-home-layout]:not([data-home-layout="split"]) .hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: min(84svh, 760px);
+}
+:root[data-home-layout]:not([data-home-layout="split"]) .hero__top,
+:root[data-home-layout]:not([data-home-layout="split"]) .hero__bottom {
+  position: static;
+}
+:root[data-home-layout]:not([data-home-layout="split"]) .hero__top .hero__inner {
+  padding-block: calc(var(--header-h) + 40px) 0;
+}
+:root[data-home-layout]:not([data-home-layout="split"]) .hero__bottom .hero__inner {
+  padding-block: 0 clamp(48px, 9vh, 96px);
+}
+:root[data-home-layout]:not([data-home-layout="split"]) .hero > .hero-divider,
+:root[data-home-layout]:not([data-home-layout="split"]) .hero__photo--field {
+  display: none;
+}
+/* Hero + cropped strip: a shorter hero, the field strip under a shadowed divider. */
+:root[data-home-layout="hero-strip"]:not([data-home-layout="split"]) .hero {
+  min-height: min(64svh, 600px);
+}
+:root[data-home-layout="hero-strip"] .photo-strip--hero {
+  display: block;
+}
+:root[data-home-layout="hero-strip"] .photo-strip--hero .photo-strip__divider {
+  display: block;
+}
+:root[data-home-layout="hero-strip"] .photo-strip--hero .photo-strip__img {
+  height: clamp(170px, 24vw, 320px);
+}
+/* Hero + strip: the strip right under the full hero, as on the live page. */
+:root[data-home-layout="strip"] .photo-strip--hero,
+:root[data-home-layout="strip-about"] .photo-strip--about {
+  display: block;
+}
+/* Field photo behind the "Çakar Enerji A.Ş." text. */
+:root[data-home-layout="company-bg"] .company {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--panel);
+  color: #fff;
+}
+:root[data-home-layout="company-bg"] .company .bg-photo {
+  display: block;
+}
+:root[data-home-layout="company-bg"] .company .bg-photo::after {
+  background: color-mix(in srgb, var(--panel) 78%, transparent);
+}
+:root[data-home-layout="company-bg"] .company .textlink {
+  color: var(--sun-lit);
+}
+:root[data-home-layout="company-bg"] .company .textlink:hover {
+  color: #fff;
 }
 
 /* ---------- Sections ---------- */
@@ -1389,7 +1475,8 @@ main:focus {
 }
 
 /* Divider between the two hero photos: a gold bar whose shadow falls on both. */
-.hero-divider {
+.hero-divider,
+.photo-strip__divider {
   position: relative;
   z-index: 2;
   height: 6px;

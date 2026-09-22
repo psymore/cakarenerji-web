@@ -9,6 +9,18 @@
 .ui2 .hero__top .hero__inner {
   padding-block: 72px 28px;
 }
+/* Home layouts other than "split" have one hero: its top text sits right above the buttons. */
+:root[data-home-layout]:not([data-home-layout="split"]) .ui2 .hero__top .hero__inner {
+  padding-block: 72px 0;
+}
+/* Strips float like the other panels; the gap replaces the divider. */
+.ui2 .photo-strip__img {
+  margin: 16px var(--inset) 0;
+  border-radius: var(--r-xl);
+}
+:root[data-home-layout] .ui2 .photo-strip .photo-strip__divider {
+  display: none;
+}
 .ui2 .hero h1 {
   font-stretch: 100%;
   letter-spacing: -0.045em;

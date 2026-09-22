@@ -15,14 +15,14 @@ export function DesignSection({ panelId, onNavigate }: { panelId: string; onNavi
   const title = `${panelId}-design`;
   const designs = [
     { label: "Ana tasarım", href: path, active: !ui2 },
-    { label: "İkinci tasarım (UI 2)", href: path === "/" ? UI2_BASE : `${UI2_BASE}${path}`, active: ui2 },
+    { label: "İkinci (UI 2)", href: path === "/" ? UI2_BASE : `${UI2_BASE}${path}`, active: ui2 },
   ];
   return (
     <section className="settings-menu__section" aria-labelledby={title}>
       <p className="settings-menu__title" id={title}>
         Tasarım
       </p>
-      <ul>
+      <ul className="settings-menu__cols">
         {designs.map((d) => (
           <li key={d.label}>
             <NextLink

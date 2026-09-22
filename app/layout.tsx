@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo, Source_Serif_4 } from "next/font/google";
+import { DEFAULT_HOME_LAYOUT, homeLayoutInitScript } from "@/lib/home-layout";
 import { DEFAULT_THEME, themeInitScript } from "@/lib/theme";
 import "./globals.css";
 import "./themes.css";
@@ -28,11 +29,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="tr-TR"
       data-theme={DEFAULT_THEME}
       data-scheme="light"
+      data-home-layout={DEFAULT_HOME_LAYOUT}
       className={`${archivo.variable} ${sourceSerif.variable}`}
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript + homeLayoutInitScript }} />
       </head>
       <body>{children}</body>
     </html>
