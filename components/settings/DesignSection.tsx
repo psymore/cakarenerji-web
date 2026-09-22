@@ -15,7 +15,7 @@ export function DesignSection({ panelId, onNavigate }: { panelId: string; onNavi
   const title = `${panelId}-design`;
   const designs = [
     { label: "Ana tasarım", href: path, active: !ui2 },
-    { label: "İkinci (UI 2)", href: path === "/" ? UI2_BASE : `${UI2_BASE}${path}`, active: ui2 },
+    { label: "İkincil tasarım (yuvarlatılmış kenarlar)", href: path === "/" ? UI2_BASE : `${UI2_BASE}${path}`, active: ui2 },
   ];
   return (
     <section className="settings-menu__section" aria-labelledby={title}>
